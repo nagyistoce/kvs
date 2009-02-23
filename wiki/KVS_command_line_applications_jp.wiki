@@ -1,6 +1,6 @@
 #summary KVS コマンドラインアプリケーション.
 
-= KVS command-line applications =
+= KVS コマンドラインアプリケーション =
 
 KVSをインストール後に、以下のコマンドラインツールがインストールされる。
 
