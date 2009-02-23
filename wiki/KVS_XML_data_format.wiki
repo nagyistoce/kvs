@@ -1,4 +1,4 @@
-#summary KVS XML データ形式について.
+#summary KVS XML data format.
 
 = KVS XML data format =
 
