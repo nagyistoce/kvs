@@ -4,38 +4,40 @@
 
 KVSが標準的に扱うオブジェクトデータ形式（XML形式）について説明する。KVSで扱うオブジェクトデータは、幾何形状データ（Geometry object data）とボリューム形状データ（Volume object data）に分類され、以下の５種類のデータを処理の対象としている。
 
-	・幾何形状データ
-		点データ（Point object）
-		線データ（Line object）
-		面データ（Polygon object）
-	・ボリューム形状データ
-		構造格子データ（Structured volume object）
-		非構造格子データ（Unstructured volume object）
+ * 幾何形状データ
+  # 点データ（Point object）
+  # 線データ（Line object）
+  # 面データ（Polygon object）
+
+ * ボリューム形状データ
+  * 構造格子データ（Structured volume object）
+   * 非構造格子データ（Unstructured volume object）
 
 それぞれのデータ形式について説明する。
 
-■PointObject
-
+== PointObject ==
+{{{
 <KVSML>
-	<Object type="PointObject">
-		<PointObject>
-			<Vertex nvertices="xxx">
-				<Coord>
-					<DataArray>
-				</Coord>
-				<Color>
-					<DataArray> または <DataValue>
-				</Color>
-				<Normal>
-					<DataArray>
-				</Normal>
-				<Size>
-					<DataArray> または <DataValue>
-				</Size>
-			</Vertex>
-		</PointObject>
-	</Object>
+  <Object type="PointObject">
+    <PointObject>
+      <Vertex nvertices="xxx">
+        <Coord>
+          <DataArray>
+        </Coord>
+        <Color>
+          <DataArray> または <DataValue>
+        </Color>
+        <Normal>
+          <DataArray>
+        </Normal>
+        <Size>
+          <DataArray> または <DataValue>
+        </Size>
+      </Vertex>
+    </PointObject>
+  </Object>
 </KVSML>
+}}}
 
 ■LineObject
 
