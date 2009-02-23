@@ -98,51 +98,44 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
 </KVSML>
 }}}
 
-■StructuredVolumeObject
+== 構造型ボリュームデータ（structured volume object） ==
 
+{{{
 <KVSML>
-	<Object type="StructuredVolumeObject">
-		<!-- aaa: uniform, rectilinear, curvilinear -->
-		<StructuredVolumeObject resolution="xxx xxx xxx" grid_type="aaa">
-			<Node>
-				<Value veclen="xxx">
-					<DataArray>
-				</Value>
-			</Node>
-		</StructuredVolumeObject>
-	</Object>
+  <Object type="StructuredVolumeObject">
+    <!-- aaa: uniform, rectilinear, curvilinear -->
+    <StructuredVolumeObject resolution="xxx xxx xxx" grid_type="aaa">
+      <Node>
+        <Value veclen="xxx">
+          <DataArray>
+        </Value>
+      </Node>
+    </StructuredVolumeObject>
+  </Object>
 </KVSML>
+}}}
 
-■UnstructuredVolumeObject
+== 非構造型ボリュームデータ（unstructured volume object） ==
 
+{{{
 <KVSML>
-	<Object type="UnstructuredVolumeObject">
-		<!-- aaa: tetrahedra, quadratic tetrahedra, hexahedra, quadratic hexahedra -->
-		<UnstructuredVolumeObject cell_type="aaa">
-			<Node nnodes="xxx">
-				<Value veclen="xxx">
-					<DataArray>
-				</Value>
-				<Coord>
-					<DataArray>
-				</Coord>
-			</Node>
-			<Cell ncells="xxx">
-				<Connection>
-					<DataArray>
-				</Connection>
-			</Cell>
-		</UnstructuredVolumeObject>
-	</Object>
+  <Object type="UnstructuredVolumeObject">
+    <!-- aaa: tetrahedra, quadratic tetrahedra, hexahedra, quadratic hexahedra -->
+    <UnstructuredVolumeObject cell_type="aaa">
+      <Node nnodes="xxx">
+        <Value veclen="xxx">
+          <DataArray>
+        </Value>
+        <Coord>
+          <DataArray>
+        </Coord>
+      </Node>
+      <Cell ncells="xxx">
+        <Connection>
+          <DataArray>
+        </Connection>
+      </Cell>
+    </UnstructuredVolumeObject>
+  </Object>
 </KVSML>
-
-
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+}}}
