@@ -37,9 +37,9 @@ Options:
 KVS以外のライブラリをリンクして利用したい場合、カレントディレクトリに「kvsmake.conf」という名前の設定ファイルを準備する。設定ファイルの記述方法は以下の通りである。
 
 kvsmake.confの記述
-・ファイル名は「kvsmake.conf」とする。
-・kvsmakeを実行するディレクトリに置いておく。
-・ファイル内に以下の変数を必要に応じて設定する。
+ * ファイル名は「kvsmake.conf」とする。
+ * kvsmakeを実行するディレクトリに置いておく。
+ * ファイル内に以下の変数を必要に応じて設定する。
 	INCLUDE_PATH	インクルードパス
 	LIBRARY_PATH	ライブラリパス
 	LINK_LIBRARY	リンクするライブラリ名
@@ -52,29 +52,40 @@ kvsmake.confの記述
 	LINK_LIBRARY := -lusrlib
 	INSTALL_DIR := /home/usrname/local/bin
 
-【使用例】
-（１）プロジェクト名をカレントディレクトリ名としてコンパイルする。
+=== 使用例 ===
+
+ # プロジェクト名をカレントディレクトリ名としてコンパイルする。
+{{{
 % kvsmake -G
 % kvsmake
+}}}
 ※例えば、カレントディレクトリが「Test」の場合、「Test」という名前（Windows環境では拡張子「exe」が付く）の実行ファイルが生成される。
 
-（２）プロジェクト名を指定し、コンパイルする。
+ # プロジェクト名を指定し、コンパイルする。
+{{{
 % kvsmake -g <プロジェクト名>
 % kvsmake
+}}}
 ※例えば、プロジェクト名を「Test」と指定すると、「Test」という名前の実行ファイル（Windows環境では拡張子「exe」が付く）が生成される。
 
-（３）ライブラリファイルを生成する。
+ # ライブラリファイルを生成する。
+{{{
 % kvsmake -G　　または　　kvsmake -g <実行ファイル名>
 % kvsmake lib
+}}}
 ※例えば、プロジェクト名が「Test」の場合、「libTest.a」という名前のライブラリファイル（Windows環境では拡張子は「lib」となる）が生成される。
 
-（４）Microsoft Visual C/C++向けのプロジェクトファイルを生成する。
+ # Microsoft Visual C/C++向けのプロジェクトファイルを生成する。
+{{{
 % kvsmake -vcproj <プロジェクト名>
+}}}
 ※生成される「<プロジェクト名>.xxx」をダブルクリックしIDEを起動する。
 
-（５）Trolltech社 Qt向けプロジェクトファイルを生成する。
+ # Trolltech社 Qt向けプロジェクトファイルを生成する。
+{{{
 % kvsmake -qtproj <プロジェクト名>
 % qmake
+}}}
 ※「<プロジェクト名>.pro」が生成されるので、qmakeコマンドを利用してコンパイルする。
 
 ■kvscheck
