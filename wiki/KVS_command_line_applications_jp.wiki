@@ -86,48 +86,55 @@ INSTALL_DIR := /home/usrname/local/bin
 ※「<プロジェクト名>.pro」が生成されるので、qmakeコマンドを利用してコンパイルする。
 }}}
 
-■kvscheck
+= kvscheck =
 
-【機能】
+=== 機能 ===
 KVSのバージョンや利用しているコンパイラの情報などを標準出力に表示する。また、KVSがサポートしている他のライブラリ（GLUT, Qt, SAGEなど）のバージョン情報や、KVSで読み込み可能なデータファイルのチェックも行うことができる。
 
-【使用方法】
+=== 使用方法 ===
+{{{
 Usage: kvscheck [options] <input value>
 
 Options:
--h		: ヘルプメッセージを表示する。
--version 	: KVSのバージョンを表示する 。(optional)
--platform	: プラットフォーム情報を表示する。 (optional)
--compiler	: コンパイラ情報を表示する。(optional)
--support 	: サポートしている他ライブラリの情報を表示する。 (optional)
--opengl	: OpenGLに関する情報を表示する。 (optional)
--file		: KVSで読み込み可能なファイルの情報を表示する (optional: <filename>)
+-h        : ヘルプメッセージを表示する。
+-version  : KVSのバージョンを表示する 。(optional)
+-platform : プラットフォーム情報を表示する。 (optional)
+-compiler : コンパイラ情報を表示する。(optional)
+-support  : サポートしている他ライブラリの情報を表示する。 (optional)
+-opengl   : OpenGLに関する情報を表示する。 (optional)
+-file     : KVSで読み込み可能なファイルの情報を表示する (optional: <filename>)
+}}}
 
-【使用例】
+=== 使用例 ===
 
-（１）現在インストールされているKVSのバージョンをチェックする。
+ # 現在インストールされているKVSのバージョンをチェックする。
+{{{
 % kvscheck -version
 KVS version: 1.0.0 (beta 2)
-
-（２）現在作業しているプラットフォームの情報を表示する。
+}}}
+ # 現在作業しているプラットフォームの情報を表示する。
+{{{
 % kvscheck -platform
 Platform:   Mac OS X
 CPU:        Intel x86 (32 bits)
 Cores:      2 core(s)
 Byte-order: Little endian
-
-（３）利用するコンパイラに関する情報を表示する。
+}}}
+ # 利用するコンパイラに関する情報を表示する。
+{{{
 % kvscheck -compiler
 Compiler: GNU C/C++ (4.0.1)
-
-（４）サポートしている他ライブラリに関する情報を表示する。
+}}}
+ # サポートしている他ライブラリに関する情報を表示する。
+{{{
 % kvscheck -support
 Supported libraries:
 GLUT - The OpenGL Utility Toolkit (version: 5)
 GLEW - The OpenGL Extension Wrangler Library (version: 1.4.0)
 SAGE - Scalable Adaptive Graphics Environment (version: 2.0)
-
-（５）OpenGLに関する情報を表示する。
+}}}
+ # OpenGLに関する情報を表示する。
+{{{
 % kvscheck -opengl
 Vendor:      NVIDIA Corporation
 Renderer:    NVIDIA GeForce 8600M GT OpenGL Engine
@@ -139,8 +146,9 @@ GL Extensions (112):
 	GL_SGIS_texture_edge_clamp
 	GL_SGIS_texture_lod
 GLU Extensions (0):
-
-（６）KVSで読み込むことができるデータ（以下ではAVS Field data）の情報を表示する。
+}}}
+ # KVSで読み込むことができるデータ（以下ではAVS Field data）の情報を表示する。
+{{{
 % kvscheck -file lobster.fld
 Reading time:      0.049526 [sec]
 Information:
@@ -155,6 +163,7 @@ max ext : 1 1 1
 data    : byte
 field   : uniform
 label   :
+}}}
 
 ■kvsconv
 
