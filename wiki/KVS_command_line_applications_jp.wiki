@@ -40,17 +40,19 @@ kvsmake.confの記述
  * ファイル名は「kvsmake.conf」とする。
  * kvsmakeを実行するディレクトリに置いておく。
  * ファイル内に以下の変数を必要に応じて設定する。
-	INCLUDE_PATH	インクルードパス
-	LIBRARY_PATH	ライブラリパス
-	LINK_LIBRARY	リンクするライブラリ名
-	INSTALL_DIR	インストールディレクトリ名
+  * INCLUDE_PATH	インクルードパス
+  * LIBRARY_PATH	ライブラリパス
+  * LINK_LIBRARY	リンクするライブラリ名
+  * INSTALL_DIR	インストールディレクトリ名
 
-	例）kvsmake.confにパスとライブラリを追加設定する。
-	% less kvsmake.conf
-	INCLUDE_PATH := /home/usrname/local/include
-	LIBRARY_PATH := /home/usrname/local/lib
-	LINK_LIBRARY := -lusrlib
-	INSTALL_DIR := /home/usrname/local/bin
+  * 例）kvsmake.confにパスとライブラリを追加設定する。
+{{{
+% less kvsmake.conf
+INCLUDE_PATH := /home/usrname/local/include
+LIBRARY_PATH := /home/usrname/local/lib
+LINK_LIBRARY := -lusrlib
+INSTALL_DIR := /home/usrname/local/bin
+}}}
 
 === 使用例 ===
 
