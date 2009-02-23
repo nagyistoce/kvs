@@ -39,7 +39,7 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
 </KVSML>
 }}}
 
-■LineObject
+== LineObject ==
 
 <KVSML>
 	<Object type="LineObject">
