@@ -16,7 +16,7 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
 それぞれのデータ形式について説明する。
 
 == Point Object ==
-点群を表すデータであり、座標値（coordinate）、色（color）、法線（normal）、サイズ（size）に関する情報を持つ。
+点群を表す幾何データであり、頂点の座標値（coordinate）、色（color）、法線（normal）、点の大きさ（size）に関する情報を持つ。
 {{{
 <KVSML>
   <Object type="PointObject">
@@ -41,7 +41,7 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
 }}}
 
 == Line Object ==
-線群を表すデータであり、座標値、色、サイズ（線の太さ）、接続（connection）に関する情報を持つ。また、線の種類として以下のようなタイプを表現できる。
+線群を表す幾何データであり、頂点の座標値（coordinate）、線分または頂点の色（color）、線の太さ（size）、頂点の接続（connection）に関する情報を持つ。また、線の種類として以下のようなタイプを表現できる。
 {{{
 <KVSML>
   <Object type="LineObject">
@@ -69,32 +69,34 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
 </KVSML>
 }}}
 
-■PolygonObject
-
+== PolygonObject ==
+面（ポリゴン）を表す幾何データであり、頂点の座標値（coordinate）、ポリゴンまたは頂点の色（color）、ポリゴンの不透明度（opacity）、接続（connection）に関する情報を持つ。また、面の種類として三角形（triangle）および四角形（quadrangle）を表現できる。
+{{{
 <KVSML>
-	<Object type="PolygonObject">
-		<!-- aaa: triangle, quadrangle -->
-		<!-- bbb: polygon, vertex -->
-		<PolygonObject polygon_type="aaa" color_type="bbb">
-			<Vertex nvertices="xxx">
-				<Coord>
-					<DataArray>
-				</Coord>
-				<Color>
-					<DataArray> または <DataValue>
-				</Color>
-				<Normal>
-					<DataArray>
-				</Normal>
-			</Vertex>
-			<Polygon npolygons="xxx">
-				<Connection>
-					<DataArray>
-				</Connection>
-			</Polygon>
-		</PolygonObject>
-	</Object>
+  <Object type="PolygonObject">
+    <!-- aaa: triangle, quadrangle -->
+    <!-- bbb: polygon, vertex -->
+    <PolygonObject polygon_type="aaa" color_type="bbb">
+      <Vertex nvertices="xxx">
+        <Coord>
+          <DataArray>
+        </Coord>
+        <Color>
+          <DataArray> または <DataValue>
+        </Color>
+        <Normal>
+          <DataArray>
+        </Normal>
+      </Vertex>
+      <Polygon npolygons="xxx">
+        <Connection>
+          <DataArray>
+        </Connection>
+      </Polygon>
+    </PolygonObject>
+  </Object>
 </KVSML>
+}}}
 
 ■StructuredVolumeObject
 
