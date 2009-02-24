@@ -2,5 +2,5 @@
 
 = Kyoto Visualization System =
 
- * KVSコマンドラインアプリケーション
- * KVS XML データ形式
+ * [KVS_commandline_applications_jp KVSコマンドラインアプリケーション]
+ * [KVS_data_format_jp KVS XML データ形式
