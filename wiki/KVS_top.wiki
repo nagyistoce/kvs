@@ -1,4 +1,4 @@
-#summary Kyot Visualization System.
+#summary Kyoto Visualization System.
 
 = Kyoto Visualization System =
 
