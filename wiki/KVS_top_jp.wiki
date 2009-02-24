@@ -1,0 +1,6 @@
+#summary Kyoto Visualization System.
+
+= Kyoto Visualization System =
+
+ * KVSコマンドラインアプリケーション
+ * KVS XML データ形式
