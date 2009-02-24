@@ -3,4 +3,4 @@
 = Kyoto Visualization System =
 
  * [KVS_command_line_applications_jp KVSコマンドラインアプリケーション]
- * [KVS_data_format_jp KVS XML データ形式]
+ * [KVS_XML_data_format_jp KVS XML データ形式]
