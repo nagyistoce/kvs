@@ -6,7 +6,7 @@
 
 KVSのコンパイルおよびインストールを行う前に各OSに応じて環境変数「KVS_DIR」を設定しておく必要があります。
 
-* Linux/Mac OS X/Cygwin の例　(~/.bashrc)
+* Linux/Mac OS X/Cygwin の場合　(~/.bashrc)
 
 export KVS_DIR=/usr/local/kvs
 
