@@ -270,15 +270,15 @@ Usage: kvsview [options] <input data file>
 Options:
 -h			: ヘルプメッセージを表示する。
 -help			: 変換コマンドごとのヘルプメッセージを表示する。 (ex. -help Isosurface)
--PointRenderer	: ポイントデータに対してPointRendererを利用して表示する。
--LineRenderer	: ラインデータに対してLineRendererを利用して表示する。※未実装
--PolygonRenderer: ポリゴンデータに対してPolygonRendererを利用して表示する。※未実装
--ParticleVolumeRenderer: ボリュームデータに対してPBVRでの可視化結果を表示する。※未実装
--RayCastingRenderer: ボリュームデータに対してレイキャスティングでの可視化結果を表示する。※未実装
--OrthoSlice	: ボリュームデータに対して直交断面を表示する。※未実装
--SlicePlane	: ボリュームデータに対して任意断面を表示する。※未実装
--Isosurface	: ボリュームデータに対して等値面抽出結果を表示する。
--TransferFunction: 伝達関数（カラーマップ）を表示する。※未実装
+-PointRenderer		: ポイントデータに対してPointRendererを利用して表示する。
+-LineRenderer		: ラインデータに対してLineRendererを利用して表示する。※未実装
+-PolygonRenderer	: ポリゴンデータに対してPolygonRendererを利用して表示する。※未実装
+-ParticleVolumeRenderer	: ボリュームデータに対してPBVRでの可視化結果を表示する。※未実装
+-RayCastingRenderer	: ボリュームデータに対してレイキャスティングでの可視化結果を表示する。※未実装
+-OrthoSlice		: ボリュームデータに対して直交断面を表示する。※未実装
+-SlicePlane		: ボリュームデータに対して任意断面を表示する。※未実装
+-Isosurface		: ボリュームデータに対して等値面抽出結果を表示する。
+-TransferFunction	: 伝達関数（カラーマップ）を表示する。※未実装
 }}}
 
  # PointRendererを利用した表示
@@ -290,10 +290,10 @@ Options:
 -background_color2	: 背景色（上部と下部）を指定する。 (optional: <top: r g b> <bottom: r g b>)
 -bounds			: 境界ボックス（バウンディングボックス）を表示する。 (optional)
 -bounds_color		: 境界ボックスの色を指定する。 (default: 0 0 0)
--screen_position		: スクリーンの表示位置を指定する。 (default: 0 0)
+-screen_position	: スクリーンの表示位置を指定する。 (default: 0 0)
 -screen_size		: スクリーンの大きさを指定する。 (default: 512 512)
 -output			: 出力ファイル名を指定する。 (optional: <filename>)
--verbose			: 詳細情報を出力する。 (optional)
+-verbose		: 詳細情報を出力する。 (optional)
 }}}
  # 等値面抽出結果の表示
 {{{
@@ -304,13 +304,13 @@ Options:
 -background_color2	: 背景色（上部と下部）を指定する。 (optional: <top: r g b> <bottom: r g b>)
 -bounds			: 境界ボックス（バウンディングボックス）を表示する。 (optional)
 -bounds_color		: 境界ボックスの色を指定する。 (default: 0 0 0)
--screen_position		: スクリーンの表示位置を指定する。 (default: 0 0)
+-screen_position	: スクリーンの表示位置を指定する。 (default: 0 0)
 -screen_size		: スクリーンの大きさを指定する。 (default: 512 512)
 -output			: 出力ファイル名を指定する。 (optional: <filename>)　※未実装
--verbose			: 詳細情報を出力する。 (optional)
--l				: 等値面レベルを指定する。 (default: 0)
--n				: 法線ベクトルの設定位置（poly[gon], vert[ex]）を指定する。 (default: poly)
--t				: 伝達関数ファイルを指定する。 (optional: <filename>)
+-verbose		: 詳細情報を出力する。 (optional)
+-l			: 等値面レベルを指定する。 (default: 0)
+-n			: 法線ベクトルの設定位置（poly[gon], vert[ex]）を指定する。 (default: poly)
+-t			: 伝達関数ファイルを指定する。 (optional: <filename>)
 }}}
 
 === 使用例 ===
