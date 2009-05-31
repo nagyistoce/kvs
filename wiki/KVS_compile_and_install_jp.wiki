@@ -8,8 +8,8 @@ KVSのコンパイルおよびインストールを行う前に各OSに応じて
 
 * Linux/Mac OS X/Cygwin の例　(~/.bashrc)
 
- export KVS_DIR=/usr/local/kvs
- export PATH=$KVS_DIR/bin:$PATH
+export KVS_DIR=/usr/local/kvs
+export PATH=$KVS_DIR/bin:$PATH
 
 * Windows (Microsoft Visual C/C++) の場合
 
