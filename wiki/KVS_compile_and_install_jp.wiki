@@ -1,5 +1,7 @@
 #summary Compile and install.
 
+<wiki:toc max_depth="3"/>
+
 = コンパイルとインストール =
 
 == 設定 ==
