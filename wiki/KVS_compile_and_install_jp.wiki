@@ -13,9 +13,9 @@ KVSのコンパイルおよびインストールを行う前に各OSに応じて
 
 * Windows (Microsoft Visual C/C++) の場合
 
- || *変数* || *値* ||
- || KVS_DIR || C:\Program Files\kvs ||
- || PATH || %PATH%;%KVS_DIR%\bin ||
+|| *変数* || *値* ||
+|| KVS_DIR || C:\Program Files\kvs ||
+|| PATH || %PATH%;%KVS_DIR%\bin ||
 
 == コンパイルとインストール ==
 
