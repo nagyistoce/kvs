@@ -6,17 +6,45 @@
 
 KVSのコンパイルおよびインストールを行う前に各OSに応じて環境変数「KVS_DIR」を設定しておく必要があります。
 
- * *Linux/Mac OS X/Cygwin の場合　※bashを利用している場合「~/.bashrc」に記述する。
+ *Linux/Mac OS X/Cygwin の場合　※bashを利用している場合「~/.bashrc」に記述する。
 
  export KVS_DIR=/usr/local/kvs
 
  export PATH=$KVS_DIR/bin:$PATH
 
- * *Windows（Microsoft Visual C/C++）の場合　※「システムのプロパティ」→「詳細設定」→「環境変数」に記述する。
+ *Windows（Microsoft Visual C/C++）の場合　※「システムのプロパティ」→「詳細設定」→「環境変数」に記述する。
 
  変数：「KVS_DIR」　値：「C:\Program Files\kvs」
  変数：「PATH」　値：「%PATH%;%KVS_DIR%\bin」
 
 == コンパイルとインストール ==
 
+適切な場所にソースコードをダウンロード（チェックアウト）してください。
+
+ *Linux/Mac OS X/Cygwin の場合
+
+ % cd kvs
+ % make
+ % make install
+
+※環境変数KVS_DIRをルート権限が必要なディレクトリに設定した場合は、インストールの際に、スーパユーザ（su）になる必要があります。また、Mac OS X の場合は、sudoを利用してインストールすることができます。
+
+ *Windows の場合
+
+ > cd kvs
+ > nmake
+ > nmake install
+
 == アンインストール ==
+
+ *Linux/Mac OS X/Cygwin の場合
+
+ % cd kvs
+ % make uninstall
+
+ *Windows の場合
+
+ > cd kvs
+ > nmake uninstall
+
+※インストールしたディレクトリ（KVS_DIRで指定しているディレクトリ）を削除することでもアンインストール可能です。
