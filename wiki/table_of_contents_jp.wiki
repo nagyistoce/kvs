@@ -1,5 +1,4 @@
-*Kyoto Visualization System
-
+* [KVS_top_jp Kyoto Visualization System]
 
  * [KVS_compile_and_install_jp コンパイルとインストール]
 
