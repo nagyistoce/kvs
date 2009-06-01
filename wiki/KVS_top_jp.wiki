@@ -1,4 +1,5 @@
 #summary Kyoto Visualization System.
+#sidebar TableOfContents
 
 = Kyoto Visualization System =
 
