@@ -1,4 +1,4 @@
-#sidebar TableOfContents
+#sidebar table_of_contents_jp
 
 <wiki:toc max_depth="3"/>
 
