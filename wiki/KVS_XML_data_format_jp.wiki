@@ -1,6 +1,8 @@
 #summary KVS XML データ形式.
 #sidebar table_of_contents_jp
 
+<wiki:toc max_depth="3"/>
+
 = KVS XML data format =
 
 KVSが標準的に扱うオブジェクトデータ形式（XML形式）について説明する。KVSで扱うオブジェクトデータは、幾何形状データ（Geometry object data）とボリューム形状データ（Volume object data）に分類され、以下の５種類のデータを処理の対象としている。
