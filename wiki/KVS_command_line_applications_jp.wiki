@@ -1,5 +1,5 @@
 #summary KVS コマンドラインアプリケーション.
-#sidebar CommandLineApplication_JP
+#sidebar table_of_contents_jp
 
 = KVS コマンドラインアプリケーション =
 
