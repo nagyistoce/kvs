@@ -1,4 +1,5 @@
 #summary Compile and install.
+#sidebar CompileAndInstall_Ja
 
 <wiki:toc max_depth="3"/>
 
