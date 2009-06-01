@@ -3,3 +3,5 @@
  * [KVS_compile_and_install_jp コンパイルとインストール]
 
  * [KVS_command_line_applications コマンドラインアプリケーション]
+
+ * [KVS_XML_data_format_jp KVSデータ形式]
