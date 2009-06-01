@@ -16,9 +16,9 @@ Environment parameter 'KVS_DIR' should be set before KVS is compiled and install
 
 === Windows (Microsoft Visual C/C++) ===
 
-"KVS_DIR" : "C:\Program Files\kvs"
+ "KVS_DIR" : "C:\Program Files\kvs"
 
-"PATH" : "%PATH%;%KVS_DIR%\bin"
+ "PATH" : "%PATH%;%KVS_DIR%\bin"
 
 == Compile and Install ==
 
