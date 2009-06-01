@@ -1,4 +1,5 @@
 #summary KVS XML データ形式.
+#siderbar KVSXMLDataFormat_JP
 
 = KVS XML data format =
 
