@@ -1,5 +1,5 @@
-#summary Compile and install.
-#sidebar CompileAndInstall_Ja
+#summary コンパイルとインストール
+#sidebar CompileAndInstall_JP
 
 <wiki:toc max_depth="3"/>
 
