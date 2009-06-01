@@ -1,6 +1,8 @@
 #summary KVS コマンドラインアプリケーション.
 #sidebar table_of_contents_jp
 
+<wiki:toc max_depth="3"/>
+
 = KVS コマンドラインアプリケーション =
 
 KVSをインストール後に、以下のコマンドラインツールがインストールされる。
