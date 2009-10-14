@@ -127,9 +127,10 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
 {{{
 <KVSML>
   <Object type="PolygonObject">
-    <PolygonObject polygon_type="xxx" color_type="xxx">
-    <!-- polygon_type: 面の種類 (triangle, quadrangle) -->
-    <!-- color_type:   色付けの種類 (polygon, vertex)  -->
+    <PolygonObject polygon_type="xxx" color_type="xxx" normal_type="xxx">
+    <!-- polygon_type: 面の種類 (triangle, quadrangle)      -->
+    <!-- color_type:   色付けの種類 (polygon, vertex)       -->
+    <!-- normal_type:  法線ベクトルの種類 (polygon, vertex) -->
       <Vertex nvertices="xxx">
       <!-- nvertices: 頂点数 -->
         <Coord>
