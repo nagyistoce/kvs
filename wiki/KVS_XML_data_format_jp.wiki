@@ -69,6 +69,8 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
 
 == 線データ（line Object） ==
 線群を表す幾何データであり、頂点の座標値（coordinate）、線分または頂点の色（color）、線の太さ（size）、頂点の接続（connection）に関する情報を持つ。また、線の種類として、「線分（strip）」、「一本線（uniline）」、「複数線（polyline）」、「分割線（segment）」を表現できる。
+
+[KVSML_sample_line_object_jp サンプル]
 {{{
 <KVSML>
   <Object type="LineObject">
@@ -120,6 +122,8 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
 
 == 面データ（polygon Object） ==
 面（ポリゴン）を表す幾何データであり、頂点の座標値（coordinate）、ポリゴンまたは頂点の色（color）、ポリゴンの不透明度（opacity）、接続（connection）に関する情報を持つ。また、面の種類として三角形（triangle）または四角形（quadrangle）を表現できる。
+
+[KVSML_sample_polygon_object_jp サンプル]
 {{{
 <KVSML>
   <Object type="PolygonObject">
