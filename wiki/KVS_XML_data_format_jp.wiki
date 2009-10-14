@@ -37,19 +37,17 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
           <!-- 頂点の色（0〜255の整数値）を指定する。             -->
           <!-- 指定しない場合は黒（0 0 0）となる。                -->
           <!-- 例）                                               -->
-          <!-- * 各頂点に別の色を指定する場合                     -->
+          <!-- * 頂点ごとに色を指定する場合                       -->
           <!--     <DataArray> r0 g0 b0 r1 g1 b1 ... </DataArray> -->
           <!-- * すべての頂点に同じ色を指定する場合               -->
           <!--     <DataValue> r g b </DataValue>                 -->
         </Color>
         <Normal>
           <DataArray>
-          <!--
-               法線ベクトルを指定する。
-               指定しない場合はシェーディングが無効となる。
-               例）
-                   <DataArray> nx0 ny0 nz0 nx1 ny1 nz1 ... </DataArray>
-          -->
+          <!-- 法線ベクトルを指定する。-->
+          <!-- 指定しない場合はシェーディングが無効となる。 -->
+          <!-- 例） -->
+          <!--    <DataArray> nx0 ny0 nz0 nx1 ny1 nz1 ... </DataArray> -->
         </Normal>
         <Size>
           <DataArray> または <DataValue>
