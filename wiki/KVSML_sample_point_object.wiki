@@ -1,8 +1,8 @@
 #KVSML sample point object
 
-= KVSML sample data file (PointObject)=
+= KVSML sample data file (point object)=
 
-PointObjectのKVSMLデータ形式のサンプルです。
+点データ（point object）のKVSMLデータ形式のサンプルです。
 
 {{{
 <KVSML>
