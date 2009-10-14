@@ -25,11 +25,16 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
   <Object type="PointObject">
     <PointObject>
       <Vertex nvertices="xxx">
+      <!-- nvertices: 頂点数 -->
         <Coord>
           <DataArray>
         </Coord>
         <Color>
           <DataArray> または <DataValue>
+          <!-- 各頂点に別の色を指定する場合 -->
+          <!--   <DataArray> r0 g0 b0 r1 g1 b1 ... </DataArray> -->
+          <!-- すべての頂点に同じ色を指定する場合 -->
+          <!--   <DataValue> r g b </DataValue> -->
         </Color>
         <Normal>
           <DataArray>
