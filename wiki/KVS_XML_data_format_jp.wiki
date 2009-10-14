@@ -103,8 +103,12 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
         </Size>
       </Vertex>
       <Line nlines="xxx">
+      <!-- nlines: 線分数 -->
         <Connection>
-          <DataArray>
+          <DataArray> xxx </DataArray>
+          <!-- 線分の接続情報（接続する頂点の番号）を指定する。-->
+          <!-- 例）                                            -->
+          <!--     <DataArray> id0 id1 id2 ... </DataArray>    -->
         </Connection>
       </Line>
     </LineObject>
