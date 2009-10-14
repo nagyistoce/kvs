@@ -45,10 +45,10 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
         <Normal>
           <DataArray>
           <!--
-          法線ベクトルを指定する。
-          指定しない場合はシェーディングが無効となる。
-          例）
-              <DataArray> nx0 ny0 nz0 nx1 ny1 nz1 ... </DataArray>
+               法線ベクトルを指定する。
+               指定しない場合はシェーディングが無効となる。
+               例）
+                   <DataArray> nx0 ny0 nz0 nx1 ny1 nz1 ... </DataArray>
           -->
         </Normal>
         <Size>
