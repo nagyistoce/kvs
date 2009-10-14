@@ -27,13 +27,13 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
       <Vertex nvertices="xxx">
       <!-- nvertices: 頂点数 -->
         <Coord>
-          <DataArray>
+          <DataArray> xxx </DataArray>
           <!-- 頂点の座標値を指定する。                           -->
           <!-- 例）                                               -->
           <!--     <DataArray> x0 y0 z0 x1 y1 z1 ... </DataArray> -->
         </Coord>
         <Color>
-          <DataArray> または <DataValue>
+          <DataArray> xxx </DataArray> または <DataValue> xxx </DataValue>
           <!-- 頂点の色（0〜255の整数値）を指定する。             -->
           <!-- 指定しない場合は黒（0 0 0）となる。                -->
           <!-- 例）                                               -->
@@ -43,7 +43,7 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
           <!--     <DataValue> r g b </DataValue>                 -->
         </Color>
         <Normal>
-          <DataArray>
+          <DataArray> xxx </DataArray>
           <!-- 法線ベクトルを指定する。                                -->
           <!-- 指定しない場合はシェーディングが無効となる。            -->
           <!-- 例）                                                    -->
@@ -51,6 +51,13 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
         </Normal>
         <Size>
           <DataArray> または <DataValue>
+          <!-- 頂点の大きさを指定する。                 -->
+          <!-- 指定しない場合は1となる。                -->
+          <!-- 例）                                     -->
+          <!-- * 頂点ごとに大きさを指定する場合         -->
+          <!--     <DataArray> s0 s1 ... </DataArray>   -->
+          <!-- * すべての頂点に同じ大きさを指定する場合 -->
+          <!--     <DataValue> s </DataValue>           -->
         </Size>
       </Vertex>
     </PointObject>
