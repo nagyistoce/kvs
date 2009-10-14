@@ -76,7 +76,7 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
       <Vertex nvertices="xxx">
       <!-- nvertices: 頂点数 -->
         <Coord>
-          <DataArray>
+          <DataArray> xxx </DataArray>
           <!-- 頂点の座標値を指定する。                           -->
           <!-- 例）                                               -->
           <!--     <DataArray> x0 y0 z0 x1 y1 z1 ... </DataArray> -->
@@ -121,23 +121,42 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
 {{{
 <KVSML>
   <Object type="PolygonObject">
-    <!-- aaa: triangle, quadrangle -->
-    <!-- bbb: polygon, vertex -->
-    <PolygonObject polygon_type="aaa" color_type="bbb">
+    <PolygonObject polygon_type="xxx" color_type="xxx">
+    <!-- polygon_type: 面の種類 (triangle, quadrangle) -->
+    <!-- color_type:   色付けの種類 (polygon, vertex)  -->
       <Vertex nvertices="xxx">
+      <!-- nvertices: 頂点数 -->
         <Coord>
-          <DataArray>
+          <DataArray> xxx </DataArray>
+          <!-- 頂点の座標値を指定する。                           -->
+          <!-- 例）                                               -->
+          <!--     <DataArray> x0 y0 z0 x1 y1 z1 ... </DataArray> -->
         </Coord>
         <Color>
-          <DataArray> または <DataValue>
+          <DataArray> xxx </DataArray> または <DataValue> xxx </DataValue>
+          <!-- 面または頂点の色（0〜255の整数値）を指定する。     -->
+          <!-- 指定しない場合は黒（0 0 0）となる。                -->
+          <!-- 例）                                               -->
+          <!-- * 面または頂点ごとに色を指定する場合               -->
+          <!--     <DataArray> r0 g0 b0 r1 g1 b1 ... </DataArray> -->
+          <!-- * すべての面に同じ色を指定する場合                 -->
+          <!--     <DataValue> r g b </DataValue>                 -->
         </Color>
         <Normal>
-          <DataArray>
+          <DataArray> xxx </DataArray>
+          <!-- 法線ベクトルを指定する。                                -->
+          <!-- 指定しない場合はシェーディングが無効となる。            -->
+          <!-- 例）                                                    -->
+          <!--    <DataArray> nx0 ny0 nz0 nx1 ny1 nz1 ... </DataArray> -->
         </Normal>
       </Vertex>
       <Polygon npolygons="xxx">
+      <!-- npolygons: 面数 -->
         <Connection>
-          <DataArray>
+          <DataArray> xxx </DataArray>
+          <!-- 面の接続情報（接続する頂点の番号）を指定する。-->
+          <!-- 例）                                          -->
+          <!--     <DataArray> id0 id1 id2 ... </DataArray>  -->
         </Connection>
       </Polygon>
     </PolygonObject>
