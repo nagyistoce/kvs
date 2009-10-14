@@ -1,6 +1,6 @@
 = KVSMLサンプルデータ (point object)=
 
-点データ（point object）のKVSMLデータ形式のサンプルです。
+点データ（point object）のKVSMLデータ形式サンプルです。
 
 {{{
 <KVSML>
