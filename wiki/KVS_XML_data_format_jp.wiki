@@ -178,13 +178,22 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
 {{{
 <KVSML>
   <Object type="StructuredVolumeObject">
-    <StructuredVolumeObject resolution="xxx xxx xxx" grid_type="aaa">
+    <StructuredVolumeObject resolution="xxx xxx xxx" grid_type="xxx">
     <!-- resolution: 格子サイズ（解像度） -->
     <!-- grid_type: 格子の種類（uniform, rectilinear, curvilinear） -->
       <Node>
         <Value veclen="xxx">
         <!-- veclen: フィールド値のベクトル長 -->
-          <DataArray>
+          <DataArray> xxx </DataArray>
+          <!-- フィールド値を指定する。 -->
+          <!-- 例１） 8ビット整数型（uchar）、ベクトル長１の場合 -->
+          <!--     <DataArray type="uchar"> v0 v1 v2 ... </DataArray>  -->
+          <!-- 例２） 単精度浮動小数型（float）、ベクトル長３の場合 -->
+          <!--     <DataArray type="uchar"> v0x v0y v0z v1x v1y v1z  ... </DataArray>  -->
+          <!-- 例３） 単精度浮動小数型（float）、外部アスキーファイル指定の場合 -->
+          <!--     <DataArray type="float" file="node.dat" format="ascii"/>  -->
+          <!-- 例４） 単精度浮動小数型（float）、外部バイナリファイル指定の場合 -->
+          <!--     <DataArray type="float" file="node.dat" format="binary"/>  -->
         </Value>
       </Node>
     </StructuredVolumeObject>
