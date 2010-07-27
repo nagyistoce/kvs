@@ -178,10 +178,12 @@ KVSが標準的に扱うオブジェクトデータ形式（XML形式）につ�
 {{{
 <KVSML>
   <Object type="StructuredVolumeObject">
-    <!-- aaa: uniform, rectilinear, curvilinear -->
     <StructuredVolumeObject resolution="xxx xxx xxx" grid_type="aaa">
+    <!-- resolution: 格子サイズ（解像度） -->
+    <!-- grid_type: 格子の種類（uniform, rectilinear, curvilinear） -->
       <Node>
         <Value veclen="xxx">
+        <!-- veclen: フィールド値のベクトル長 -->
           <DataArray>
         </Value>
       </Node>
