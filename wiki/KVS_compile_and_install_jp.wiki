@@ -37,6 +37,21 @@ Windows系OSの場合は、システムのプロパティから設定するこ�
 || SAGE || KVS_SUPPORT_SAGE || イリノイ大学（EVL）が開発するタイルドディスプレイ向けライブラリ ||
 || OpenCABIN || KVS_SUPPORT_OPENCABIN || 東京大学が開発した没入型表示装置およびタイルドディスプレイ向けライブラリ ||
 
+=== GLUTとGLEWのインストール ===
+
+KVSを利用して可視化アプリケーションを開発する場合、可視化結果をウィンドウに表示するためにGLUTが必要となります。また、KVSではGPUの高速化機能を利用するために、GLEWを利用しています。特に、制限などがない場合、この２つのライブラリを事前にインストールしておいてください。以下にkvs.confの設定例を示します。
+
+{{{
+KVS_SUPPORT_CAVE      = 0
+KVS_SUPPORT_CUDA      = 0
+KVS_SUPPORT_GLEW      = 1
+KVS_SUPPORT_GLUT      = 1
+KVS_SUPPORT_OPENCV    = 0
+KVS_SUPPORT_QT        = 0
+KVS_SUPPORT_SAGE      = 0
+KVS_SUPPORT_OPENCABIN = 0
+}}}
+
 == コンパイルとインストール ==
 
 適当な場所にソースコードをダウンロード（チェックアウト）しコンパイルおよびインストールを行います。ソースコードをダウンロードしたディレクトリとKVS_DIRで指定するディレクトリは同じでもかまいませんが、ここでは別ディレクトリに格納されるものとして説明していきます。
