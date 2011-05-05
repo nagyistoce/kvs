@@ -3,6 +3,7 @@
  * [KVS_compile_and_install_jp コンパイルとインストール]
 
  * [KVS_object_jp オブジェクト]
+  * [KVS_PointObject_jp 点オブジェクト]
 
  * [KVS_command_line_applications_jp コマンドラインアプリケーション]
 
