@@ -247,7 +247,7 @@ kvs::PointObject* CreatePointObject( void )
     return( object );
 }
 
-// メイン関数（詳細は第５章「ビューワ」を参照）
+// メイン関数
 int main( int argc, char** argv )
 {
     kvs::glut:::Application app( argc, argv );
