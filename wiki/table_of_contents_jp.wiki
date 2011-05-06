@@ -4,5 +4,7 @@
     * [KVS_PointObject_jp 点オブジェクト]
     * [KVS_LineObject_jp 線分オブジェクト]
     * [KVS_PolygonObject_jp ポリゴンオブジェクト]
+    * [KVS_StructuredVolumeObject_jp 構造格子型オブジェクト]
+    * [KVS_UnstructuredVolumeObject_jp 非構造格子型オブジェクト]
   * [KVS_command_line_applications_jp コマンドラインアプリケーション]
   * [KVS_XML_data_format_jp KVSデータ形式]
