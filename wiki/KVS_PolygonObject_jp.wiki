@@ -5,7 +5,345 @@
 ポリゴンオブジェクトは、複数の稜線（エッジ）からなる平面上の多角形（ポリゴン）を組み合わせて表現されます。通常、ポリゴンオブジェクトを構成する多角形には、三角形や四角形が用いられます。
 
 == データ構造 ==
+KVSでは、ポリゴンオブジェクトは以下のような情報から構成されています。
+
+*座標*
+  ポリゴンを構成する点の座標を表します。点データと同様に、x, y, z値を並べて定義します。このとき、並べられた順に通し番号（頂点番号）が付けられます。
+
+*色（カラー）*
+  ポリゴンまたは点の色を表します。ポリゴンを構成する点に対して色を指定した場合、その指定された色から線形補間された色がポリゴンの色となります。
+
+*法線ベクトル*
+  ポリゴンまたは点の法線ベクトルを表します。ポリゴンまたは点に対して、ベクトルのx, y, z成分を並べて指定します。指定しない場合、シェーディング処理が無効となります。点を共有するポリゴンの法線ベクトルを平均することによって、点に対して法線ベクトルを定義することができ、ポリゴンの境界での不連続性が目立たず滑らかなポリゴンを描画することができます。
+
+*接続情報*
+  ポリゴンを構成する頂点番号を表します。線分オブジェクトと同様、座標値を設定する際に付与される通し番号を指定しなくてはいけません。KVSでは、ポリゴンを三角形または四角形で表現することができます。
+ * *三角形（triangle）*　3つの頂点番号を1セットとして、指定された順に頂点を接続して三角形を表現します。
+ * *四角形（quadrangle）*　4つの頂点番号を1セットとして、指定された順に頂点を接続して四角形を表現します。
 
 == Polygon Objectクラス ==
+KVSでは、ポリゴンオブジェクトはkvs::!PolygonObjectクラスとして実装されています。以下では、kvs::!PolygonObjectクラスの主なメソッドについて説明します。
+
+{{{
+const kvs::ValueArray<kvs::Real32>& coords( void )
+}}}
+*機能*<br>
+点の座標値の配列を返す。
+
+*戻り値*<br>
+32ビット実数型の座標値の配列クラス
+<br><br>
+
+{{{
+const kvs::ValueArray<kvs::UInt8>& colors( void )
+}}}
+*機能*<br>
+点またはポリゴンのカラー値の配列を返す。
+
+*戻り値*<br>
+8ビット符号なし整数型のカラー値の配列クラス
+<br><br>
+
+{{{
+const kvs::ValueArray<kvs::Real32>& normals( void )
+}}}
+*機能*<br>
+点またはポリゴンの法線ベクトルの配列を返す。
+
+*戻り値*<br>
+32ビット実数型の法線ベクトルの配列クラス
+<br><br>
+
+{{{
+const kvs::ValueArray<kvs::UInt32>& connections( void )
+}}}
+*機能*<br>
+接続情報の配列（頂点番号の配列）を返す。
+
+*戻り値*<br>
+32ビット符号なし整数型の接続情報の配列クラス
+<br><br>
+
+{{{
+const size_t nvertices( void )
+}}}
+*機能*<br>
+点の数を返す。
+
+*戻り値*<br>
+点の数
+<br><br>
+
+{{{
+const size_t ncolors( void )
+}}}
+*機能*<br>
+カラー値の数を返す。
+
+*戻り値*<br>
+点またはポリゴンのカラー値の数。１の場合、すべてのポリゴンが同一色であることを示す。
+<br><br>
+
+{{{
+const size_t nnormals( void )
+}}}
+*機能*<br>
+法線ベクトルの数を返す。
+
+*戻り値*<br>
+点またはポリゴンの法線ベクトルの数
+<br><br>
+
+{{{
+const size_t nconnections( void )
+}}}
+*機能*<br>
+接続情報（頂点番号）の数を返す。
+
+*戻り値*<br>
+接続情報の数
+<br><br>
+
+{{{
+const PolygonType polygonType( void ) const
+}}}
+*機能*<br>
+ポリゴンの種類を返す。
+
+*戻り値*<br>
+以下のいずれかの値を返す。
+ * kvs::!PolygonObject::Triangle ... 三角形
+ * kvs::!PolygonObject::Quadrangle ... 四角形
+ * kvs::!PolygonObject::Tri	 ... Triangleと同じ
+ * kvs::!PolygonObject::Quad ... Quadrangleと同じ
+ * kvs::!PolygonObject::!UnknownPolygonType ... その他
+<br>
+
+{{{
+const ColorType colorType( void ) const
+}}}
+*機能*<br>
+ポリゴンの色づけの種類を返す。
+
+*戻り値*<br>
+以下のいずれかの値を返す。
+ * kvs::!PolygonObject::!VertexColor ... 点ごとに色付け
+ * kvs::!PolygonObject::!PolygonColor ... ポリゴンごとに色付け
+ * kvs::!PolygonObject::!UnknownColorType ... その他
+<br>
+
+{{{
+const NormalType normalType( void ) const
+}}}
+*機能*<br>
+法線ベクトルの種類を返す。
+
+*戻り値*<br>
+以下のいずれかの値を返す。
+ * kvs::!PolygonObject::!VertexNormal ... 点ごとに定義
+ * kvs::!PolygonObject::!PolygonNormal ... ポリゴンごとに定義
+ * kvs::!PolygonObject::!UnknownNormalType ... その他
+<br>
+
+{{{
+const kvs::Vector3f coord( const size_t index ) const
+}}}
+*機能*<br>
+指定されたインデックス番号の点の座標値を返す。
+
+*引数*<br>
+index　点のインデックス番号。
+
+*戻り値*<br>
+指定されたインデックス番号の点の座標値（3次元ベクトルクラス）
+<br><br>
+
+{{{
+const kvs::RGBColor color( const size_t index ) cosnt
+}}}
+*機能*<br>
+指定されたインデックス番号の点またはポリゴンのカラー値を返す。
+
+*引数*<br>
+index　点またはポリゴンのインデックス番号。
+
+*戻り値*<br>
+ポリゴンオブジェクトの色付けの種類が!PolygonColorの場合、指定されるインデックス番号のポリゴンのカラー値（RGBカラークラス）。!VertexColorの場合、指定されるインデックス番号の点のカラー値。
+<br><br>
+
+{{{
+const kvs::Vector3f normal( const size_t index ) const
+}}}
+*機能*<br>
+指定されたインデックス番号の点またはポリゴンの法線ベクトルを返す。
+
+*引数*<br>
+index　点またはポリゴンのインデックス番号。
+
+*戻り値*<br>
+ポリゴンオブジェクトの法線ベクトルの種類が!PolygonNormalの場合、指定されるインデックス番号のポリゴンの法線ベクトル（3次元ベクトルクラス）。!VertexNormalの場合、指定されるインデックス番号の点の法線ベクトル。
+<br><br>
+
+{{{
+void setCoords( const kvs::ValueArray<kvs::Real32>& coords )
+}}}
+*機能*<br>
+点の座標値を設定する。設定する座標値を、x, y, zを点数分並べた配列として指定する。
+
+*引数*<br>
+coords　点の座標値の配列。指定する配列の型は32ビット実数型である。
+<br><br>
+
+{{{
+void setColors( const kvs::ValueArray<kvs::UInt8>& colors )
+}}}
+*機能*<br>
+点またはポリゴンのカラー値を設定する。設定するカラー値を、R, G, Bを点数分並べた配列として指定する。
+
+*引数*<br>
+colors　点またはポリゴンのカラー値の配列。指定する配列の型は8ビット符号なし整数型である。
+<br><br>
+
+{{{
+void setNormals( const kvs::ValueArray<kvs::Real32>& normals )
+}}}
+*機能*<br>
+点またはポリゴンの法線ベクトルを設定する。設定する法線ベクトルを、x, y, zを点数分並べた配列として指定する。
+
+*引数*<br>
+normals　点またはポリゴンの法線ベクトルの配列。指定する配列の型は32ビット実数型である。
+<br><br>
+
+{{{
+void setConnections( const kvs::ValueArray<kvs::UInt32>& connections )
+}}}
+*機能*<br>
+点の接続情報を設定する。
+
+*引数*<br>
+normals　接続情報の配列。指定する配列の型は32ビット符号なし整数型である。
+<br><br>
+
+{{{
+void setPolygonType( const PolygonType polygon_type )
+}}}
+*機能*<br>
+ポリゴンの種類を設定する。
+
+*引数*<br>
+polygon_type　ポリゴンの種類。以下のいずれかの値を指定する。
+ * kvs::!PolygonObject::Triangle ... 三角形
+ * kvs::!PolygonObject::Quadrangle ... 四角形
+ * kvs::!PolygonObject::Tri ... Triangleと同じ
+ * kvs::!PolygonObject::Quad ... Quadrangleと同じ
+<br>
+
+{{{
+void setColorType( const ColorType color_type )
+}}}
+*機能*<br>
+ポリゴンの色づけの種類を設定する。
+
+*引数*<br>
+color_type　ポリゴンの色づけの種類。以下のいずれかの値を指定する。
+ * kvs::!PolygonObject::!VertexColor ... 点ごとに色付け
+ * kvs::!PolygonObject::!PolygonColor ... ポリゴンごとに色付け
+<br>
+
+{{{
+void setNormalType( const NormalType normal_type )
+}}}
+*機能*<br>
+法線ベクトルの種類を設定する。
+
+*引数*<br>
+normal_type　法線ベクトルの種類。以下のいずれかの値を指定する。
+ * kvs::!PolygonObject::!VertexNormal ... 点ごとに定義
+ * kvs::!PolygonObject::!PolygonNormal ... ポリゴンごとに定義
+<br>
 
 == 作成例 ==
+ポリゴンオブジェクトを作成し、それを描画するサンプルコードを以下に示します。例では、!CreatePolygonObject関数でポリゴンオブジェクトを生成しています。
+
+{{{
+#include <kvs/glut/Application>
+#include <kvs/glut/Screen>
+#include <kvs/PolygonObject>
+
+// 点の数
+const size_t N = 4;
+
+// ポリゴンの数
+const size_t P = 4;
+
+// 座標値配列の定義
+kvs::Real32 CoordArray[ N * 3 ] = {
+    1.0, 0.0, 2.0,  // 点0の座標 (1.0, 0.0, 2.0)
+    2.0, 0.0, 2.0,  // 点1の座標 (2.0, 0.0, 2.0)
+    1.5, 0.8, 1.7,  // 点2の座標 (1.5, 0.8, 1.7)
+    1.5, 0.0, 1.1   // 点3の座標 (1.5, 0.0, 1.1)
+};
+
+// カラー値配列の定義
+kvs::UInt8 ColorArray[ N * 3 ] = {
+    255,   0,   0,  // 点0の色 赤(255,   0,   0)
+      0, 255,   0,  // 点1の色 緑(  0, 255,   0)
+      0,   0, 255,  // 点2の色 青(  0,   0, 255)
+    255, 255,   0   // 点3の色 黄(255, 255,   0)
+};
+
+// 法線ベクトル配列の定義
+kvs::Real32 NormalArray[ N * 3 ] = {
+     0.00,  0.3,  0.8,  // 点0に対する法線ベクトル
+     0.00, -0.9,  0.0,  // 点1に対する法線ベクトル
+     0.72,  0.3, -0.4,  // 点2に対する法線ベクトル
+    -0.72,  0.3, -0.4   // 点3に対する法線ベクトル
+};
+
+// 接続情報配列の定義
+kvs::UInt32 ConnectionArray[ P * 3 ] = {
+    0, 1, 2,  // 点0, 1, 2を接続
+    0, 3, 1,  // 点0, 3, 1を接続
+    1, 3, 2,  // 点0, 3, 2を接続
+    0, 2, 3   // 点0, 2, 3を接続
+};
+
+// ポリゴンオブジェクトを生成する関数
+kvs::PolygonObject* CreatePolygonObject( void )
+{
+    // KVSの配列クラス（kvs::ValueArray）にセットする。
+    kvs::ValueArray<kvs::Real32> coords( CoordArray, N * 3 );
+    kvs::ValueArray<kvs::UInt8> colors( ColorArray, N * 3 );
+    kvs::ValueArray<kvs::Real32> normals( NormalArray, N * 3 );
+    kvs::ValueArray<kvs::UInt32> connections( ConnectionArray, P * 3 );
+
+    // ポリゴンオブジェクトを生成する。
+    kvs::PolygonObject* object = new kvs::PolygonObject();
+    object->setCoords( coords );
+    object->setColors( colors );
+    object->setNormals( normals );
+    object->setConnections( connections );
+    object->setPolygonType( kvs::PolygonObject::Triangle );
+    object->setColorType( kvs::PolygonObject::VertexColor );
+    object->setNormalType( kvs::PolygonObject::VertexNormal );
+
+    // 生成したポリゴンオブジェクトのポインタを返す。
+    return( object );
+}
+
+// メイン関数（詳細は第５章「ビューワ」を参照）
+int main( int argc, char** argv )
+{
+    kvs::glut:::Application app( argc, argv );
+
+    // 点オブジェクトの生成
+    kvs::PolygonObject* object = CreatePolygonObject();
+
+    kvs::glut::Screen screen( &app );
+    screen.setTitle( “Polygon Object” );
+    screen.registerObject( object );
+    screen.show();
+
+    return( app.run() );
+}
+}}}
