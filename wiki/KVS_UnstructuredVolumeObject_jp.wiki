@@ -5,6 +5,6 @@
 
 == データ構造 ==
 
-== Unstructured Volume Objectクラス ==
+== kvs::!UnstructuredVolumeObjectクラス ==
 
 == 作成例 ==
