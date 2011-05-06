@@ -336,7 +336,7 @@ int main( int argc, char** argv )
 {
     kvs::glut:::Application app( argc, argv );
 
-    // 点オブジェクトの生成
+    // ポリゴンオブジェクトの生成
     kvs::PolygonObject* object = CreatePolygonObject();
 
     kvs::glut::Screen screen( &app );
