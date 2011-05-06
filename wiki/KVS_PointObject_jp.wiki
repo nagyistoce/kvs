@@ -70,6 +70,7 @@ const size_t nvertices( void )
 
 *戻り値*<br>
 点の数
+<br><br>
 
 {{{
 const size_t ncolors( void )
@@ -194,7 +195,7 @@ sizes　サイズ値の配列。指定する配列の型は32ビット実数型�
 <br><br>
 
 == 作成例 ==
-点オブジェクトを作成し、それを描画するサンプルコードを以下に示します。例では、CreatePointObject関数で点オブジェクトを生成しています。
+点オブジェクトを作成し、それを描画するサンプルコードを以下に示します。例では、[CreatePointObject]関数で点オブジェクトを生成しています。
 
 {{{
 #include <kvs/glut/Application>
