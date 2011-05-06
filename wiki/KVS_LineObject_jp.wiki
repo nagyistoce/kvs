@@ -26,9 +26,9 @@ KVSでは、線分オブジェクトは以下のような情報から構成さ�
 
  * *一本線（uniline）*　通る頂点のみを指定し、指定された点を順に接続して折れ線を表現します。
 
- * *複数線（polyline）*　始点と終点を複数指定することで、複数の折れ線を表現します。始点と終点の間にある頂点を順に接続します（折れ線）。
+ * *複数線（polyline）*　始点と終点を複数指定することで、複数の折れ線を表現します。始点と終点の間にある頂点を順に接続します。
 
- * *分割線（segment line）*　始点と終点を複数指定することで、複数の直線を表現します。始点と終点を直線的に接続します（直線）。
+ * *分割線（segment line）*　始点と終点を複数指定することで、複数の直線を表現します。始点と終点を直線的に接続します。
 
 == Line Objectクラス ==
 KVSでは、線分オブジェクトはkvs::!LineObjectクラスとして実装されています。以下では、kvs::!LineObjectクラスの主なメソッドについて説明します。
@@ -372,7 +372,7 @@ int main( int argc, char** argv )
     kvs::LineObject* object = CreateLineObject();
 
     kvs::glut::Screen screen( &app );
-    screen.setTitle( “Create Line Object” );
+    screen.setTitle( “Line Object” );
     screen.registerObject( object );
     screen.show();
 
