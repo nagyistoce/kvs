@@ -5,6 +5,6 @@
 
 == データ構造 ==
 
-== Structured Volume Objectクラス ==
+== kvs::!StructuredVolumeObjectクラス ==
 
 == 作成例 ==
