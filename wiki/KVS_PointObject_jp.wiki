@@ -20,7 +20,7 @@ KVSでは、点オブジェクトは以下のような情報から構成され�
  点の大きさを表します。大きさを指定しない場合は1となります。単位はピクセル（画素）です。
 
 == Point Objectクラス ==
-KVSでは、点オブジェクトはkvs::PointObjectクラスとして実装されています。以下では、kvs::PointObjectクラスの主なメソッドについて説明します。
+KVSでは、点オブジェクトはkvs::!PointObjectクラスとして実装されています。以下では、kvs::!PointObjectクラスの主なメソッドについて説明します。
 
 {{{
 const kvs::ValueArray<kvs::Real32>& coords( void )
@@ -29,7 +29,7 @@ const kvs::ValueArray<kvs::Real32>& coords( void )
 点の座標値の配列を返す。
 
 *戻り値*<br>
-32ビット実数型（kvs::Real32型）の座標値の配列クラス
+32ビット実数型の座標値の配列クラス
 <br><br>
 
 {{{
@@ -39,7 +39,7 @@ const kvs::ValueArray<kvs::UInt8>& colors( void )
 点のカラー値の配列を返す。
 
 *戻り値*<br>
-8ビット符号なし整数型（kvs::UInt8）のカラー値の配列クラス
+8ビット符号なし整数型のカラー値の配列クラス
 <br><br>
 
 {{{
@@ -49,7 +49,7 @@ const kvs::ValueArray<kvs::Real32>& normals( void )
 点の法線ベクトルの配列を返す。
 
 *戻り値*<br>
-32ビット実数型（kvs::Real32型）の法線ベクトルの配列クラス
+32ビット実数型の法線ベクトルの配列クラス
 <br><br>
 
 {{{
@@ -59,7 +59,7 @@ const kvs::ValueArray<kvs::Real32>& sizes( void )
 点の大きさの配列を返す。
 
 *戻り値*<br>
-32ビット実数型（kvs::Real32型）の点の大きさの配列クラス
+32ビット実数型の点の大きさの配列クラス
 <br><br>
 
 {{{
@@ -161,7 +161,7 @@ void setCoords( const kvs::ValueArray<kvs::Real32>& coords )
 点の座標値を設定する。設定する座標値を、x, y, zを点数分並べた配列として指定する。
 
 *引数*<br>
-coords　座標値の配列。指定する配列の型は32ビット実数型（kvs::Real32型）である。
+coords　座標値の配列。指定する配列の型は32ビット実数型である。
 <br><br>
 
 {{{
@@ -171,7 +171,7 @@ void setColors( const kvs::ValueArray<kvs::UInt8>& colors )
 点のカラー値を設定する。設定するカラー値を、R, G, Bを点数分並べた配列として指定する。
 
 *引数*<br>
-colors　カラー値の配列。指定する配列の型は8ビット符号なし整数型（kvs::UInt8型）である。
+colors　カラー値の配列。指定する配列の型は8ビット符号なし整数型である。
 <br><br>
 
 {{{
@@ -181,7 +181,7 @@ void setNormals( const kvs::ValueArray<kvs::Real32>& normals )
 点の法線ベクトルを設定する。設定する法線ベクトルを、x, y, zを点数分並べた配列として指定する。
 
 *引数*<br>
-normals　法線ベクトルの配列。指定する配列の型は32ビット実数型（kvs::Real32型）である。
+normals　法線ベクトルの配列。指定する配列の型は32ビット実数型である。
 <br><br>
 
 {{{
@@ -191,11 +191,11 @@ void setSizes( const kvs::ValueArray<kvs::Real32>& sizes )
 点のサイズを設定する。設定する点のサイズを、それを点数分並べた配列として指定する。
 
 *引数*<br>
-sizes　サイズ値の配列。指定する配列の型は32ビット実数型（kvs::Real32型）である。
+sizes　サイズ値の配列。指定する配列の型は32ビット実数型である。
 <br><br>
 
 == 作成例 ==
-点オブジェクトを作成し、それを描画するサンプルコードを以下に示します。例では、[CreatePointObject]関数で点オブジェクトを生成しています。
+点オブジェクトを作成し、それを描画するサンプルコードを以下に示します。例では、!CreatePointObject関数で点オブジェクトを生成しています。
 
 {{{
 #include <kvs/glut/Application>
