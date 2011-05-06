@@ -247,7 +247,7 @@ int main( int argc, char** argv )
     kvs::PointObject* object = CreatePointObject();
 
     kvs::glut::Screen screen( &app );
-    screen.setTitle( “Create Point Object” );
+    screen.setTitle( “Point Object” );
     screen.registerObject( object );
     screen.show();
 
