@@ -9,8 +9,8 @@ KVSにおいて、描画の対象となるデータはオブジェクト（objec
 
 ここでは、KVSで実装されている各オブジェクトのデータ構造とその取り扱い方について説明します。
 
-  * [KVS_PointObject 点オブジェクト]
-  * [KVS_LineObject 線分オブジェクト]
-  * [KVS_PolygonObject ポリゴンオブジェクト]
-  * [KVS_StructuredVolumeObject 構造格子型ボリュームオブジェクト]
-  * [KVS_UnstructuredVolumeObject 非構造格子型ボリュームオブジェクト]
+  * [KVS_PointObject_jp 点オブジェクト]
+  * [KVS_LineObject_jp 線分オブジェクト]
+  * [KVS_PolygonObject_jp ポリゴンオブジェクト]
+  * [KVS_StructuredVolumeObject_jp 構造格子型ボリュームオブジェクト]
+  * [KVS_UnstructuredVolumeObject_jp 非構造格子型ボリュームオブジェクト]
