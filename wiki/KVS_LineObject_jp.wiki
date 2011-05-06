@@ -141,11 +141,11 @@ const LineType lineType( void ) const
 
 *戻り値*<br>
 以下のいずれかの値を返す。
- * kvs::LineObject::Strip ... 線分
- * kvs::LineObject::Uniline ... 一本線
- * kvs::LineObject::Polyline ... 複数線
- * kvs::LineObject::Segment ... 分割線
- * kvs::LineObject::UnknownLineType ... その他
+ * kvs::!LineObject::Strip ... 線分
+ * kvs::!LineObject::Uniline ... 一本線
+ * kvs::!LineObject::Polyline ... 複数線
+ * kvs::!LineObject::Segment ... 分割線
+ * kvs::!LineObject::!UnknownLineType ... その他
 <br>
 
 {{{
@@ -156,9 +156,9 @@ const ColorType colorType( void ) const
 
 *戻り値*<br>
 以下のいずれかの値を返す。
- * kvs::LineObject::VertexColor ... 点ごとに色付け
- * kvs::LineObject::LineColor ... 線分ごとに色付け
- * kvs::LineObject::UnknownColorType ... その他
+ * kvs::!LineObject::!VertexColor ... 点ごとに色付け
+ * kvs::!LineObject::!LineColor ... 線分ごとに色付け
+ * kvs::!LineObject::!UnknownColorType ... その他
 <br>
 
 {{{
@@ -184,7 +184,7 @@ const kvs::RGBColor color( const size_t index ) cosnt
 index　線分または点のインデックス番号。
 
 *戻り値*<br>
-格納されている線分オブジェクトの色付けの種類がLineColorの場合、指定されるインデックス番号の線分のカラー値（RGBカラークラス）。VertexColorの場合、指定されるインデックス番号の点のカラー値。
+格納されている線分オブジェクトの色付けの種類が!LineColorの場合、指定されるインデックス番号の線分のカラー値（RGBカラークラス）。!VertexColorの場合、指定されるインデックス番号の点のカラー値。
 <br><br>
 
 {{{
@@ -284,10 +284,10 @@ void setLineType( const LineType line_type )
 
 *引数*<br>
 line_type　線分の種類。以下のいずれかの値を指定する。
- * kvs::LineObject::Strip ... 線分
- * kvs::LineObject::Uniline ... 一本線
- * kvs::LineObject::Polyline ... 複数線
- * kvs::LineObject::Segment ... 分割線
+ * kvs::!LineObject::Strip ... 線分
+ * kvs::!LineObject::Uniline ... 一本線
+ * kvs::!LineObject::Polyline ... 複数線
+ * kvs::!LineObject::Segment ... 分割線
 <br>
 
 {{{
@@ -298,8 +298,8 @@ void setColorType( const ColorType color_type )
 
 *引数*<br>
 color_type　線分の色づけの種類。以下のいずれかの値を指定する。
- * kvs::LineObject::VertexColor ... 点ごとに色付け
- * kvs::LineObject::LineColor ... 線分ごとに色付け
+ * kvs::!LineObject::!VertexColor ... 点ごとに色付け
+ * kvs::!LineObject::!LineColor ... 線分ごとに色付け
 <br>
 
 == 作成例 ==
