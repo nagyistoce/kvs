@@ -1,0 +1,11 @@
+#summary One-sentence summary of this page.
+#sidebar table_of_contents_jp
+
+= ポリゴンオブジェクト =
+ポリゴンオブジェクトは、複数の稜線（エッジ）からなる平面上の多角形（ポリゴン）を組み合わせて表現されます。通常、ポリゴンオブジェクトを構成する多角形には、三角形や四角形が用いられます。
+
+== データ構造 ==
+
+== Polygon Objectクラス ==
+
+== 作成例 ==
