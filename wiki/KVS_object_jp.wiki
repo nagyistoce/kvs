@@ -11,8 +11,8 @@ https://lh3.googleusercontent.com/_X4cB5gzzR7o/TdKMhGy0fuI/AAAAAAAAAC0/wTL77ongy
 
 ここでは、KVSで実装されている各オブジェクトのデータ構造とその取り扱い方について説明します。
 
-  * [KVS_PointObject_jp 点オブジェクト]
-  * [KVS_LineObject_jp 線分オブジェクト]
-  * [KVS_PolygonObject_jp ポリゴンオブジェクト]
-  * [KVS_StructuredVolumeObject_jp 構造格子型ボリュームオブジェクト]
-  * [KVS_UnstructuredVolumeObject_jp 非構造格子型ボリュームオブジェクト]
+  * [KVS_PointObject_jp 点オブジェクト（Point Object）]
+  * [KVS_LineObject_jp 線分オブジェクト（Line Object）]
+  * [KVS_PolygonObject_jp ポリゴンオブジェクト（Polygon Object）]
+  * [KVS_StructuredVolumeObject_jp 構造格子型ボリュームオブジェクト（Structured Volume Object）]
+  * [KVS_UnstructuredVolumeObject_jp 非構造格子型ボリュームオブジェクト（Unstructured Volume Object）]
