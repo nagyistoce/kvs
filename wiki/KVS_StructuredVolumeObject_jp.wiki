@@ -163,3 +163,74 @@ grid_type　格子の種類。以下のいずれかの値を指定する。
 <br>
 
 == 作成例 ==
+構造格子型ボリュームオブジェクトを作成し、それをいったんポリゴンデータに変換し描画するサンプルコードを以下に示します。例では、!CreateStructuredVolumeObject関数で点オブジェクトを生成しています。
+
+{{{
+#include <kvs/glut/Application>
+#include <kvs/glut/Screen>
+#include <kvs/StructuredVolumeObject>
+#include <kvs/ExternalFaces>
+
+// 格子の解像度
+const size_t dimx = 3;
+const size_t dimy = 3;
+const size_t dimz = 3;
+
+// 数値データのベクトル長
+const size_t veclen = 1;
+
+// 数値データ
+kvs::UInt8 ValueArray[ dimx * dimy * dimz * veclen ] = {
+     0,  10,   0,
+    50, 255, 200,
+     0, 100,   0,
+
+    50,   0, 150,
+     0,   0,   0,
+   150,   0,  50,
+
+     0, 255, 0,
+    50,  10, 50,
+     0, 255, 0
+};
+
+// 構造格子型ボリュームオブジェクト（均一格子）を生成する関数
+kvs::StructuredVolumeObject* CreateStructuredVolumeObject( void )
+{
+    // KVSの動的型配列クラス（kvs::AnyValueArray）にセットする。
+    kvs::AnyValueArray values( ValueArray, sizeof( ValueArray ) );
+
+    // 構造格子型ボリュームオブジェクトを生成する。
+    kvs::StructuredVolumeObject* object = new kvs::StructuredVolumeObject();
+    object->setGridType( kvs::StructuredVolumeObject::Uniform );
+    object->setVeclen( veclen );
+    object->setResolution( kvs::Vector3ui( dimx, dimy, dimz ) );
+    object->setValues( values );
+
+    return( object );
+}
+
+// メイン関数
+int main( int argc, char** argv )
+{
+    kvs::glut::Application app( argc, argv );
+
+    // 構造格子型ボリュームオブジェクト（均一格子）の生成
+    kvs::StructuredVolumeObject* volume = CreateStructuredVolumeObject();
+
+    // 境界面ポリゴンの抽出
+    // ※ボリュームデータをいったんポリゴンデータに変換する。
+    kvs::PolygonObject* object = new kvs::ExternalFaces( volume );
+
+    // ボリュームデータの削除
+    // ※ポリゴンデータに変換したため元データを削除する。
+    delete volume;
+
+    kvs::glut::Screen screen( &app );
+    screen.setTitle( "Structured Volume Object" );
+    screen.registerObject( object );
+    screen.show();
+
+    return( app.run() );
+}
+}}}
