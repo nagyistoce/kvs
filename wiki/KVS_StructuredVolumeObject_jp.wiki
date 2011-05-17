@@ -27,5 +27,138 @@ KVSでは、構造格子型ボリュームオブジェクトは以下のよう�
   節点上に定義される物理量を表します。節点番号順に並べられ、（節点数）×（ベクトル長）の１次元配列として定義します。
 
 == kvs::!StructuredVolumeObjectクラス ==
+KVSでは、構造格子型ボリュームオブジェクトはkvs::!StructuredVolumeObjectクラスとして実装されています。以下では、kvs::!StructuredVolumeObjectクラスの主なメソッドについて説明します。
+
+{{{
+const kvs::ValueArray<kvs::Real32>& coords( void ) const
+}}}
+*機能*<br>
+点の座標値の配列を返す。ただし、均一格子の場合は空である。
+
+*戻り値*<br>
+32ビット実数型（kvs::Real32型）の座標値の配列クラス
+<br><br>
+
+{{{
+const kvs::AnyValueArray& values( void ) const
+}}}
+*機能*<br>
+数値データの配列を返す。
+
+*戻り値*<br>
+動的型（kvs::!AnyValue型）の数値データの配列クラス
+<br><br>
+
+{{{
+const size_t veclen( void ) const
+}}}
+*機能*<br>
+数値データのベクトル長を返す。
+
+*戻り値*<br>
+数値データのベクトル長。スカラ値の場合、１を返す。
+<br><br>
+
+{{{
+const kvs::Vector3ui& resolution( void ) const
+}}}
+*機能*<br>
+各軸方向の解像度を返す。
+
+*戻り値*<br>
+各軸方向の解像度を表す３次元ベクトルクラス
+<br><br>
+
+{{{
+const size_t nnodes( void ) const
+}}}
+*機能*<br>
+節点数を返す。
+
+*戻り値*<br>
+節点数
+<br><br>
+
+{{{
+const GridType gridType( void ) const
+}}}
+*機能*<br>
+格子の種類を返す。
+
+*戻り値*<br>
+以下のいずれかの値を返す。
+ * kvs::!StructuredVolumeObject::Uniform ... 均一格子
+ * kvs::!StructuredVolumeObject::Rectilinear ... 直交格子
+ * kvs::!StructuredVolumeObject::Curvilinear ... 湾曲格子
+ * kvs::!StructuredVolumeObject::!UnknownGridType ... その他
+<br>
+
+{{{
+void setCoords( const kvs::ValueArray<kvs::Real32>& coords )
+}}}
+*機能*<br>
+節点の座標値を設定する。均一格子の場合は、座標値を指定する必要はない。直交格子の場合は、各軸上での分割点の座標値を、x, y, zの順で並べた配列（x0, x1, …, xi, y0, y1, …. yj, z0, z1, …, zk）として指定する。湾曲格子の場合は、設定する座標値を、x, y, zを点数分並べた配列（x0, y0, z0, x1, y1, z1, …, xi, yi, zi）として指定する。
+
+*引数*<br>
+coords　節点の座標値の配列。指定する配列の型は32ビット実数型（kvs::Real32型）である。
+
+*戻り値*<br>
+なし
+
+{{{
+void setValues( const kvs::AnyValueArray& values )
+}}}
+*機能*<br>
+節点の数値データを設定する。節点番号順に、（節点数）×（ベクトル長）の長さの配列を指定する。
+
+*引数*<br>
+values　節点の数値データの配列。指定する配列の型は動的型（kvs::!AnyValueArray型）である。
+
+*戻り値*<br>
+なし
+<br><br>
+
+{{{
+void setVeclen( const size_t veclen )
+}}}
+*機能*<br>
+数値データのベクトル長を設定する。
+
+*引数*<br>
+veclen　数値データのベクトル長
+
+*戻り値*<br>
+なし
+<br><br>
+
+{{{
+void setResolution( const kvs::Vector3ui& resolution )
+}}}
+*機能*<br>
+各軸方向の解像度を設定する。
+
+*引数*<br>
+resolution　各軸方向の解像度
+
+*戻り値*<br>
+なし
+<br><br>
+
+{{{
+void setGridType( const GridType grid_type )
+}}}
+*機能*<br>
+格子の種類を設定する。
+
+*引数*<br>
+grid_type　格子の種類。以下のいずれかの値を指定する。
+ * kvs::!StructuredVolumeObject::Uniform ... 均一格子
+ * kvs::!StructuredVolumeObject::Rectilinear ... 直交格子
+ * kvs::!StructuredVolumeObject::Curvilinear ... 湾曲格子
+ * kvs::!StructuredVolumeObject::!UnknownGridType ... その他
+
+*戻り値*<br>
+なし
+<br>
 
 == 作成例 ==
