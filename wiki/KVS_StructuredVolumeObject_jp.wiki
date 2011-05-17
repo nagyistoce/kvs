@@ -104,6 +104,7 @@ coords　節点の座標値の配列。指定する配列の型は32ビット実
 
 *戻り値*<br>
 なし
+<br><br>
 
 {{{
 void setValues( const kvs::AnyValueArray& values )
