@@ -8,3 +8,8 @@ KVSでは、オブジェクトの種類に応じて適切に描画方法を指�
 一方、ボリュームオブジェクトを描画する場合は、それらを扱うための標準APIは用意されていないため、利用者が独自にレンダラーを作成する必要があります。KVSでは、ボリュームオブジェクトを対象とする独自のレンダラーをいくつか実装しています。
 
 ここでは、KVSで実装されている代表的なレンダラーとその利用方法について説明します。
+
+  * [KVS_PointRenderer_jp 点レンダラー（Point Renderer）]
+  * [KVS_LineRenderer_jp 線分レンダラー（Line Renderer）]
+  * [KVS_PolygonRenderer_jp ポリゴンレンダラー（Polygon Renderer）]
+  * [KVS_VolumeRenderer_jp ボリュームレンダラー（Ray casting Renderer）]
