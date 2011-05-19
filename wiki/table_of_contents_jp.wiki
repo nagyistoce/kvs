@@ -2,6 +2,7 @@
   * [KVS_installation_jp 導入]
     * [KVS_setup_jp 準備]
     * [KVS_configuration_jp 設定]
+    * [KVS_library_support_jp ライブラリサポート]
     * [KVS_compile_and_install_jp コンパイルとインストール]
   * [KVS_object_jp オブジェクト]
     * [KVS_PointObject_jp 点オブジェクト]
