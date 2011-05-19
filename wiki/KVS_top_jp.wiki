@@ -4,5 +4,6 @@
 
  * [KVS_compile_and_install_jp コンパイルとインストール]
  * [KVS_object_jp オブジェクト]
+ * [KVS_renderer_jp レンダラー]
  * [KVS_command_line_applications_jp コマンドラインアプリケーション]
  * [KVS_XML_data_format_jp KVSデータ形式]
