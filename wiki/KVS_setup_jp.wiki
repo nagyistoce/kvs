@@ -1,0 +1,22 @@
+#summary KVS 準備
+#sidebar table_of_contents_jp
+
+= 準備 =
+KVSのコンパイルには、C/C++コンパイラが必要です。Windowsの場合は、Microsoft Visual C/C++を利用します。また、Linux/Mac OS Xの場合は、gccおよびmakeを利用します。その他にも、C/C++コンパイラはいくつか存在しますが、ここでは上記の２つのコンパイラの利用を想定して説明します。また、KVSを利用して可視化アプリケーションを開発する場合、可視化結果をウィンドウに表示するためにGLUTが必要となります。また、KVSではGPUの高速化機能を利用するためにGLEWを利用しています。特に、制限などがない場合、この２つのライブラリを事前にインストールしておいてください。
+
+== Windowsの場合 ==
+Windowsの場合は、Microsoft Visual C/C++を利用します。無料版のMicrosoft Visual C/C++ Expressを利用することが可能ですので、以下からインストーラをダウンロードし、指示に従いインストールしてください。
+
+ [http://www.microsoft.com/japan/msdn/vstudio/express/ Microsoft Visual Studio]
+
+GLUTおよびGLEWは以下からバイナリファイルをダウンロードしてインストールしてください。
+
+ [http://www.xmission.com/~nate/glut.html Nate Robins - OpenGL - GLUT for Win32]
+
+ [http://glew.sourceforge.net/ GLEW: The OpenGL Extension Wrangler Library]
+
+== Linuxの場合 ==
+Linuxの場合は、各ディストリビューションに応じたパッケージ管理ツールを利用してコンパイラ（gccとmake）およびGLUT、GLEWを簡単にインストールできます。各パッケージの開発版（devキーワードが付いたパッケージ）をインストールしてください。ただし、GLUTはfreeglutという名前でパッケージ管理されていることが多いです。freeglutというパッケージがある場合はそちらをインストールしてください。
+
+== Mac OS Xの場合 ==
+Mac OS Xの場合は、Xcodeをインストールするとgccおよびmakeコマンドがインストールされます。付属DVDもしくは[http://developer.apple.com/devcenter/mac/index.action Mac Dev Center]からXcodeをダウンロードしインストールしてください。GLUTは既にインストールされていますので、あらためてインストールする必要はありません。GLEWは、[http://www.macports.org/ MacPorts]を利用してインストールすることができます。
