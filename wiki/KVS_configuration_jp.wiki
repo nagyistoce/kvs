@@ -1,0 +1,19 @@
+#summary KVS 設定
+#sidebar table_of_contents_jp
+
+= 設定 =
+KVSのコンパイルおよびインストールを行う前に各OSに応じて環境変数「KVS_DIR」を設定しておく必要があります。コンパイルされたライブラリファイルおよびヘッダファイルはKVS_DIRで指定されるディレクトリにインストールされます。また、いくつかのKVSコマンドラインアプリケーションがKVS_DIR/binにインストールされるため、そのディレクトリを環境変数「PATH」に追加しておく必要があります。以下に、簡単な設定例を示します。
+
+== Windowsの場合 ==
+Windowsの場合は、システムのプロパティから設定することができます。「システムのプロパティ」→「詳細設定」→「環境変数」に以下を記述します。
+
+ 変数：「KVS_DIR」　値：「C:\Program Files\kvs」
+
+ 変数：「PATH」　値：「%PATH%;%KVS_DIR%\bin」
+
+== Linux/Mac OS X の場合 ==
+Linux/Mac OS Xの場合は、以下のように環境変数を設定することができる。bashを利用している場合は、以下を「~/.bashrc」に記述します。その他のシェルについては、その規則に従い適切に設定してください。
+
+ export KVS_DIR=/usr/local/kvs
+
+ export PATH=$KVS_DIR/bin:$PATH
