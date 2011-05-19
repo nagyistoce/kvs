@@ -15,5 +15,5 @@
    * [KVS_LineRenderer_jp 線分レンダラー]
    * [KVS_PolygonRenderer_jp ポリゴンレンダラー]
    * [KVS_VolumeRenderer_jp ボリュームレンダラー]
-   * [KVS_command_line_applications_jp コマンドラインアプリケーション]
-   * [KVS_XML_data_format_jp KVSデータ形式]
+ * [KVS_command_line_applications_jp コマンドラインアプリケーション]
+ * [KVS_XML_data_format_jp KVSデータ形式]
