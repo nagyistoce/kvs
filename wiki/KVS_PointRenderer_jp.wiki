@@ -17,7 +17,7 @@ KVSでは、点レンダラーは以下のようのような機能を持って�
  照明効果を有効にしている際、通常、点は法線ベクトルと正対する向き（表面）にシェーディング処理が行われますが、その反対側の面（裏面）には処理が行われません。両面ライティングを行うことで、裏面に対してもシェーディング処理が実行されます。
 
 == kvs::!PointRendererクラス ==
-KVSでは、点レンダラーはkvs::PointRendererクラスとして実装されています。以下では、kvs::PointRendererクラスの主なメソッドについて説明します。
+KVSでは、点レンダラーはkvs::!PointRendererクラスとして実装されています。以下では、kvs::!PointRendererクラスの主なメソッドについて説明します。
 
 {{{
 void enableShading( void )
@@ -84,7 +84,7 @@ void disableTwoSideLighting( void )
 
 == サンプルプログラム ==
 
-点オブジェクトのサンプルプログラムで示したCreatePointObject関数を利用してオブジェクトを作成し、それを描画するサンプルコードを以下に示します。
+点オブジェクトのサンプルプログラムで示した!CreatePointObject関数を利用してオブジェクトを作成し、それを描画するサンプルコードを以下に示します。
 
 {{{
 #include <kvs/glut/Application>
