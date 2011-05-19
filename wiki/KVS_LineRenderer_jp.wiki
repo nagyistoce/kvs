@@ -2,3 +2,66 @@
 #sidebar table_of_contents_jp
 
 = 線分レンダラー =
+線分レンダラーは、線分オブジェクトを描画するためのレンダラーです。線分オブジェクトに格納されている座標データや色データなどの情報をもとにして、OpenGLのGL_LINESまたはGL_LINE_STRIPを使って線分を描画します。
+
+== レンダリング機能 ==
+KVSでは、線分レンダラーは以下のようのような機能を持っています。
+
+*アンチエイリアシング*
+ 点レンダラーと同様に、描画される線分の輪郭を滑らかに描画することで、ジャギーの発生を防ぐことができます。
+
+== kvs::!LineRendererクラス ==
+KVSでは、線分レンダラーはkvs::!LineRendererクラスとして実装されています。以下では、kvs::!LineRendererクラスの主なメソッドについて説明します。
+
+{{{
+void enableAntiAliasing( const bool multisample = false )
+}}}
+*機能*<br>
+アンチエイリアシング処理を有効にする。
+
+*引数*<br>
+multisample　マルチサンプリングのオン・オフ。指定しない場合オフ。
+
+*戻り値*<br>
+なし
+<br><br>
+
+{{{
+void disableAntiAliasing( void )
+}}}
+*機能*<br>
+アンチエイリアシング処理を無効にする。
+
+*戻り値*<br>
+なし
+<br><br>
+
+== サンプルプログラム ==
+線分オブジェクトのサンプルプログラムで示した!CreateLineObject関数を利用してオブジェクトを作成し、それを描画するサンプルコードを以下に示します。
+
+{{{
+#include <kvs/glut/Application>
+#include <kvs/glut/Screen>
+#include <kvs/LineObject>
+#include <kvs/LineRenderer>
+
+// メイン関数
+int main( int argc, char** argv )
+{
+    kvs::glut:::Application app( argc, argv );
+
+    // 点オブジェクトの生成
+    kvs::LineObject* object = CreateLineObject();
+
+    // 線分レンダラーの生成
+    kvs::LineRenderer* renderer = new kvs::LineRenderer();
+    renderer->enableAntiAliasing();
+
+    kvs::glut::Screen screen( &app );
+    screen.setTitle( “Create Line Renderer” );
+    screen.registerObject( object, renderer );
+    screen.show();
+
+    return( app.run() );
+}
+}}}
