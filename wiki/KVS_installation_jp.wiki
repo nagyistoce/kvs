@@ -4,4 +4,5 @@
 = 導入 =
 KVSは、Windows、Linux、Mac OS X上で動作する可視化ライブラリです。ユーザは、KVSを利用して様々な可視化アプリケーションを実装することができます。ここでは、KVSの導入方法について説明します。
 
+ * [KVS_setup_jp 準備]
  * [KVS_compile_and_install_jp コンパイルとインストール]
