@@ -2,7 +2,7 @@
 
 = Kyoto Visualization System =
 
- * [KVS_compile_and_install_jp コンパイルとインストール]
+ * [KVS_installation_jp 導入]
  * [KVS_object_jp オブジェクト]
  * [KVS_renderer_jp レンダラー]
  * [KVS_command_line_applications_jp コマンドラインアプリケーション]
