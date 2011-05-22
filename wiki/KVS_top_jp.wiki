@@ -19,4 +19,8 @@
    * [KVS_PolygonRenderer_jp ポリゴンレンダラー]
    * [KVS_VolumeRenderer_jp ボリュームレンダラー]
  * [KVS_command_line_applications_jp コマンドラインアプリケーション]
+   * [KVS_kvsmake_jp kvsmake]
+   * [KVS_kvsview_jp kvsview]
+   * [KVS_kvscheck_jp kvscheck]
+   * [KVS_kvsconv_jp kvsconv]
  * [KVS_XML_data_format_jp KVSデータ形式]
