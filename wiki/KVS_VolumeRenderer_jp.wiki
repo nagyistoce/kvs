@@ -11,7 +11,134 @@
 ここでは、代表的なボリュームレンダリングの１つであるレイキャスティングレンダラーについて簡単に説明します。
 
 == レンダリング機能 ==
+レイキャスティング法は、画素ごとに定義される視線に沿って輝度値方程式と呼ばれる積分方程式を解くことによって対応する輝度値（色）を計算し、画像データを生成する手法です。KVSでは、この手法をレイキャスティングレンダラーとして実装しており、以下のようのような機能を持っています。
+
+*シェーディング*
+ 視線上のサンプリング点上で計算されるスカラ勾配ベクトルをもとにしてシェーディング処理を行います。幾何オブジェクトと同様に、陰影を付けることでより立体感のある描画可能となります。また、ボリュームレンダラーでは、独自にシェーディング機能を実装しており、標準ではサポートされていないフォンシェーディングによる陰影処理が可能です。KVSでは、ランバートモデルによるシェーディングとフォンモデルによるシェーディングを選択することができます。
+
+*伝達関数*
+ ボリュームオブジェクトを描画するためには、格子上に定義される数値データを色データに変換する必要があります。このときに、利用されるものが伝達関数（transfer function）です。一般的に、伝達関数は、横軸に数値データ（スカラ値）をとり、縦軸に色および不透明度をとる関数として表現されます。この伝達関数を適切に設定することによって、特定領域の強調や分類といったことが可能となります。
+
+*詳細度制御*
+ ボリュームレンダリングでは、画素単位で輝度値方程式を計算する必要があり、計算コストの高い処理となるため、幾何オブジェクトの場合に比べ描画速度が低下し対話性が損なわれる可能性があります。それを防ぐために、詳細度（LOD,Level-Of-Detail）制御技術があります。たとえば、データを回転しているときには粗く描画することで対話性を高め、静止時には詳細に描画することで画質を高めて描画するような制御が行われます。
 
 == kvs::!RayCastingRendererクラス ==
+KVSでは、レイキャスティングレンダラーはkvs::!RayCastingRendererクラスとして実装されています。ただし、現在は構造格子型ボリュームオブジェクト（均一格子）のみに対応しています。以下では、kvs::!RayCastingRendererクラスの主なメソッドについて説明します。
+
+{{{
+void enableShading( void )
+}}}
+*機能*<br>
+シェーディング処理を有効にする。
+
+*戻り値*<br>
+なし
+<br><br>
+
+{{{
+void disableShading( void )
+}}}
+*機能*<br>
+シェーディング処理を無効にする。
+
+*戻り値*<br>
+なし
+<br><br>
+
+{{{
+void enableLODControl( const size_t ray_width = 3 )
+}}}
+*機能*<br>
+詳細度制御を有効にする。
+
+*引数*<br>
+ray_width　視線の幅。初期値は３である。ray_width × ray_widthの領域を１単位（同一色）として描画する。この数値を大きくすることで回転時の描画速度は向上するが、画質が粗くなる。
+
+*戻り値*<br>
+なし
+<br><br>
+
+{{{
+void disableLODControl( void )
+}}}
+*機能*<br>
+詳細度制御を無効にする。
+
+*戻り値*<br>
+なし
+
+{{{
+template <typename ShadingType>
+void setShader( const ShadingType shader )
+}}}
+*機能*<br>
+シェーダーを設定する。
+
+*引数*<br>
+shader　シェーダー。ランバートシェーディング（kvs::Shader::Lambert）、フォンシェーディング（kvs::Shader::Phong）、ブリン・フォンシェーディング（kvs::Shader::BlinnPhong）を指定することができる。
+
+*戻り値*<br>
+なし
+<br><br>
+
+{{{
+void setTransferFunction( cont kvs::TransferFunction& tfunc )
+}}}
+*機能*<br>
+伝達関数を設定する。
+
+*引数*<br>
+tfunc　伝達関数
+
+*戻り値*<br>
+なし
+<br><br>
 
 == サンプルプログラム ==
+kvs::!HydrogenVolumeDataクラスを使って構造格子型ボリュームオブジェクト（均一格子）を作成し、それを描画するサンプルコードを以下に示します。
+
+{{{
+#include <kvs/glut/Application>
+#include <kvs/glut/Screen>
+#include <kvs/StructuredVolumeObject>
+#include <kvs/HydrogenVolumeData>
+#include <kvs/RayCastingRenderer>
+#include <kvs/TransferFunction>
+
+
+// メイン関数
+int main( int argc, char** argv )
+{
+    kvs::glut::Application app( argc, argv );
+
+    // 構造格子型の水素分子データ（解像度: 32x32x32）の生成
+    kvs::Vector3ui resolution( 32, 32, 32 );
+    kvs::StructuredVolumeObject* object = new kvs::HydrogenVolumeData( resolution );
+
+    // レイキャスティングレンダラーの生成
+    kvs::RayCastingRenderer* renderer = new kvs::RayCastingRenderer();
+    renderer->enableShading();
+    renderer->enableLODControl( 5 );
+
+    // シェーダーの設定
+    // ＊ランバートシェーダーの場合      kvs::Shader::Lambert( ka, kd )
+    // ＊フォンシェーダーの場合          kvs::Shader::Phong( ka, kd, ks, n )
+    // ＊ブリン・フォンシェーダーの場合  kvs::Shader::BlinnPhong( ka, kd, ks, n )
+    float ka = 0.3;
+    float kd = 0.5;
+    float ks = 0.8;
+    float n  = 100;
+    renderer->setShader( kvs::Shader::Phong( ka, kd, ks, n ) );
+
+    // 伝達関数（256階調）の設定
+    kvs::TransferFunction tfunc( 256 );
+    renderer->setTransferFunction( tfunc );
+
+    kvs::glut::Screen screen( &app );
+    screen.setTitle( "Create Ray-casting Renderer" );
+    screen.registerObject( object, renderer );
+    screen.show();
+
+    return( app.run() );
+}
+}}}
