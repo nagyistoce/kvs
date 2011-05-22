@@ -18,6 +18,8 @@
    * [KVS_LineRenderer_jp 線分レンダラー]
    * [KVS_PolygonRenderer_jp ポリゴンレンダラー]
    * [KVS_VolumeRenderer_jp ボリュームレンダラー]
+ * [KVS_viewer_jp ビューワー]
+ * [KVS_visualization_pipeline_jp 可視化パイプライン]
  * [KVS_command_line_applications_jp コマンドラインアプリケーション]
    * [KVS_kvsmake_jp kvsmake]
    * [KVS_kvsview_jp kvsview]
