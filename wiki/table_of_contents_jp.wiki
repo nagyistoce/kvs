@@ -16,6 +16,8 @@
     * [KVS_PolygonRenderer_jp ポリゴンレンダラー]
     * [KVS_VolumeRenderer_jp ボリュームレンダラー]
   * [KVS_viewer_jp ビューワー]
+    * [KVS_viewer_structure_jp 基本構造]
+    * [KVS_event_processing_jp イベント処理]
   * [KVS_visualization_pipeline_jp 可視化パイプライン]
     * [KVS_pipeline_module_jp モジュール]
     * [KVS_pipeline_topology_jp パイプライン構造]
