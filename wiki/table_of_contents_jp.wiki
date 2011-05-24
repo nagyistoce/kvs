@@ -17,6 +17,8 @@
     * [KVS_VolumeRenderer_jp ボリュームレンダラー]
   * [KVS_viewer_jp ビューワー]
   * [KVS_visualization_pipeline_jp 可視化パイプライン]
+    * [KVS_pipeline_module_jp モジュール]
+    * [KVS_pipeline_topology_jp パイプライン構造]
   * [KVS_command_line_applications_jp コマンドラインアプリケーション]
     * [KVS_kvsmake_jp kvsmake]
     * [KVS_kvsview_jp kvsview]
