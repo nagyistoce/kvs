@@ -2,6 +2,8 @@
 
 = Kyoto Visualization System =
 
- * [KVS_compile_and_install Compile and install]
+ * [KVS_installation Installation]
+   * [KVS_setup Setup]
+   * [KVS_compile_and_install Compile and install]
  * [KVS_command_line_applications Command-line applications]
  * [KVS_XML_data_format KVS data format]
