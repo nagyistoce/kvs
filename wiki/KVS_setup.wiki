@@ -1,4 +1,5 @@
 #summary KVS setup
+sidebar table_of_contents
 
 = Setup =
 In order to compile KVS, the C++ compiler is required. Microsoft Visual C++ can be used for Windows environment, and for Linux and Mac OS X, g++ and make can be used. If the user develop a visualization application, OpenGL Utility Toolkit (GLUT) is required to display the window for the rendering results. And, in order to use the GPU accelerations, OpenGL Extension Wrangler Library (GLEW) is utilized in KVS. If you have no restrictions, we suggest you install these libraries.
