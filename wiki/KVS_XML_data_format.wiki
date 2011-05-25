@@ -1,4 +1,5 @@
 #summary KVS XML data format.
+#sidebar table_of_contents
 
 = KVS XML data format =
 
