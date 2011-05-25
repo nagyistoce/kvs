@@ -1,4 +1,5 @@
 #summary Compile and install.
+#sidebar table_of_contents
 
 <wiki:toc max_depth="3"/>
 
