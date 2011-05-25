@@ -1,4 +1,5 @@
 #summary KVS installation
+#sidebar table_of_contents
 
 = Installation =
 KVS is a visualization library that enables to run on Windows, Linux and Mac OS X. User can develop various visualization applications by using KVS. We will describe about the installation of KVS here.
