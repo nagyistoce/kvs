@@ -1,5 +1,3 @@
-#sidebar table_of_contents
-
 = Kyoto Visualization System =
 
  * [KVS_installation_jp 導入]
