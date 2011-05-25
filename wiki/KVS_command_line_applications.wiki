@@ -1,3 +1,4 @@
 #summary KVS commandline applications.
+#sidebar table_of_contents
 
 = KVS command-line applications =
