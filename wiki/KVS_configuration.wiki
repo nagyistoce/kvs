@@ -1,0 +1,5 @@
+#summary KVS configuration
+#sidebar table_of_contents
+
+= Configuration =
+It is necessary to set an environment variable 'KVS_DIR' before compiling KVS. The compiled libraries and header files are installed into the directory specified by it. And some KVS command line applications are installed into 'KVS_DIR/bin'. Therefore, the user have to add its directory to environment variable 'PATH'. Some examples of the configurations are shown here.
