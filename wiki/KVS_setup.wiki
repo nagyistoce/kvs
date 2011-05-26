@@ -20,4 +20,4 @@ GLUT and GLEW can be download from the following URLs.
 In case of Linux, user can easily install compilers (g++ and make), GLUT and GLEW by using the package manager, such as apt or synaptic on Ubuntu. Note that these packages should be installed as developper version. If freeglut is listed in the package manager, please install it instead of original GLUT.
 
 == Mac OS X ==
-For Mac OS X, g++ and make is installed by installing Xcode. You can donwload Xcode from[http://developer.apple.com/devcenter/mac/index.action Mac Dev Center] and then install it on your Mac. GLUT has already been installed and GLEW can be installed by using [http://www.macports.org/ MacPorts].
+For Mac OS X, g++ and make will be available by installing Xcode. You can donwload Xcode from[http://developer.apple.com/devcenter/mac/index.action Mac Dev Center] and then install it on your Mac. GLUT has already been installed and GLEW can be installed by using [http://www.macports.org/ MacPorts].
