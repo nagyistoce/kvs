@@ -1,37 +1,9 @@
-#summary Compile and install.
+#summary KVS compile and install
 #sidebar table_of_contents
 
-<wiki:toc max_depth="3"/>
+= Compile and Install =
 
-= How to compile and install =
-
-== Settings ==
-
-Environment parameter 'KVS_DIR' should be set before KVS is compiled and installed.
-
-=== Linux/Mac OS X/Cygwin ===
-
- export KVS_DIR=/usr/local/kvs
-
- export PATH=$KVS_DIR/bin:$PATH
-
-=== Windows (Microsoft Visual C/C++) ===
-
- "KVS_DIR" : "C:\Program Files\kvs"
-
- "PATH" : "%PATH%;%KVS_DIR%\bin"
-
-== Compile and Install ==
-
-=== Linux/Mac OS X/Cygwin ===
-
- % cd kvs
-
- % make
-
- % make install
-
-=== Windows ===
+== Windows ==
 
  > cd kvs
 
@@ -39,16 +11,24 @@ Environment parameter 'KVS_DIR' should be set before KVS is compiled and install
 
  > nmake install
 
-== Uninstall ==
-
-=== Linux/Mac OS X/Cygwin ===
+== Linux and Mac OS X ==
 
  % cd kvs
 
- % make uninstall
+ % make
 
-=== Windows ===
+ % make install
+
+= Uninstall =
+
+== Windows ==
 
  > cd kvs
 
  > nmake uninstall
+
+== Linux and Mac OS X ==
+
+ % cd kvs
+
+ % make uninstall
