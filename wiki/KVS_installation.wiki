@@ -6,4 +6,5 @@ KVS is a visualization library that enables to run on Windows, Linux and Mac OS 
 
  * [KVS_setup Setup]
  * [KVS_configuration Configuration]
+ * [KVS_support_library Support Library]
  * [KVS_compile_and_install Compile and Install]
