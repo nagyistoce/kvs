@@ -7,5 +7,6 @@
    * [KVS_configuration Configuration]
    * [KVS_support_library Support Library]
    * [KVS_compile_and_install Compile and install]
+ * [KVS_object Object]
  * [KVS_command_line_applications Command-line applications]
  * [KVS_XML_data_format KVS data format]
