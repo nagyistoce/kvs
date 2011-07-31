@@ -38,8 +38,8 @@ kvsmake.confの記述
   * 例）kvsmake.confにパスとライブラリを追加設定する。
 {{{
 % less kvsmake.conf
-INCLUDE_PATH := /home/usrname/local/include
-LIBRARY_PATH := /home/usrname/local/lib
+INCLUDE_PATH := -I/home/usrname/local/include
+LIBRARY_PATH := -L/home/usrname/local/lib
 LINK_LIBRARY := -lusrlib
 INSTALL_DIR := /home/usrname/local/bin
 }}}
