@@ -25,11 +25,18 @@ kvsviewのその他の用法については、[KVS_kvsview_jp こちらのペー
 == サンプルプログラムのコンパイル ==
 kvsmakeコマンドを利用してサンプルプログラムをコンパイルし実行します。
 
+* Windowsの場合
 {{{
-> cd Example/SupportGLUT/SimpleTriangle    ※ Linux/Macの場合
-> cd Example\SupportGLUT\SimpleTriangle    ※ Windowsの場合
+> cd Example\SupportGLUT\SimpleTriangle
 > kvsmake -G
 > kvsmake
-> ./SimpleTriangle    ※ Linux/Macの場合
-> SimpleTriangle.exe  ※ Windowsの場合
+> SimpleTriangle.exe
+}}}
+
+* Linux/Macの場合
+{{{
+> cd Example/SupportGLUT/SimpleTriangle
+> kvsmake -G
+> kvsmake
+> ./SimpleTriangle
 }}}
