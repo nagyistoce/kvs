@@ -8,3 +8,4 @@ KVSは、Windows、Linux、Mac OS X上で動作する可視化ライブラリで
  * [KVS_configuration_jp 設定]
  * [KVS_support_library_jp ライブラリサポート]
  * [KVS_compile_and_install_jp コンパイルとインストール]
+ * [KVS_demonstration_jp 動作確認]
