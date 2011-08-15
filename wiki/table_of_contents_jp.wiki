@@ -4,6 +4,7 @@
     * [KVS_configuration_jp 設定]
     * [KVS_support_library_jp ライブラリサポート]
     * [KVS_compile_and_install_jp コンパイルとインストール]
+    * [KVS_demonstration_jp 動作確認]
   * [KVS_object_jp オブジェクト]
     * [KVS_PointObject_jp 点オブジェクト]
     * [KVS_LineObject_jp 線分オブジェクト]
