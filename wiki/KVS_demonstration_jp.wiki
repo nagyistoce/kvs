@@ -11,9 +11,13 @@ kvscheckコマンドを利用してインストールされたKVSのバージョ
 KVS version: 1.0.0       ※ バージョン名が表示される。この例では、バージョン1.0.0である。
 }}}
 
+kvscheckのその他の用法については、[KVS_kvscheck_jp こちらのページ]を参考にしてください。
+
 == テストデータの表示 ==
 kvsviewコマンドを利用してテストデータを表示します。テストデータは[http://kvs.googlecode.com/files/KVS-data-1.0.0.zip ここ]からダウンロードしてください。たとえば、ターミナル上で、以下のように入力すると、ロブスターデータの等値面表示ができます。
 
 {{{
 > kvsview -Isosurafce KVSData/lobster.fld
 }}}
+
+kvsviewのその他の用法については、[KVS_kvsview_jp こちらのページ]を参考にしてください。
