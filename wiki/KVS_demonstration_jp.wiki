@@ -21,3 +21,15 @@ kvsviewコマンドを利用してテストデータを表示します。テス�
 }}}
 
 kvsviewのその他の用法については、[KVS_kvsview_jp こちらのページ]を参考にしてください。
+
+== サンプルプログラムのコンパイル ==
+kvsmakeコマンドを利用してサンプルプログラムをコンパイルし実行します。
+
+{{{
+> cd Example/SupportGLUT/SimpleTriangle    ※ Linux/Macの場合
+> cd Example\SupportGLUT\SimpleTriangle    ※ Windowsの場合
+> kvsmake -G
+> kvsmake
+> ./SimpleTriangle    ※ Linux/Macの場合
+> SimpleTriangle.exe  ※ Windowsの場合
+}}}
