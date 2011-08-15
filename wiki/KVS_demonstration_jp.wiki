@@ -17,7 +17,8 @@ kvscheckのその他の用法については、[KVS_kvscheck_jp こちらのペ�
 kvsviewコマンドを利用してテストデータを表示します。テストデータは[http://kvs.googlecode.com/files/KVS-data-1.0.0.zip ここ]からダウンロードしてください。たとえば、ターミナル上で、以下のように入力すると、ロブスターデータの等値面表示ができます。
 
 {{{
-> kvsview -Isosurafce KVSData/lobster.fld
+> cd KVSData
+> kvsview -Isosurafce lobster.fld
 }}}
 
 kvsviewのその他の用法については、[KVS_kvsview_jp こちらのページ]を参考にしてください。
