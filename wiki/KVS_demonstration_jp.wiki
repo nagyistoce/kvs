@@ -12,4 +12,8 @@ KVS version: 1.0.0       ※ バージョン名が表示される。この例で
 }}}
 
 == テストデータの表示 ==
-kvsviewコマンドを利用してテストデータを表示します。テストデータは[http://kvs.googlecode.com/files/KVS-data-1.0.0.zip ここ]からダウンロードしてください。
+kvsviewコマンドを利用してテストデータを表示します。テストデータは[http://kvs.googlecode.com/files/KVS-data-1.0.0.zip ここ]からダウンロードしてください。たとえば、ターミナル上で、以下のように入力すると、ロブスターデータの等値面表示ができます。
+
+{{{
+> kvsview -Isosurafce KVSData/lobster.fld
+}}}
