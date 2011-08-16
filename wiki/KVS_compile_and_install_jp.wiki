@@ -9,7 +9,7 @@
 === Windows ===
 KVSのコンパイルおよびインストールは、コマンドプロンプト上で行います。「スタート」から「すべてのプログラム」を選択し、「Microsoft Visual Studio 2010 Express」から「Visual Studio コマンドプロンプト」をクリック、コマンドプロンプトを起動してください。
 
-Windows環境（Microsoft Visual C++）では、nmakeコマンドを利用してKVSをコンパイルおよびインストールしますします。以下に実行例を示します。KVSのソースコードは「C:\tmp」下にkvsという名前で展開されているとします。
+Windows環境（Microsoft Visual C++）では、nmakeコマンドを利用してKVSをコンパイルおよびインストールします。以下に実行例を示します。KVSのソースコードは「C:\tmp」下にkvsという名前で展開されているとします。
 
 {{{
  > cd C:\tmp\kvs      ※ C:\tmp\kvs に移動
