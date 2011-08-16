@@ -6,6 +6,10 @@
    * [KVS_support_library_jp サポートライブラリ]
    * [KVS_compile_and_install_jp インストール]
    * [KVS_demonstration_jp 動作確認]
+ * [KVS_programming_jp KVSプログラミング]
+   * プログラムの作成と実行
+   * ポリゴンデータの描画
+   * OpenGLの利用
  * [KVS_object_jp オブジェクト]
    * [KVS_PointObject_jp 点オブジェクト]
    * [KVS_LineObject_jp 線分オブジェクト]
