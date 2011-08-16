@@ -32,7 +32,7 @@ GLEWは以下のサイトからバイナリをダウンロードすることが�
 
  [http://glew.sourceforge.net/ GLEW: The OpenGL Extension Wrangler Library]
 
-「Windows 32-bit」をクリックし、ZIPファイルをダウンロードしてください。Windows7を利用している場合でもトラブルを避けるため、64bit版ではなく32bit版をインストールしてください。ファイル解凍後、GLUTと同様に、そこに含まれる以下のファイルを指定するフォルダにコピーしてください。
+「Windows 32-bit」をクリックし、ZIPファイルをダウンロードしてください。Windows7を利用している場合でも、トラブルを避けるため、64bit版ではなく32bit版をインストールしてください。ファイル解凍後、GLUTと同様に、そこに含まれる以下のファイルを指定するフォルダにコピーしてください。
 
 || ファイル名 || コピー先 ||
 || glew32.dll || C:\Windows\System32 ||
