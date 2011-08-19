@@ -1,6 +1,6 @@
 #sidebar table_of_contents_jp
 
-= オブジェクト =
+= 3. オブジェクト =
 KVSにおいて、描画の対象となるデータはオブジェクト（object）と呼ばれ、幾何オブジェクト（geometric object）と３次元空間中に分布する数値データを表すボリュームオブジェクト（volumetric object）に大別されます。
 
 幾何オブジェクトは、点・線分・面（ポリゴン）からなるデータであり、OpenGLやDirect Xといった一般的なグラフィックスライブラリで、基本的な描画要素として標準的にサポートされています。KVSでは、点オブジェクト（point object）、線分オブジェクト（line object）、ポリゴンオブジェクト（polygon object）をつかってそれらのデータ構造を表現することが可能です。
@@ -11,8 +11,8 @@ https://lh3.googleusercontent.com/_X4cB5gzzR7o/TdKMhGy0fuI/AAAAAAAAAC0/wTL77ongy
 
 ここでは、KVSで実装されている各オブジェクトのデータ構造とその取り扱い方について説明します。
 
-  * [KVS_PointObject_jp 点オブジェクト（Point Object）]
-  * [KVS_LineObject_jp 線分オブジェクト（Line Object）]
-  * [KVS_PolygonObject_jp ポリゴンオブジェクト（Polygon Object）]
-  * [KVS_StructuredVolumeObject_jp 構造格子型ボリュームオブジェクト（Structured Volume Object）]
-  * [KVS_UnstructuredVolumeObject_jp 非構造格子型ボリュームオブジェクト（Unstructured Volume Object）]
+  * [KVS_PointObject_jp 3.1 点オブジェクト（Point Object）]
+  * [KVS_LineObject_jp 3.2 線分オブジェクト（Line Object）]
+  * [KVS_PolygonObject_jp 3.3 ポリゴンオブジェクト（Polygon Object）]
+  * [KVS_StructuredVolumeObject_jp 3.4 構造格子型ボリュームオブジェクト（Structured Volume Object）]
+  * [KVS_UnstructuredVolumeObject_jp 3.5 非構造格子型ボリュームオブジェクト（Unstructured Volume Object）]
