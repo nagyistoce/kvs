@@ -1,10 +1,10 @@
 #summary KVS 準備
 #sidebar table_of_contents_jp
 
-= 準備 =
+= 1. 準備 =
 KVSのコンパイルには、C++コンパイラが必要です。Windowsの場合は、Microsoft Visual C++を利用します。また、Linux/Mac OS Xの場合は、gcc (g++) およびmakeを利用します。その他にも、C++コンパイラはいくつか存在しますが、ここでは上記の２つのコンパイラの利用を想定して説明します。また、KVSを利用して可視化アプリケーションを開発する場合、可視化結果をウィンドウに表示するためにGLUTが必要となります。また、KVSではGPUの高速化機能を利用するためにGLEWを利用しています。特に、制限などがない場合、この２つのライブラリを事前にインストールしておいてください。
 
-== Windows ==
+== 1.1.1 Windows ==
 * コンパイラのインストール
 
 Windowsの場合は、Microsoft Visual C++を利用します。無料版のMicrosoft Visual C++ Expressを利用することが可能ですので、以下からインストーラをダウンロードし、指示に従いインストールしてください。
@@ -39,7 +39,7 @@ GLEWは以下のサイトからバイナリをダウンロードすることが�
 || glew32.lib, glew32s.lib || C:\Program Files\Microsoft SDKs\Windows\v7.0A\Lib ||
 || glew.h, wglew.h || C:\Program Files\Microsoft SDKs\Windows\v7.0A\Include\gl ||
 
-== Linux ==
+== 1.1.2 Linux ==
 * コンパイラのインストール
 
 Linuxの場合は、各ディストリビューションに応じたパッケージ管理用GUIアプリケーション（たとえば、UbuntuではSynaptic）を利用してコンパイラ（g++とmake）をインストールすることができます。
@@ -67,7 +67,7 @@ GLEWもGLUTと同様に開発用パッケージをインストールしてくだ
 > sudo apt-get install libglew1.5-dev
 }}}
 
-== Mac OS X ==
+== 1.1.3 Mac OS X ==
 * コンパイラのインストール
 
 Mac OS Xの場合は、Xcodeをインストールするとgcc (g++) およびmakeコマンドがインストールされます。付属DVDもしくはMac Dev CenterからXcodeをダウンロードしインストールしてください。Mac OS X 10.7 Lion を利用している人は、App Storeからダウンロードおよびインストールができます。
