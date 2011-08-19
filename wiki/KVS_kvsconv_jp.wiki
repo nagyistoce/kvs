@@ -1,12 +1,12 @@
 #summary kvsconv
 #sidebar table_of_contents_jp
 
-= 7.4 kvsconv =
+= 8.4 kvsconv =
 
-== 7.4.1 機能 ==
+== 8.4.1 機能 ==
 KVSで読み込み可能なデータを対象としてデータ変換を行う。KVSフォーマットへはこのコマンドを利用して変換することができる。
 
-== 7.4.2 使用方法 ==
+== 8.4.2 使用方法 ==
 {{{
 Usage: kvsconv [options] <input value>
 
@@ -61,7 +61,7 @@ Options:
 			7 = Dot concentrate
 }}}
 
-== 7.4.3 使用例 ==
+== 8.4.3 使用例 ==
 
  # AVS Field データをKVSMLデータ（内部データタイプ）に変換する。
 {{{
