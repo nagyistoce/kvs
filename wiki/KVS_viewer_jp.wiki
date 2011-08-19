@@ -1,7 +1,7 @@
 #summary KVSビューワー
 #sidebar table_of_contents_jp
 
-= ビューワー =
+= 5. ビューワー =
 
- * [KVS_viewer_structure_jp 基本構造]
- * [KVS_event_processing_jp イベント処理]
+ * [KVS_viewer_structure_jp 5.1 基本構造]
+ * [KVS_event_processing_jp 5.2 イベント処理]
