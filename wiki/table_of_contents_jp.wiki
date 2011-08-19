@@ -41,7 +41,7 @@
     * 7.12 STLフォーマット
     * 7.13 Tiff画像フォーマット
   * [KVS_command_line_applications_jp 8. コマンドラインアプリケーション]
-    * [KVS_kvsmake_jp 8.1 kvsmake]
-    * [KVS_kvsview_jp 8.2 kvsview]
-    * [KVS_kvscheck_jp 8.3 kvscheck]
-    * [KVS_kvsconv_jp 8.4 kvsconv]
+    * [KVS_kvsmake_jp 8.1 kvsmakeコマンド]
+    * [KVS_kvsview_jp 8.2 kvsviewコマンド]
+    * [KVS_kvscheck_jp 8.3 kvscheckコマンド]
+    * [KVS_kvsconv_jp 8.4 kvsconvコマンド]
