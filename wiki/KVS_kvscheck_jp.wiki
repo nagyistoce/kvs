@@ -1,12 +1,12 @@
 #summary kvscheck
 #sidebar table_of_contents_jp
 
-= 7.3 kvscheck =
+= 8.3 kvscheck =
 
-== 7.3.1 機能 ==
+== 8.3.1 機能 ==
 KVSのバージョンや利用しているコンパイラの情報などを標準出力に表示する。また、KVSがサポートしている他のライブラリ（GLUT, Qt, SAGEなど）のバージョン情報や、KVSで読み込み可能なデータファイルのチェックも行うことができる。
 
-== 7.3.2 使用方法 ==
+== 8.3.2 使用方法 ==
 {{{
 Usage: kvscheck [options] <input value>
 
@@ -20,7 +20,7 @@ Options:
 -file     : KVSで読み込み可能なファイルの情報を表示する (optional: <filename>)
 }}}
 
-== 7.3.3 使用例 ==
+== 8.3.3 使用例 ==
 
  # 現在インストールされているKVSのバージョンをチェックする。
 {{{
