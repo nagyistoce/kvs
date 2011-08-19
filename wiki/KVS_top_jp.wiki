@@ -27,8 +27,8 @@
  * [KVS_visualization_pipeline_jp 6. 可視化パイプライン]
    * [KVS_pipeline_module_jp 6.1 モジュール]
    * [KVS_pipeline_topology_jp 6.2 パイプライン構造]
- * [KVS_file_format_jp ファイルフォーマット]
-   * [KVS_XML_data_format_jp KVSデータ形式]
+ * [KVS_file_format_jp 7. ファイルフォーマット]
+   * [KVS_XML_data_format_jp 7.1 KVSデータ形式]
    * 7.2 AVS Fieldフォーマット
    * 7.3 AVS UCDフォーマット
    * 7.4 Bitmap画像フォーマット
