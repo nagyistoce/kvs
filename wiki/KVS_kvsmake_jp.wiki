@@ -1,12 +1,12 @@
 #summary kvsmake
 #sidebar table_of_contents_jp
 
-= 7.1 kvsmake =
+= 8.1 kvsmake =
 
-== 7.1.1 機能 ==
+== 8.1.1 機能 ==
 KVSを利用するために必要な設定（インクルードパスおよびライブラリパスの設定やライブラリファイルのリンクなど）を組み込んだメイクファイルを自動生成し、実行ファイルまたはライブラリを作成（コンパイル）する。
 
-== 7.1.2 使用方法 ==
+== 8.1.2 使用方法 ==
 
 {{{
 Usage: kvsmake [options] <project_name/make_options>
@@ -45,7 +45,7 @@ LINK_LIBRARY := -lusrlib
 INSTALL_DIR := /home/usrname/local/bin
 }}}
 
-== 7.1.3 使用例 ==
+== 8.1.3 使用例 ==
 
  # プロジェクト名をカレントディレクトリ名としてコンパイルする。
 {{{
