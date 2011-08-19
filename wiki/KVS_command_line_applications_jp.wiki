@@ -1,7 +1,7 @@
 #summary KVS コマンドラインアプリケーション.
 #sidebar table_of_contents_jp
 
-= 7. コマンドラインアプリケーション =
+= 8. コマンドラインアプリケーション =
 
 KVSをインストール後に、以下のコマンドラインツールがインストールされます。
 
@@ -12,7 +12,7 @@ KVSをインストール後に、以下のコマンドラインツールがイ�
 
 ここでは、それぞれのコマンドについて、以下に説明します。
 
-  * [KVS_kvsmake_jp 7.1 kvsmake]
-  * [KVS_kvsview_jp 7.2 kvsview]
-  * [KVS_kvscheck_jp 7.3 kvscheck]
-  * [KVS_kvsconv_jp 7.4 kvsconv]
+  * [KVS_kvsmake_jp 8.1 kvsmakeコマンド]
+  * [KVS_kvsview_jp 8.2 kvsviewコマンド]
+  * [KVS_kvscheck_jp 8.3 kvscheckコマンド]
+  * [KVS_kvsconv_jp 8.4 kvsconvコマンド]
