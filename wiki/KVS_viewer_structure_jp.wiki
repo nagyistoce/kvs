@@ -1,4 +1,4 @@
 #summary KVSビューワの基本構造
 #sidebar table_of_contents_jp
 
-= 基本構造 =
+= 5.1 基本構造 =
