@@ -65,12 +65,60 @@ kvs::PolygonImporter
 #include <kvs/PolygonImporter>
 }}}
 
-これらのクラスを使って、以下にようにしてポリゴンデータを読み込むことができます。データは、コマンドラインの第一引数でそのファイル名が指定されるとします。
+これらのクラスを使って、以下にようにしてポリゴンデータを読み込み、kvs::!PolygonObjectクラスとして定義されるオブジェクト変数（object）に格納することができます。データは、コマンドラインの第一引数でそのファイル名が指定されるとします。
 
 {{{
 kvs::PolygonObject* object = new kvs::PolygonImporter( argv[1] );
 }}}
 
 == 2.3 スクリーンへの登録 ==
+KVSでは、読み込んだポリゴンデータをスクリーンに登録することによって、ウィンドウ内に表示します。具体的には、以下のようにスクリーン変数（screen）のregisterObjectメソッドを利用して登録することができます。
+
+{{{
+screen.registerObject( object );
+}}}
+
+データの登録は、showメソッドが呼び出される前に実行してください。スクリーンに登録されたデータは、KVS内部でメモリ管理されるため、データ読み込み時に確保したメモリを明示的に解放する必要はありません。つまり、メモリ確保されたobjectをdeleteする必要はありません。
 
 == 2.4 コンパイルと実行 ==
+完成したプログラムは、以下のようになります。
+
+{{{
+#include <kvs/glut/Application>
+#include <kvs/glut/Screen>
+#include <kvs/PolygonObject>
+#include <kvs/PolygonImporter>
+
+int main( int argc, char** argv )
+{
+    kvs::glut::Application app( argc, argv );
+
+    kvs::PolygonObject* object = new kvs::PolygonImporter( argv[1] );
+
+    kvs::glut::Screen screen( &app );
+    screen.registerObject( object );
+    screen.show();
+
+    return( app.run() );
+}
+}}}
+
+ターミナルを開き、プログラムをコンパイルします。「lesson2」フォルダに移動し、以下のようにしてコンパイルしてください。
+
+{{{
+> cd lesson2
+> kvsmake -G
+> kvsmake
+}}}
+
+正常にコンパイルができたら、プログラムを実行します。Windows環境の場合は、以下のように実行します。
+
+{{{
+> lesson2.exe
+}}}
+
+Linux/Mac環境の場合は、以下のように実行します。
+
+{{{
+> ./lesson2
+}}}
