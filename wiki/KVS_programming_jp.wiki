@@ -6,4 +6,4 @@ KVSの導入が終了すると、それを利用して可視化プログラム�
 
  * [KVS_programming_build_jp 2.1 プログラムの作成と実行]
  * [KVS_programming_draw_jp 2.2 データの描画]
- * 2.3 OpenGLの利用
+ * [KVS_programming_opengl_jp 2.3 OpenGLの利用]
