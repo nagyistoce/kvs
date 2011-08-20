@@ -8,7 +8,7 @@
    * [KVS_demonstration_jp 1.5 動作確認]
  * [KVS_programming_jp 2. KVSプログラミング]
    * [KVS_programming_build_jp 2.1 プログラムの作成と実行]
-   * 2.2 データの描画
+   * [KVS_programming_draw_jp 2.2 データの描画]
    * 2.3 OpenGLの利用
  * [KVS_object_jp 3. オブジェクト]
    * [KVS_PointObject_jp 3.1 点オブジェクト]
