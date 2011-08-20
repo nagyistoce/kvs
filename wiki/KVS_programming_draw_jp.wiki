@@ -1,0 +1,76 @@
+#summary KVS データの描画
+#sidebar table_of_contents_jp
+
+= 2.2 データの描画 =
+KVSを使ってポリゴンデータを表示するプログラムを作成し、可視化プログラムの基本構造を説明します。
+
+== 2.1 スクリーンの作成 ==
+前説と同様に、作業フォルダを作成します。「lesson2」という名前のフォルダを作成し、そのフォルダ内に「main.cpp」という名前のファイルを作成してください。
+
+KVSを使った可視化プログラムでは、データを表示するために、以下の2つのクラスを利用します。この2つのクラスは、SupportGLUTに含まれるクラスです。KVSでは、デスクトップ上にウィンドウを表示したり、マウスやキーボードを利用して操作するためにGLUTライブラリを利用しています。
+
+{{{
+kvs::glut::Application
+kvs::glut::Screen
+}}}
+
+ * kvs::glut::Applicationクラスは、GLUTを使ったアプリケーションを統括するクラスです。１つのアプリーションに１つだけ定義します。
+ * kvs::glut::Screenクラスは、表示されるウィンドウ上に実際にデータを描画するための基盤となるクラスです。複数定義した場合、複数のウィンドウが表示されます。
+
+これらのクラスを利用するために、以下のようにヘッダファイルをインクルードします。
+
+{{{
+#include <kvs/glut/Application>
+#include <kvs/glut/Screen>
+}}}
+
+エディタで「main.cpp」を開き、以下のように、可視化プログラムの骨格を記述します。
+
+{{{
+#include <kvs/glut/Application>
+#include <kvs/glut/Screen>
+
+int main( int argc, char** argv )
+{
+    kvs::glut::Application app( argc, argv );
+
+    kvs::glut::Screen screen( &app );
+    screen.show();
+
+    return( app.run() );
+}
+}}}
+
+ * 6行目：アプリケーション変数（app）を定義します。引数に、コマンドライン引数の数（argc）と値（argv）を指定します。
+ * 8行目：スクリーン変数（screen）を定義します。引数に、アプリケーション変数へのポインタを指定します。
+ * 9行目：スクリーン変数のshowメソッドをコールしてスクリーンを表示します。
+ * 11行目：アプリケーション変数のrunメソッドをコールしてプログラムを実行します。
+
+== 2.2 ポリゴンデータの読み込み ==
+
+次に、ポリゴンデータを読み込む処理を記述します。ポリゴンデータを読み込むために、以下の2つのクラスを利用します。
+
+{{{
+kvs::PolygonObject
+kvs::PolygonImporter
+}}}
+
+ * kvs::!PolygonObjectクラスは、ポリゴンデータを構成するデータを格納しておくためのクラスです。
+ * kvs::!PolygonImporterクラスは、ポリゴンデータファイルを読み込み、kvs::!PolygonObjectクラスへデータを格納するためのクラスです。
+
+必要なヘッダファイルは、以下のようにしてインクルードすることができます。
+
+{{{
+#include <kvs/PolygonObject>
+#include <kvs/PolygonImporter>
+}}}
+
+これらのクラスを使って、以下にようにしてポリゴンデータを読み込むことができます。データは、コマンドラインの第一引数でそのファイル名が指定されるとします。
+
+{{{
+kvs::PolygonObject* object = new kvs::PolygonImporter( argv[1] );
+}}}
+
+== 2.3 スクリーンへの登録 ==
+
+== 2.4 コンパイルと実行 ==
