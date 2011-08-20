@@ -111,14 +111,16 @@ int main( int argc, char** argv )
 > kvsmake
 }}}
 
-正常にコンパイルができたら、プログラムを実行します。Windows環境の場合は、以下のように実行します。
+正常にコンパイルができたら、プログラムを実行します。表示するポリゴンデータは、KVSのテストデータを利用します。[http://code.google.com/p/kvs/downloads/detail?name=KVS-data-1.0.0.zip&can=2&q=#makechanges ここ]から、テストデータをダウンロードしてください。展開したフォルダ内にあるポリゴンデータ「polygon.kvsml」をlesson2フォルダにコピーしてください。
+
+Windows環境の場合は、以下のように実行します。
 
 {{{
-> lesson2.exe
+> lesson2.exe polygon.kvsml
 }}}
 
 Linux/Mac環境の場合は、以下のように実行します。
 
 {{{
-> ./lesson2
+> ./lesson2 polygon.kvsml
 }}}
