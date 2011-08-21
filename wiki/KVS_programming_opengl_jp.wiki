@@ -22,6 +22,47 @@ int main( int argc, char** argv )
 }
 }}}
 
-== 2.3.2 イベントの追加 ==
+== 2.3.2 描画イベントの作成 ==
+三角形を描画するために、描画イベントを作成します。まず、OpenGL関数を利用するために必要なヘッダファイルをインクルードします。KVSでは、利用しているOSへの依存をなくすため、以下のようにしてヘッダファイルをインクルードします。
+
+{{{
+#include <kvs/OpenGL>
+}}}
+
+
+次に、描画イベントを作成します。KVSでは、描画イベントを作成するために、kvs::!PaintEventListenerクラスを利用します。以下のようにヘッダファールをインクルードしてください。
+
+{{{
+#include <kvs/PaintEventListener>
+}}}
+
+独自に描画イベントを定義するためには、kvs::!PaintEventListenerクラスを継承したクラスを作成します。そして、そのクラス内部で、updateメソッドを実装します。ここでは、以下のように、三角形を描画するための独自クラス!PaintEventを定義します。
+
+{{{
+class PaintEvent : public kvs::PaintEventListener
+{
+public:
+
+    void update( void );
+};
+}}}
+
+描画する三角形の頂点P0,P1,P2に対応する座標値v0,v1,v2と色c0,c1,c2は、以下のように定義されているとします。
+
+ * 座標値：v0 = (0, 3, 0), v1 = (3, -3, 0), v2 = (-3, -3, 0)
+ * 色： c0 = (255, 0, 0), c1 = (0, 255, 0), c2 = (0, 0, 255)
+
+上のように定義される三角形を、OpenGL関数を使ってupdateメソッド内に、以下のように記述します。
+
+{{{
+void PaintEvent::update( void )
+{
+    glBegin( GL_TRIANGLES );
+    glColor3ub( 255,   0,   0 ); glVertex3d(  0.0,  3.0, 0.0 );
+    glColor3ub(   0, 255,   0 ); glVertex3d(  3.0, -3.0, 0.0 );
+    glColor3ub(   0,   0, 255 ); glVertex3d( -3.0, -3.0, 0.0 );
+    glEnd();
+}
+}}}
 
 == 2.3.3 コンパイルと実行 ==
