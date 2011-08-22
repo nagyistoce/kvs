@@ -36,7 +36,7 @@ int main( int argc, char** argv )
 #include <kvs/PaintEventListener>
 }}}
 
-独自に描画イベントを定義するためには、kvs::!PaintEventListenerクラスを継承したクラスを作成します。そして、そのクラス内部で、updateメソッドを実装します。ここでは、以下のように、三角形を描画するための独自クラス!PaintEventを定義します。
+描画イベントを定義するためには、kvs::!PaintEventListenerクラスを継承した独自クラスを作成します。そして、そのクラス内部で、updateメソッドを実装します。このメソッドは、kvs::!PaintEventListenerクラス内で仮想関数として定義されています。ここでは、以下のように、三角形を描画するための独自クラス!PaintEventを定義します。
 
 {{{
 class PaintEvent : public kvs::PaintEventListener
@@ -52,17 +52,72 @@ public:
  * 座標値：v0 = (0, 3, 0), v1 = (3, -3, 0), v2 = (-3, -3, 0)
  * 色： c0 = (255, 0, 0), c1 = (0, 255, 0), c2 = (0, 0, 255)
 
-上のように定義される三角形を、OpenGL関数を使ってupdateメソッド内に、以下のように記述します。
+上のように定義される三角形を、OpenGL関数を使ってupdateメソッド内に記述します。
 
 {{{
 void PaintEvent::update( void )
 {
     glBegin( GL_TRIANGLES );
-    glColor3ub( 255,   0,   0 ); glVertex3d(  0.0,  3.0, 0.0 );
-    glColor3ub(   0, 255,   0 ); glVertex3d(  3.0, -3.0, 0.0 );
-    glColor3ub(   0,   0, 255 ); glVertex3d( -3.0, -3.0, 0.0 );
+    glColor3ub( 255,   0,   0 ); glVertex3d(  0.0,  3.0, 0.0 ); // c0, v0
+    glColor3ub(   0, 255,   0 ); glVertex3d(  3.0, -3.0, 0.0 ); // c1, v1
+    glColor3ub(   0,   0, 255 ); glVertex3d( -3.0, -3.0, 0.0 ); // c2, v2
     glEnd();
 }
 }}}
 
 == 2.3.3 コンパイルと実行 ==
+完成したプログラムは以下のようになります。
+
+{{{
+#include <kvs/glut/Application>
+#include <kvs/glut/Screen>
+#include <kvs/PaintEventListener>
+
+class PaintEvent : public kvs::PaintEventListener
+{
+public:
+
+    void update( void );
+};
+
+void PaintEvent::update( void )
+{
+    glBegin( GL_TRIANGLES );
+    glColor3ub( 255,   0,   0 ); glVertex3d(  0.0,  3.0, 0.0 ); // c0, v0
+    glColor3ub(   0, 255,   0 ); glVertex3d(  3.0, -3.0, 0.0 ); // c1, v1
+    glColor3ub(   0,   0, 255 ); glVertex3d( -3.0, -3.0, 0.0 ); // c2, v2
+    glEnd();
+}
+
+int main( int argc, char** argv )
+{
+    kvs::glut::Application app( argc, argv );
+
+    kvs::glut::Screen screen( &app );
+    screen.show();
+
+    return( app.run() );
+}
+}}}
+
+前節と同様に、ターミナルを開き、プログラムをコンパイルします。「lesson3」フォルダに移動し、以下のようにしてコンパイルしてください。
+
+{{{
+> cd lesson3
+> kvsmake -G
+> kvsmake
+}}}
+
+コンパイルが終了したら、プログラムを実行します。
+
+Windows環境では、以下のように実行します。
+
+{{{
+> lesson3.exe
+}}}
+
+Linux/Mac環境では、以下のように実行します。
+
+{{{
+> ./lesson3
+}}}
