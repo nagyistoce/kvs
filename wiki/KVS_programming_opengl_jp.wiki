@@ -95,7 +95,10 @@ int main( int argc, char** argv )
 {
     kvs::glut::Application app( argc, argv );
 
+    PaintEvent paint_event;
+
     kvs::glut::Screen screen( &app );
+    screen.addPaintEvent( &paint_event );
     screen.show();
 
     return( app.run() );
