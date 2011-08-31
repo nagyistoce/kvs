@@ -15,6 +15,7 @@ Options:
 -version   : KVSのバージョンを表示する 。(optional)
 -platform  : プラットフォーム情報を表示する。 (optional)
 -compiler  : コンパイラ情報を表示する。(optional)
+-sizeof    : 数値型のサイズ（バイト数）を表示する。 (optional)
 -support   : サポートしている他ライブラリの情報を表示する。 (optional)
 -minmax    : 数値の最小値および最大値を表示する。 (optional)
 -opengl    : OpenGLに関する情報を表示する。 (optional)
