@@ -12,22 +12,23 @@ Usage: kvsview [options] <input data file>
 
 Options:
 -h			: ヘルプメッセージを表示する。
--help			: 変換コマンドごとのヘルプメッセージを表示する。 (ex. -help Isosurface)
+-help			: 可視化コマンドごとのヘルプメッセージを表示する。 (ex. -help Isosurface)
 -PointRenderer		: ポイントデータに対してPointRendererを利用して表示する。
 -LineRenderer		: ラインデータに対してLineRendererを利用して表示する。
 -PolygonRenderer	: ポリゴンデータに対してPolygonRendererを利用して表示する。
--ParticleVolumeRenderer	: ボリュームデータに対してPBVRでの可視化結果を表示する。※未実装
--RayCastingRenderer	: ボリュームデータに対してレイキャスティングでの可視化結果を表示する。※未実装
--OrthoSlice		: ボリュームデータに対して直交断面を表示する。
--SlicePlane		: ボリュームデータに対して任意断面を表示する。
 -Isosurface		: ボリュームデータに対して等値面抽出結果を表示する。
+-SlicePlane		: ボリュームデータに対して任意断面を表示する。
+-OrthoSlice		: ボリュームデータに対して直交断面を表示する。
 -TransferFunction	: 伝達関数（カラーマップ）を表示する。
 -ExtractEdges		: ボリュームデータに対して格子エッジを表示する。
 -ExtractVertices 	: ボリュームデータに対して格子点を表示する。
 -ExternalFaces		: ボリュームデータに対してデータ境界面（最外表面）を表示する。
+-ParticleVolumeRenderer	: ボリュームデータに対してPBVRでの可視化結果を表示する。
+-RayCastingRenderer	: ボリュームデータに対してレイキャスティングでの可視化結果を表示する。
+-Histogram              : ボリュームデータに対してヒストグラムを表示する。
 }}}
 
- # PointRendererを利用した表示
+ # !PointRendererを利用した表示
 {{{
 Usage: kvsview -PointRenderer [options] <input data file>
 
