@@ -1,0 +1,5 @@
+#summary KVS コーディング規約
+#sidebar table_of_contents_jp
+
+= 9. KVS コーディング規約 =
+KVSのソースコードを記述するための規約についてまとめます。
