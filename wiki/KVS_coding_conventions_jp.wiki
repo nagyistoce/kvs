@@ -14,7 +14,7 @@
 void func()
 {
     int x;
-    do_something(x);
+    DoSomething(x);
 }
 }}}
 
@@ -24,12 +24,12 @@ void func()
 {{{
 if ( x == y )
 {
-   do_something();
+   DoSomething();
 }
 
 for ( int i = 0; i < 10; i++ )
 {
-   do_something();
+   DoSomething();
 }
 }}}
 
