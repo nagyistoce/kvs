@@ -46,3 +46,4 @@
    * [KVS_kvsview_jp 8.2 kvsviewコマンド]
    * [KVS_kvscheck_jp 8.3 kvscheckコマンド]
    * [KVS_kvsconv_jp 8.4 kvsconvコマンド]
+* [KVS_coding_conventions_jp 9. コーディング規約]
