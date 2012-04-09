@@ -49,3 +49,4 @@
     * [KVS_coding_style_jp 9.1 スタイル規約]
     * [KVS_coding_naming_jp 9.2 命名規約]
     * [KVS_coding_programing_jp 9.3 プログラミング規約]
+    * [KVS_coding_document_jp 9.4 ドキュメント規約]
