@@ -148,3 +148,27 @@ void Func( void )
     DoSomething();
 }
 }}}
+
+=== 9.1.6 初期化リスト ===
+クラスの複数のメンバ変数に対してコンストラクタで初期化を行う場合、メンバ変数であることを目立たせるなどの目的で、初期化リストの行頭に区切り文字「,」を付けることがありますが、KVSでは「,」は行末に付けることとします。
+
+{{{
+// Good
+ClassName::ClassName( int param1, int param2, int param3 ):
+    m_param1( param1 ),
+    m_param2( param2 ),
+    m_param3( param3 )
+{
+    DoSomething();
+}
+}}}
+{{{
+// Bad
+ClassName::ClassName( int param1, int param2, int param3 )
+    : m_param1( param1 )
+    , m_param2( param2 )
+    , m_param3( param3 )
+{
+    DoSomething();
+}
+}}}
