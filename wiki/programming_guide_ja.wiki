@@ -23,7 +23,12 @@
  * マルチスレッド
     * スレッド（kvs::Thread）
  * ネットワーク
-    
+    * TCPソケット（kvs::TCPSocket）
  * ユーティリティクラス
-   * 数値型配列クラス（kvs::!ValueArray）
-   * 任意数値型配列クラス（kvs::!AnyValueArray）
+   * コマンドライン（kvs::!CommandLine）
+   * ファイル（kvs::File）
+   * ディレクトリ（kvs::Directory）
+   * 基本型（kvs::Int8, kvs::UInt8）
+   * エンディアン（kvs::Endian）
+   * 数値型配列（kvs::!ValueArray）
+   * 任意数値型配列（kvs::!AnyValueArray）
