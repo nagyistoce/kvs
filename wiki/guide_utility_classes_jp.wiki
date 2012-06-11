@@ -1,0 +1,14 @@
+#summary Utility classes
+#sidebar programming_guide_toc_jp
+
+= ユーティリティクラス =
+
+以下に示すユーティリティクラスの使い方について説明します。
+
+ * [guide_commandline_jp コマンドライン（kvs::CommadLine）]
+ * [guide_file_jp ファイル（kvs::File）]
+ * [guide_directory_jp ディレクトリ（kvs::Directory）]
+ * [guide_type_jp 基本型（kvs::Int8, kvs::UInt8, ...）]
+ * [guide_endian_jp エンディアン（kvs::Endian）]
+ * [guide_valuearray_jp 数値型配列（kvs::ValueArray）]
+ * [guide_anyvaluearray_jp 任意数値型配列（kvs::AnyValueArray）]
