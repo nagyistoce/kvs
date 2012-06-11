@@ -1,0 +1,15 @@
+#summary kvs::Type
+#sidebar programming_guide_toc_jp
+
+= KVS基本型 =
+
+||ヘッダファイル||`#include <kvs/Type>`||
+||クラス名||`kvs::Int8, kvs::UInt8, kvs::Int16, kvs::UInt16, kvs::Int32, kvs::Int32, kvs::Real32, kvs::Real64`||
+
+== 機能 ==
+これら型は、環境に依存しない整数および実数を表す基本型です。
+
+== 主なメソッド ==
+
+
+== サンプルプログラム ==
