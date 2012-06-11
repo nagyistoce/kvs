@@ -23,7 +23,7 @@
     * スレッド（kvs::Thread）
  * ネットワーク
     * TCPソケット（kvs::TCPSocket）
- * ユーティリティクラス
+ * [guide_utility_classes ユーティリティクラス]
    * [guide_commandline_jp コマンドライン（kvs::CommandLine）]
    * [guide_file_jp ファイル（kvs::File）]
    * [guide_directory_jp ディレクトリ（kvs::Directory）]
