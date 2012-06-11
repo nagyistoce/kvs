@@ -25,7 +25,7 @@
     * TCPソケット（kvs::TCPSocket）
  * ユーティリティクラス
    * [guide_commandline_jp コマンドライン（kvs::CommandLine）]
-   * ファイル（kvs::File）
+   * [guide_file_jp ファイル（kvs::File）]
    * ディレクトリ（kvs::Directory）
    * 基本型（kvs::Int8, kvs::UInt8）
    * エンディアン（kvs::Endian）
