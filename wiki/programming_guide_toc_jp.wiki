@@ -26,8 +26,8 @@
  * ユーティリティクラス
    * [guide_commandline_jp コマンドライン（kvs::CommandLine）]
    * [guide_file_jp ファイル（kvs::File）]
-   * ディレクトリ（kvs::Directory）
-   * 基本型（kvs::Int8, kvs::UInt8）
-   * エンディアン（kvs::Endian）
-   * 数値型配列（kvs::!ValueArray）
-   * 任意数値型配列（kvs::!AnyValueArray）
+   * [guide_directory_jp ディレクトリ（kvs::Directory）]
+   * [guide_type_jp 基本型（kvs::Int8, kvs::UInt8, ...）]
+   * [guide_endian_jp エンディアン（kvs::Endian）]
+   * [guide_valuearray_jp 数値型配列（kvs::ValueArray）]
+   * [guide_anyvaluearray_jp 任意数値型配列（kvs::AnyValueArray）]
