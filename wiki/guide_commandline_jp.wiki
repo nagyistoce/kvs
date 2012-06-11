@@ -1,4 +1,4 @@
-#summary kvsmake
+#summary kvs::CommandLine
 #sidebar programming_guide_toc_jp
 
 = kvs::!CommandLineクラス =
