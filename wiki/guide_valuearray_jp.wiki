@@ -1,0 +1,15 @@
+#summary kvs::ValueArray
+#sidebar programming_guide_toc_jp
+
+= kvs::!ValueArrayクラス =
+
+||ヘッダファイル||`#include <kvs/ValueArray>`||
+||クラス名||`kvs::ValueArray<T>`||
+
+== 機能 ==
+このクラスは、数値型の配列を表すクラスです。
+
+== 主なメソッド ==
+
+
+== サンプルプログラム ==
