@@ -1,0 +1,15 @@
+#summary kvs::Endian
+#sidebar programming_guide_toc_jp
+
+= kvs::Endianクラス =
+
+||ヘッダファイル||`#include <kvs/Endian>`||
+||クラス名||`kvs::Endian`||
+
+== 機能 ==
+このクラスは、エンディアンの判別およびバイトスワップを行うためのクラスです。
+
+== 主なメソッド ==
+
+
+== サンプルプログラム ==
