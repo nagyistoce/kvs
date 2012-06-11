@@ -1,7 +1,7 @@
 #summary kvs::File
 #sidebar programming_guide_toc_jp
 
-= kvs::!Fileクラス =
+= kvs::Fileクラス =
 
 ||ヘッダファイル||`#include <kvs/File>`||
 ||クラス名||`kvs::File`||
