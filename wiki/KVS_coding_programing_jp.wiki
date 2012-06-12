@@ -31,13 +31,13 @@ void Func( const ClassA& input, ClassB* output1, ClassC* input_output )
 ヘッダファイルの多重インクルードを防ぐため、すべて大文字で"`KVS__<名前空間名>__<ファイル名>_H_INCLUDE`"という書式のシンボル名を持つインクルードガード（defineガード）をヘッダファイルに記述することとします。ただし、名前空間がない場合は<名前空間>は省略可能であり、<ファイル名>が複数の単語からなる場合は下線で区切り記述することとします。また、最近では、多くのコンパイラで"`#pragma once`"（pragmaガード）が利用可能になってきていることから、defineガードにかえてpragmaガードを試験的に導入していくことを検討しています。
 
 {{{
-#ifndef KVS__NAMESPACE__FILE_NAME_H_INCLDE
-#define KVS__NAMESPACE__FILE_NAME_H_INCLDE
+#ifndef KVS__NAMESPACE__FILE_NAME_H_INCLUDE
+#define KVS__NAMESPACE__FILE_NAME_H_INCLUDE
 ...
 #endif
 
-#ifndef KVS__FILE_NAME_H_INCLDE
-#define KVS__FILE_NAME_H_INCLDE
+#ifndef KVS__FILE_NAME_H_INCLUDE
+#define KVS__FILE_NAME_H_INCLUDE
 ...
 #endif
 }}}
