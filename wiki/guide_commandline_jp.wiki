@@ -50,12 +50,20 @@ bool hasOptionValue( const std::string& option_name ) const
 }}}
 
 {{{
+size_t numberOfOptions() const
+}}}
+
+{{{
 template <class T>
 T value( size_t index = 0 ) const
 }}}
 
 {{{
 bool hasValues() const
+}}}
+
+{{{
+size_t numberOfValues() const
 }}}
 
 == サンプルプログラム ==
