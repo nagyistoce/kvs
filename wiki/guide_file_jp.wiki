@@ -13,10 +13,6 @@
 このクラスの主なメソッドを説明します。
 
 {{{
-File()
-}}}
-
-{{{
 File( const std::string& file_path )
 }}}
 
