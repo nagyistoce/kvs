@@ -96,7 +96,7 @@ int main( int argc, char** argv )
     commandline.addValue( "filename.", false );
 
     // コマンドライン引数を解析する。
-    if ( !commandline.parse() ) return 0;
+    if ( !commandline.parse() ) return 1;
 
     // オプション「x」で指定される数値を取得する。
     float x = commandline.optionValue<float>("x");
@@ -136,7 +136,7 @@ int main( int argc, char** argv )
     else
     {
         std::cerr << "Unknown operator '" << o << "'." << std::endl;
-        return 0;
+        return 1;
     }
 
     // 演算結果を出力する。
@@ -154,6 +154,6 @@ int main( int argc, char** argv )
         std::cout << x << " " << o << " " << y << " = " << result << std::endl;
     }
 
-    return 1;
+    return 0;
 }
 }}}
