@@ -6,6 +6,43 @@ KVS 1.x から2.0へのバージョンアップに伴い、いくつかの仕様
 
 ----
 
+== バージョンの確認 ==
+現在、利用しているKVSのバージョンを確認する方法について説明します。
+
+=== kvscheckコマンドを利用した確認方法 ===
+kvscheckコマンドを利用して、現在インストールされているKVSのバージョンを確認することができます。コマンドターミナルを開けて、以下のようにコマンドを実行してください。kvscheckコマンドの利用法については[KVS_kvscheck_jp こちら]を参考にしてください。
+
+{{{
+> kvsmake -version
+KVS version: 2.0.0
+}}}
+
+=== ソースコード内での確認方法 ===
+kvs::Versionクラスを利用して、ソースコード内でKVSのバージョンを確認することができます。ヘッダファイル「`<kvs/Version>`」をインクルードし、以下のようにしてバージョン情報を取得することができます。[KVS_programming_build_jp こちら]にも説明がありますので、参考にしてください。
+
+{{{
+#include <kvs/Version>
+}}}
+{{{
+size_t major = kvs::Version::MajorVersion(); // メジャーバージョン番号の取得
+size_t minor = kvs::Version::MinorVersion(); // マイナーバージョン番号の取得
+size_t patch = kvs::Version::PatchVersion(); // パッチバージョン番号の取得
+}}}
+
+=== プリプロセッサ命令を利用した確認方法 ===
+プリプロセッサ命令（#if）を利用して、コンパイル時にバージョンを確認することができます。ヘッダファイル「`<kvs/Version>`」をインクルードし、以下のようにしてバージョンの違いによりソースコードの記述を切り分けることができます。
+
+{{{
+#include <kvs/Version>
+}}}
+{{{
+#if ( KVS_VERSION_MAJOR == 1 )
+    // KVSのバージョンが1.x.xのときの処理
+#elif ( KVS_VERSION_MAJOR == 2 )
+    // KVSのバージョンが2.x.xのときの処理
+#endif
+}}}
+
 == ユーティリティクラス ==
 
 === kvs::!CommandLine ===
