@@ -7,9 +7,91 @@
 ||クラス名||`kvs::ValueArray<T>`||
 
 == 機能 ==
-このクラスは、数値型の配列を表すクラスです。
+このクラスは、数値型の配列を表すクラスです。通常の配列と同じ働きをしますが、配列のサイズ（要素数）の管理に加えて、データの共有を実現することができます。配列のコピーという操作には、見かけ上複数の配列が生成されますが、実際には同じデータであるので、メモリ上でそのデータを共有するコピー（shallow copy）と、実際にメモリ上で同じデータを複数配置するコピー（deep copy）が考えられます。kvs::!ValueArrayクラスを利用して、このような操作を簡単に実現することができます。
 
 == 主なメソッド ==
+このクラスの主なメソッドを説明します。
 
+{{{
+ValueArray( const size_t size )
+}}}
+
+{{{
+ValueArray( const T* values, const size_t size )
+}}}
+
+{{{
+ValueArray( const std::vector<T>& values )
+}}}
+
+{{{
+template <typename InIter>
+ValueArray( InIter first, InIter last )
+}}}
+
+{{{
+void assign( const value_type* values, const size_t size )
+}}}
+
+{{{
+template <typename InIter>
+void assign( InIter first, InIter last )
+}}}
+
+{{{
+T& operator []( const size_t index )
+}}}
+
+{{{
+const T& operator []( const size_t index ) const
+}}}
+
+{{{
+ValueArray& operator =( const ValueArray& rhs )
+}}}
+
+{{{
+size_t size() const
+}}}
+
+{{{
+size_t byteSize() const
+}}}
+
+{{{
+void swap( ValueArray& other )
+}}}
+
+{{{
+ValueArray clone() const
+}}}
+
+{{{
+T& at( const size_t index )
+}}}
+
+{{{
+const T& at( const size_t index ) const
+}}}
+
+{{{
+void allocate( const size_t size )
+}}}
+
+{{{
+void release()
+}}}
+
+{{{
+void fill( const T& value )
+}}}
+
+{{{
+bool unique() const
+}}}
+
+{{{
+void isolate()
+}}}
 
 == サンプルプログラム ==
