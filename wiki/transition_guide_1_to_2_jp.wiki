@@ -97,6 +97,44 @@ isExisted
 exists
 }}}
 
+=== kvs::Endian ===
+いくつかのメソッド名および引数の仕様を変更しました。
+
+==== 修正点1 ====
+Checkが何を確認するのかが不明瞭であったため、Checkを廃止し、具体的にビッグエンディアンまたはリトルエンディアンかどうかを確認するためのメソッド（!IsBig, !IsLittle）を追加しましたので、以下のように修正してください。
+
+{{{
+// 修正前
+if ( kvs::Endian::Check() == kvs::Endian::Big )
+    // ビッグエンディアンであった場合の処理
+if ( kvs::Endian::Check() == kvs::Endian::Little )
+    // リトルエンディアンであった場合の処理
+}}}
+
+{{{
+// 修正後
+if ( kvs::Endian::IsBig() )
+    // ビッグエンディアンであった場合の処理
+if ( kvs::Endian::IsLittle() )
+    // リトルエンディアンであった場合の処理
+}}}
+
+==== 修正点2 ====
+プログラミング規約に従いバイトスワップ対象となる数値を参照渡しではなくポインタ渡しに変更しましたので、以下のように修正してください。
+
+{{{
+// 修正前
+kvs::Real32 value = 123.4f;
+kvs::Endian::Swap( value );
+}}}
+
+{{{
+// 修正後
+kvs::Real32 value = 123.4f;
+kvs::Endian::Swap( &value );
+}}}
+
+
 === kvs::!ValueArray ===
 
 === kvs::!AnyValueArray ===
