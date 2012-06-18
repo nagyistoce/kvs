@@ -43,6 +43,37 @@ size_t patch = kvs::Version::PatchVersion(); // パッチバージョン番号�
 #endif
 }}}
 
+== 削除されたクラス ==
+
+=== kvs::glut::!GlobalBase, kvs::glut::!ScreenBaseなど ===
+KVS1.0をリリースする以前のバージョンでは、たとえば、GLUTを使ってビューワアプリケーションを作成する場合は、ユーザが`kvs::glut::GlobalBase`および`kvs::glut::ScreenBase`を継承して独自のグローバルクラスおよびスクリーンクラスを定義する必要がありました。KVS1.0では、`kvs::glut::Application`および`kvs::glut::Screen`を利用して、継承することなく、ビューワアプリケーションの開発が可能となりましたが、下位バージョンとの互換性のために、それらに関連するクラスを残していました。KVS2.0へのバージョンアップを機に、下位互換性のために残していた以下のクラスを削除しました。
+
+{{{
+// 削除されたクラス
+kvs::GlobalCore
+kvs::ScreenCore
+kvs::WindowBase
+kvs::glut::GlobalBase
+kvs::glut::ScreenBase
+kvs::glut::Window
+kvs::qt::GlobalBase
+kvs::qt::ScreenBase
+kvs::qt::Window
+kvs::sage::GlobalBase
+kvs::sage::ScreenBase
+}}}
+
+KVS2.0以降のバージョンでは、以下のクラスを利用してください。ビューワアプリケーションの開発は、[KVS_programming_draw_jp こちら]を参考にしてください。
+
+{{{
+kvs::glut::Application
+kvs::glut::Screen
+kvs::qt::Application
+kvs::qt::Screen
+kvs::sage::Application
+kvs::sage::Screen
+}}}
+
 == ユーティリティクラス ==
 
 === kvs::!CommandLine ===
