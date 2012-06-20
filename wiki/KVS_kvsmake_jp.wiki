@@ -45,6 +45,15 @@ LINK_LIBRARY := -lusrlib
 INSTALL_DIR := /home/usrname/local/bin
 }}}
 
+  * 例）Windows環境下でMSVCを利用している場合は、パスの指定方法などが異なる。そのため、「kvsmake.vc.conf」という名前のファイルを用意し、以下のようにMSVC向けの設定を行うことができる。
+{{{
+% less kvsmake.conf
+INCLUDE_PATH := /Ic:\home\usrname\local\include
+LIBRARY_PATH := /LIBPATH:c:\home\usrname\local\lib
+LINK_LIBRARY := usrlib.lib
+INSTALL_DIR := c:\home\usrname\local\bin
+}}}
+
 == 8.1.3 使用例 ==
 
  # プロジェクト名をカレントディレクトリ名としてコンパイルする。
