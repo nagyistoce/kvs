@@ -169,7 +169,7 @@ kvs::Endian::Swap( &value );
 === kvs::!ValueArray ===
 
 ==== 修正点1 ====
-shallowCopy( const ValueArray& )が廃止されました。代わりに代入演算子を使用してください。
+shallowCopy( const !ValueArray`&` )が廃止されました。代わりに代入演算子を使用してください。
 
 {{{
 // 修正前
@@ -182,7 +182,7 @@ a = b;
 }}}
 
 ==== 修正点2 ====
-deepCopy( const ValueArray& )が廃止されました。代わりにclone()を使用してください。
+deepCopy( const !ValueArray`&` )が廃止されました。代わりにclone()を使用してください。
 
 {{{
 // 修正前
@@ -195,7 +195,7 @@ a = b.clone();
 }}}
 
 ==== 修正点3 ====
-deepCopy( const T*, size_t )が廃止されました。代わりにassign()を使用してください。
+deepCopy( const T`*`, size_t )が廃止されました。代わりにassign()を使用してください。
 
 {{{
 // 修正前
