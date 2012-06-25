@@ -168,4 +168,96 @@ kvs::Endian::Swap( &value );
 
 === kvs::!ValueArray ===
 
+==== 修正点1 ====
+shallowCopy( const ValueArray& )が廃止されました。代わりに代入演算子を使用してください。
+
+{{{
+// 修正前
+a.shallowCopy( b );
+}}}
+
+{{{
+// 修正後
+a = b;
+}}}
+
+==== 修正点2 ====
+deepCopy( const ValueArray& )が廃止されました。代わりにclone()を使用してください。
+
+{{{
+// 修正前
+a.deepCopy( b );
+}}}
+
+{{{
+// 修正後
+a = b.clone();
+}}}
+
+==== 修正点3 ====
+deepCopy( const T*, size_t )が廃止されました。代わりにassign()を使用してください。
+
+{{{
+// 修正前
+a.deepCopy( b, n );
+}}}
+
+{{{
+// 修正後
+a.assign( b, n );
+}}}
+
+==== 修正点4 ====
+isEmpty()の名称がempty()に変更されました。
+
+{{{
+// 修正前
+a.isEmpty();
+}}}
+
+{{{
+// 修正後
+a.empty();
+}}}
+
+==== 修正点5 ====
+swapByte()が廃止されました。代わりにEndian::Swap()を使用してください。ただし数値型に限ります。
+
+{{{
+// 修正前
+a.swapByte();
+}}}
+
+{{{
+// 修正後
+kvs::Endian::Swap( a.data(), a.size() );
+}}}
+
+==== 修正点6 ====
+deallocate()の名称がrelease()に変更されました。
+
+{{{
+// 修正前
+a.deallocate();
+}}}
+
+{{{
+// 修正後
+a.release();
+}}}
+
+==== 修正点7 ====
+allocate( size_t )の返り値がvoidに変更されました。従来の返り値を使用したい場合は、data()を使用してください。なお、従来はメモリ確保に失敗した場合、NULLを返す場合がありましたが、KVS2.0では、std::bad_allocが投げられます。
+
+{{{
+// 修正前
+T* p = a.allocate( n );
+}}}
+
+{{{
+// 修正後
+a.allocate( n );
+T* p = a.data();
+}}}
+
 === kvs::!AnyValueArray ===
