@@ -15,10 +15,14 @@
 {{{
 ValueArray( const size_t size )
 }}}
+size個の要素を持つ配列を新たに確保します。
 
 {{{
 ValueArray( const T* values, const size_t size )
 }}}
+size個の要素を持つ配列を新たに確保し、
+valuesが指す要素を先頭としてsize個の要素で配列を初期化します。
+valuesからvalue+size-1が有効なポインタである必要があります。
 
 {{{
 ValueArray( const std::vector<T>& values )
@@ -32,66 +36,79 @@ ValueArray( InIter first, InIter last )
 {{{
 void assign( const value_type* values, const size_t size )
 }}}
+v.assign( values, size )
+は
+v = ValueArray( values, size )
+と等価です。
 
 {{{
 template <typename InIter>
 void assign( InIter first, InIter last )
 }}}
+v.assign( first, last )
+は
+v = ValueArray( first, last )
+と等価です。
 
 {{{
 T& operator []( const size_t index )
-}}}
-
-{{{
 const T& operator []( const size_t index ) const
 }}}
-
-{{{
-ValueArray& operator =( const ValueArray& rhs )
-}}}
+index番目の要素にアクセスします。
 
 {{{
 size_t size() const
 }}}
+配列の要素数を返します。
 
 {{{
 size_t byteSize() const
 }}}
+配列のメモリ上での大きさをバイト単位で返します。
 
 {{{
 void swap( ValueArray& other )
 }}}
+otherと要素を入れ替えます。
 
 {{{
 ValueArray clone() const
 }}}
+配列のdeep copyを返します。
 
 {{{
 T& at( const size_t index )
-}}}
-
-{{{
 const T& at( const size_t index ) const
 }}}
+事前条件:index < size()
 
 {{{
 void allocate( const size_t size )
 }}}
+事後条件:size() == size
+size個の要素を新たに確保します。
 
 {{{
 void release()
 }}}
+事後条件:empty() == true
+配列を解放します。
 
 {{{
 void fill( const T& value )
 }}}
+配列の要素を全てvalueで埋めます。
 
 {{{
 bool unique() const
 }}}
+配列が共有されていなければtrueを返します。
 
 {{{
 void isolate()
 }}}
+事後条件:unique() == true
+配列の共有を切断します。
+配列を共有している他のValueArrayに影響を与えずに配列の内容を書き換えたい場合に使用します。
 
 == サンプルプログラム ==
