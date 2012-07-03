@@ -260,4 +260,7 @@ a.allocate( n );
 T* p = a.data();
 }}}
 
+==== 修正点8 ====
+counter()が廃止されました。完全な代替の関数はありませんが、counter()->value()と同等の値はuse_count()で取得できます。また、手動で参照カウントを増加、減少させるcounter()->increment()及びcounter()->decrement()は、sharedPointer()で共有ポインタを取得し、それを別の場所で保持することで代替可能です。マルチスレッド時に、counter()->key()によって実現していたMutexによる排他処理は、KVS_ENABLE_THREAD_SAFEをコンパイル時にセットすることで自動で行われるようになりました。
+
 === kvs::!AnyValueArray ===
