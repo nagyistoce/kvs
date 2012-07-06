@@ -289,7 +289,7 @@ AnyValueArray a( p, n );
 
 {{{
 // 修正後
-AnyValueArray a( ValueArray( p, n ) );
+AnyValueArray a( kvs::ValueArray( p, n ) );
 }}}
 
 ==== 修正点2 ====
@@ -411,4 +411,4 @@ static_cast<const T*>( a.data() ); //const版
 }}}
 
 ==== 修正点11 ====
-`counter()`が廃止されました。代替の関数はありませんが、`ValueArray`に変換することで、同等の機能を得ることができます。詳しくは`ValueArray.counter()`の修正を参照してください。
+`counter()`が廃止されました。代替の関数はありませんが、`sharedPointer()`を使うことで、同等の機能を得ることができます。詳しくは`ValueArray.counter()`の修正を参照してください。
