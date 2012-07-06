@@ -169,7 +169,7 @@ kvs::Endian::Swap( &value );
 === kvs::!ValueArray ===
 
 ==== 修正点1 ====
-shallowCopy( const !ValueArray`&` )が廃止されました。代わりに代入演算子を使用してください。
+`shallowCopy( const ValueArray& )`が廃止されました。代わりに代入演算子を使用してください。
 
 {{{
 // 修正前
@@ -182,7 +182,7 @@ a = b;
 }}}
 
 ==== 修正点2 ====
-deepCopy( const !ValueArray`&` )が廃止されました。代わりにclone()を使用してください。
+`deepCopy( const ValueArray& )`が廃止されました。代わりに`clone()`を使用してください。
 
 {{{
 // 修正前
@@ -195,7 +195,7 @@ a = b.clone();
 }}}
 
 ==== 修正点3 ====
-deepCopy( const T`*`, size_t )が廃止されました。代わりにassign()を使用してください。
+`deepCopy( const T*, size_t )`が廃止されました。代わりに`assign()`を使用してください。
 
 {{{
 // 修正前
@@ -208,7 +208,7 @@ a.assign( b, n );
 }}}
 
 ==== 修正点4 ====
-isEmpty()の名称がempty()に変更されました。
+`isEmpty()`の名称が`empty()`に変更されました。
 
 {{{
 // 修正前
@@ -221,7 +221,7 @@ a.empty();
 }}}
 
 ==== 修正点5 ====
-swapByte()が廃止されました。代わりにEndian::Swap()を使用してください。ただし数値型に限ります。
+`swapByte()`が廃止されました。代わりに`Endian::Swap()`を使用してください。ただし数値型に限ります。
 
 {{{
 // 修正前
@@ -234,7 +234,7 @@ kvs::Endian::Swap( a.data(), a.size() );
 }}}
 
 ==== 修正点6 ====
-deallocate()の名称がrelease()に変更されました。
+`deallocate()`の名称が`release()`に変更されました。
 
 {{{
 // 修正前
@@ -247,7 +247,7 @@ a.release();
 }}}
 
 ==== 修正点7 ====
-allocate( size_t )の返り値がvoidに変更されました。従来の返り値を使用したい場合は、data()を使用してください。なお、従来はメモリ確保に失敗した場合、NULLを返す場合がありましたが、KVS2.0では、std::bad_allocが投げられます。
+`allocate( size_t )`の返り値が`void`に変更されました。従来の返り値を使用したい場合は、`data()`を使用してください。なお、従来はメモリ確保に失敗した場合、`NULL`を返す場合がありましたが、KVS2.0では、`std::bad_alloc`が投げられます。
 
 {{{
 // 修正前
@@ -261,6 +261,154 @@ T* p = a.data();
 }}}
 
 ==== 修正点8 ====
-counter()が廃止されました。完全な代替の関数はありませんが、counter()->value()と同等の値はuse_count()で取得できます。また、手動で参照カウントを増加、減少させるcounter()->increment()及びcounter()->decrement()は、sharedPointer()で共有ポインタを取得し、それを別の場所で保持することで代替可能です。マルチスレッド時に、counter()->key()によって実現していたMutexによる排他処理は、KVS_ENABLE_THREAD_SAFEをコンパイル時にセットすることで自動で行われるようになりました。
+`pointer()`の名称が`data()`に変更されました。
+
+{{{
+// 修正前
+a.pointer();
+}}}
+
+{{{
+// 修正後
+a.data();
+}}}
+
+==== 修正点9 ====
+`counter()`が廃止されました。完全な代替の関数はありませんが、`counter()->value()`と同等の値は`use_count()`で取得できます。また、手動で参照カウントを増加、減少させる`counter()->increment(`)及び`counter()->decrement()`は、`sharedPointer()`で共有ポインタを取得し、それを別の場所で保持することで代替可能です。マルチスレッド時に、`counter()->key()`によって実現していたMutexによる排他処理は、`KVS_ENABLE_THREAD_SAFE`をコンパイル時にセットすることで自動で行われるようになりました。
 
 === kvs::!AnyValueArray ===
+以前の`AnyValueArray`の使い方は危険なものが多かったので、直接配列の中身を操作するような関数を廃止し、`ValueArray`をラップすることに集中し、配列の操作は`ValueArray`に任せる形にしました。直接配列の中身を操作したい場合は、`asValueArray`で`ValueArray`型に変換してから使ってください。なお、`v = a.asValueArray<T>()`のようにして生成した`ValueArray v`は、`a`と配列を共有します。このため、`v`を書き換えると、`a`の内容も書き換わります。このことに注意して使ってください。
+
+==== 修正点1 ====
+コンストラクタ`AnyValueArray( const T*, size_t )`が廃止されました。以下のように修正してください。
+
+{{{
+// 修正前
+AnyValueArray a( p, n );
+}}}
+
+{{{
+// 修正後
+AnyValueArray a( ValueArray( p, n ) );
+}}}
+
+==== 修正点2 ====
+コンストラクタ`AnyValueArray( const std::vector<T>& )`が廃止されました。以下のように修正してください。
+
+{{{
+// 修正前
+kvs::AnyValueArray a( v );
+}}}
+
+{{{
+// 修正後
+kvs::AnyValueArray a( kvs::ValueArray( v ) );
+}}}
+
+==== 修正点3 ====
+`shallowCopy( const ValueArray<T>& )`が廃止されました。以下のように修正してください。
+
+{{{
+// 修正前
+a.shallowCopy( b );
+}}}
+
+{{{
+// 修正後
+a = kvs::AnyValueArray( b );
+}}}
+
+==== 修正点4 ====
+`shallowCopy( const AnyValueArray& )`が廃止されました。代わりに代入演算子を使用してください。
+
+{{{
+// 修正前
+a.shallowCopy( b );
+}}}
+
+{{{
+// 修正後
+a = b;
+}}}
+
+==== 修正点5 ====
+`deepCopy( const T*, size_t )`が廃止されました。以下のように修正してください。
+
+{{{
+// 修正前
+a.deepCopy( p, n );
+}}}
+
+{{{
+// 修正後
+a = kvs::AnyValueArray( kvs::ValueArray( p, n ) );
+}}}
+
+==== 修正点6 ====
+`isEmpty()`の名称が`empty()`に変更されました。
+
+{{{
+// 修正前
+a.isEmpty();
+}}}
+
+{{{
+// 修正後
+a.empty();
+}}}
+
+==== 修正点7 ====
+`swapByte()`が廃止されました。代わりに`Endian::Swap()`を使用してください。以下のように修正すれば、同等の機能が得られますが、基本的にエンディアン変換は`ValueArray`の段階で行なってください。
+
+{{{
+// 修正前
+a.swapByte();
+}}}
+
+{{{
+// 修正後
+
+}}}
+
+==== 修正点8 ====
+`deallocate()`の名称が`release()`に変更されました。
+
+{{{
+// 修正前
+a.deallocate();
+}}}
+
+{{{
+// 修正後
+a.release();
+}}}
+
+==== 修正点9 ====
+`pointer()`の名称が`data()`に変更されました。
+
+{{{
+// 修正前
+a.pointer();
+}}}
+
+{{{
+// 修正後
+a.data();
+}}}
+
+==== 修正点10 ====
+`pointer<T>()`が廃止されました。以下のようにすれば、同等の機能が得られますが、基本的に`ValueArray`に変換してから`ValueArray.data()`を使うようにしてください。
+
+{{{
+// 修正前
+a.pointer<T>();
+}}}
+
+{{{
+// 修正後
+static_cast<T*>( a.data() ); //非const版
+static_cast<const T*>( a.data() ); //const版
+}}}
+
+==== 修正点11 ====
+`counter()`が廃止されました。代替の関数はありませんが、`ValueArray`に変換することで、同等の機能を得ることができます。詳しくは`ValueArray.counter()`の修正を参照してください。
