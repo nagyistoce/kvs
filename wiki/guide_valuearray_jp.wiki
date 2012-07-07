@@ -21,29 +21,29 @@ size個の要素を持つ配列を新たに確保します。<br>
 {{{
 ValueArray( const T* values, const size_t size )
 }}}
-size個の要素を持つ配列を新たに確保し、valuesが指す要素を先頭として、size個の要素で配列を初期化します。<br>
-事前条件:[ values, values+size )が有効な範囲である。<br>
-事後条件:size() == size<br>
+`size`個の要素を持つ配列を新たに確保し、`values`が指す要素を先頭として、`size`個の要素で配列を初期化します。<br>
+事前条件:`[ values, values+size )`が有効な範囲である。<br>
+事後条件:`size() == size`<br>
 
 {{{
 ValueArray( const std::vector<T>& values )
 }}}
-事後条件:size() == values.size()<br>
+事後条件:`size() == values.size()`<br>
 
 {{{
 template <typename InIter>
 ValueArray( InIter first, InIter last )
 }}}
-事前条件:[ first, last )が有効な範囲である。<br>
-事後条件:size() == std::distance( first, last )<br>
+事前条件:`[ first, last )`が有効な範囲である。<br>
+事後条件:`size() == std::distance( first, last )`<br>
 
 {{{
 void assign( const value_type* values, const size_t size )
 }}}
 要素を代入します。<br>
-v.assign( values, size )
+`v.assign( values, size )`
 は
-v = !ValueArray( values, size )
+`v = ValueArray( values, size )`
 と等価です。
 
 {{{
@@ -51,17 +51,17 @@ template <typename InIter>
 void assign( InIter first, InIter last )
 }}}
 要素を代入します。<br>
-v.assign( first, last )
+`v.assign( first, last )`
 は
-v = !ValueArray( first, last )
+`v = ValueArray( first, last )`
 と等価です。
 
 {{{
 T& operator []( const size_t index )
 const T& operator []( const size_t index ) const
 }}}
-index番目の要素にアクセスします。<br>
-事前条件:index < size()
+`index`番目の要素にアクセスします。<br>
+事前条件:`index < size()`
 
 {{{
 size_t size() const
@@ -76,7 +76,7 @@ size_t byteSize() const
 {{{
 void swap( ValueArray& other )
 }}}
-otherと配列を入れ替えます。
+`other`と配列を入れ替えます。
 
 {{{
 ValueArray clone() const
@@ -87,30 +87,30 @@ ValueArray clone() const
 T& at( const size_t index )
 const T& at( const size_t index ) const
 }}}
-事前条件:index < size()
+事前条件:`index < size()`
 
 {{{
 void allocate( const size_t size )
 }}}
-size個の要素を新たに確保します。<br>
-事後条件:size() == size
+`size`個の要素を新たに確保します。<br>
+事後条件:`size() == size`
 
 {{{
 void release()
 }}}
 配列を解放します。<br>
-事後条件:empty() == true
+事後条件:`empty() == true`
 
 {{{
 void fill( const T& value )
 }}}
-配列の要素を全てvalueで埋めます。
+配列の要素を全て`value`で埋めます。
 
 {{{
 bool unique() const
 }}}
-配列が共有されていなければtrueを返します。<br>
-ただし、empty() == trueの場合の返り値は不定です。
+配列が共有されていなければ`true`を返します。<br>
+ただし、`empty() == true`の場合の返り値は不定です。
 <wiki:comment>
 これはSharedPointer(std::shared_ptr)の仕様です。
 </wiki:comment>
@@ -119,8 +119,8 @@ bool unique() const
 void isolate()
 }}}
 配列の共有を切断します。<br>
-配列を共有している他の!ValueArrayに影響を与えずに配列の内容を書き換えたい場合に使用します。<br>
-事後条件:unique() == true || empty() == true<br>
+配列を共有している他の`ValueArray`に影響を与えずに配列の内容を書き換えたい場合に使用します。<br>
+事後条件:`unique() == true || empty() == true`<br>
 <wiki:comment>
 unique() == trueの方がわかりやすくていいか？
 </wiki:comment>
