@@ -74,6 +74,36 @@ kvs::sage::Application
 kvs::sage::Screen
 }}}
 
+== ファイルフォーマットクラス ==
+
+=== kvs::AVSFieldなど ===
+kvs::AVSFieldクラスなど!FileFormatに所属するクラスは、読み込んだデータの情報を標準出力するために<<オペレータを定義していましたが、それを廃止しインデント付き出力にも対応するためにprintメソッドを追加しました。その他、staticメソッド名の変更および一部廃止しました。
+
+==== 修正点1 ====
+<<オペレータの代わりにprintメソッドを利用してください。
+{{{
+// 修正前
+kvs::AVSField field("lobster.fld");
+std::cout << field << std::endl;
+
+// 修正後
+kvs::AVSField field("lobster.fld");
+field.print( std::cout ); // インデントなし
+field.print( std::cout, kvs::Indent(2) ); // インデント２を指定
+}}}
+
+==== 修正点2 ====
+メソッド名を以下のように修正してください。ただし、KVSML関係クラス以外のクラスにおいては、!CheckFileFormatメソッドを廃止しました。
+{{{
+// 修正前
+CheckFileExtension
+CheckFileFormat
+
+// 修正後
+CheckExtension
+CheckFormat // KVSML関係クラスのみ
+}}}
+
 == ユーティリティクラス ==
 
 === kvs::!CommandLine ===
