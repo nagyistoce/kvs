@@ -11,7 +11,7 @@
    * カラー画像（kvs::!ColorImage）
    * グレースケール画像（kvs::!GrayImage）
    * ビット画像（kvs::!BitImage）
- * 行列演算
+ * [guide_matrix_classes_jp 行列演算]
    * 2,3,4次元ベクトル（kvs::Vector2, kvs::Vector3, kvs::Vector4）
    * N次元ベクトル（kvs::Vector）
    * 2,3,4次正方行列（kvs::Matrix22, kvs::Matrix33, kvs::Matrix44）
