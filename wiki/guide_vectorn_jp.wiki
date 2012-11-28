@@ -1,0 +1,14 @@
+#summary kvs::Vector
+#sidebar programming_guide_toc_jp
+
+= kvs::Vectorクラス =
+
+||ヘッダファイル||`#include <kvs/Vector>`||
+||クラス名||`kvs::Vector<T>`||
+
+== 機能 ==
+このクラスは、N次元ベクトルを表すクラスです。
+
+== 主なメソッド ==
+
+== サンプルプログラム ==
