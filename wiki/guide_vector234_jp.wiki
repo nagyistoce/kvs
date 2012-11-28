@@ -1,0 +1,33 @@
+#summary kvs::Vector2, kvs::Vector3, kvs::Vector4
+#sidebar programming_guide_toc_jp
+
+= kvs::Vector2, kvs::Vector3, kvs::Vector4クラス =
+
+||ヘッダファイル||`#include <kvs/Vector2>`<br>`#include <kvs/Vector3>`<br>`#include <kvs/Vector4>`||
+||クラス名||`kvs::Vector2<T>`<br>`kvs::Vector3<T>`<br>`kvs::Vector4<T>`||
+
+== 機能 ==
+このクラスは、2,3,4次元ベクトルを表すクラスです。
+
+
+== 主なメソッド ==
+
+=== 共通メソッド ===
+
+=== 2次元ベクトルクラスのみのメソッド ===
+
+=== 3次元ベクトルクラスのみのメソッド ===
+
+=== 4次元ベクトルクラスのみのメソッド ===
+
+
+== 別名定義 ==
+このクラスは、可視化プログラムも開発する際に、最も多く利用するクラスのひとつであるため、プログラム内での変数定義を簡略化するために、以下のような別名定義をしています。
+
+|| クラス名 || 別名 ||
+|| `kvs::Vector2<int>` || `kvs::Vector2i` ||
+|| `kvs::Vector2<unsigned int>` || `kvs::Vector2ui` ||
+|| `kvs::Vector2<float>`<br>`kvs::Vector3<float>`<br>`kvs::Vector4<float>` || `kvs::Vector2f`<br>`kvs::Vector3f`<br>`kvs::Vector4f` ||
+|| `kvs::Vector2<double>`<br>`kvs::Vector3<double>`<br>`kvs::Vector4<double>` || `kvs::Vector2d`<br>`kvs::Vector3d`<br>`kvs::Vector4d` ||
+
+== サンプルプログラム ==
