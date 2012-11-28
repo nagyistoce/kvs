@@ -13,9 +13,9 @@
    * ビット画像（kvs::!BitImage）
  * [guide_matrix_classes_jp 行列演算]
    * [guide_vector234_jp 2,3,4次元ベクトル（kvs::Vector2, kvs::Vector3, kvs::Vector4）]
-   * N次元ベクトル（kvs::Vector）
-   * 2,3,4次正方行列（kvs::Matrix22, kvs::Matrix33, kvs::Matrix44）
-   * MxN行列（kvs::Matrix）
+   * [guide_vectorn_jp N次元ベクトル（kvs::Vector）]
+   * [guide_matrix234_jp 2,3,4次正方行列（kvs::Matrix22, kvs::Matrix33, kvs::Matrix44）]
+   * [guide_matrixmn_jp MxN行列（kvs::Matrix）]
  * 数値計算
    * 乱数の生成（kvs::!BoxMuller, kvs::!MersenneTwister, kvs::Xorshift128）
    * 固有値分解（kvs::!EigenDecomposer）
