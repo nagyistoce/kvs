@@ -1,0 +1,31 @@
+#summary kvs::Matrix22, kvs::Matrix33, kvs::Matrix44
+#sidebar programming_guide_toc_jp
+
+= kvs::Matrix22, kvs::Matrix33, kvs::Matrix44クラス =
+
+||ヘッダファイル||`#include <kvs/Matrix22>`<br>`#include <kvs/Matrix33>`<br>`#include <kvs/Matrix44>`||
+||クラス名||`kvs::Matrix22<T>`<br>`kvs::Matrix33<T>`<br>`kvs::Matrix44<T>`||
+
+== 機能 ==
+このクラスは、2,3,4次正方行列を表すクラスです。
+
+
+== 主なメソッド ==
+
+=== 共通メソッド ===
+
+=== 2次正方行列クラスのみ ===
+
+=== 3次正方行列クラスのみ ===
+
+=== 4次正方行列クラスのみ ===
+
+
+== 別名定義 ==
+このクラスは、可視化プログラムも開発する際に、最も多く利用するクラスのひとつであるため、プログラム内での変数定義を簡略化するために、以下のような別名定義をしています。
+
+|| クラス名 || 別名 ||
+|| `kvs::Matrix22<float>`<br>`kvs::Matrix33<float>`<br>`kvs::Matrix44<float>` || `kvs::Matrix22f`<br>`kvs::Matrix33f`<br>`kvs::Matrix44f` ||
+|| `kvs::Matrix22<double>`<br>`kvs::Matrix33<double>`<br>`kvs::Matrix44<double>` || `kvs::Matrix22d`<br>`kvs::Matrix33d`<br>`kvs::Matrix44d` ||
+
+== サンプルプログラム ==
