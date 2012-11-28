@@ -14,19 +14,18 @@
 
 === 共通メソッド ===
 
-=== 2次元ベクトルクラスのみのメソッド ===
+=== 2次元ベクトルクラスのみ ===
 
-=== 3次元ベクトルクラスのみのメソッド ===
+=== 3次元ベクトルクラスのみ ===
 
-=== 4次元ベクトルクラスのみのメソッド ===
+=== 4次元ベクトルクラスのみ ===
 
 
 == 別名定義 ==
 このクラスは、可視化プログラムも開発する際に、最も多く利用するクラスのひとつであるため、プログラム内での変数定義を簡略化するために、以下のような別名定義をしています。
 
 || クラス名 || 別名 ||
-|| `kvs::Vector2<int>` || `kvs::Vector2i` ||
-|| `kvs::Vector2<unsigned int>` || `kvs::Vector2ui` ||
+|| `kvs::Vector2<int>`<br>`kvs::Vector2<unsigned int>` || `kvs::Vector2i`<br>`kvs::Vector2ui` ||
 || `kvs::Vector2<float>`<br>`kvs::Vector3<float>`<br>`kvs::Vector4<float>` || `kvs::Vector2f`<br>`kvs::Vector3f`<br>`kvs::Vector4f` ||
 || `kvs::Vector2<double>`<br>`kvs::Vector3<double>`<br>`kvs::Vector4<double>` || `kvs::Vector2d`<br>`kvs::Vector3d`<br>`kvs::Vector4d` ||
 
