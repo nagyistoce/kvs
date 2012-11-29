@@ -142,6 +142,24 @@ kvs::Matrix33f m = kvs::Matrix33f::All( 2.0 ); // 全ての要素を2.0にする
 m = kvs::Matrix33f::All( 3.0 ); // 全ての要素を3.0にする。
 }}}
 
+=== kvs::Matrix ===
+行列の行数と列数を取得するためのメソッドの名前を変更しました。
+
+==== 修正点 ====
+以下のように修正してください。
+{{{
+// 修正前
+kvs::Matrix<float> m( 3, 4 );
+size_t nrows = m.nrows(); // 行数を取得する。
+size_t ncolumns = m.ncolumns(); // 列数を取得する。
+}}}
+{{{
+// 修正後
+kvs::Matrix<float> m( 3, 4 );
+size_t nrows = m.rowSize(); // 行数を取得する。
+size_t ncolumns = m.columnSize(); // 列数を取得する。
+}}}
+
 == ファイルフォーマットクラス ==
 
 === kvs::AVSFieldなど ===
