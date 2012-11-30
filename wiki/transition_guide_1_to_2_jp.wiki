@@ -74,6 +74,38 @@ kvs::sage::Application
 kvs::sage::Screen
 }}}
 
+== ファイルフォーマットクラス ==
+
+=== kvs::AVSFieldなど ===
+kvs::AVSFieldクラスなど!FileFormatに所属するクラスは、読み込んだデータの情報を標準出力するために<<オペレータを定義していましたが、それを廃止しインデント付き出力にも対応するためにprintメソッドを追加しました。その他、staticメソッド名の変更および一部廃止しました。
+
+==== 修正点1 ====
+<<オペレータの代わりにprintメソッドを利用してください。
+{{{
+// 修正前
+kvs::AVSField field("lobster.fld");
+std::cout << field << std::endl;
+}}}
+{{{
+// 修正後
+kvs::AVSField field("lobster.fld");
+field.print( std::cout ); // インデントなし
+field.print( std::cout, kvs::Indent(2) ); // インデント２を指定
+}}}
+
+==== 修正点2 ====
+メソッド名を以下のように修正してください。ただし、KVSML関係クラス以外のクラスにおいては、!CheckFileFormatメソッドを廃止しました。
+{{{
+// 修正前
+CheckFileExtension
+CheckFileFormat
+}}}
+{{{
+// 修正後
+CheckExtension
+CheckFormat // KVSML関係クラスのみ
+}}}
+
 == 行列演算クラス ==
 
 === kvs::Vector2, kvs::Vector3, kvs::Vector4, kvs::Vector ===
@@ -160,36 +192,44 @@ size_t nrows = m.rowSize(); // 行数を取得する。
 size_t ncolumns = m.columnSize(); // 列数を取得する。
 }}}
 
-== ファイルフォーマットクラス ==
+== 数値計算クラス ==
 
-=== kvs::AVSFieldなど ===
-kvs::AVSFieldクラスなど!FileFormatに所属するクラスは、読み込んだデータの情報を標準出力するために<<オペレータを定義していましたが、それを廃止しインデント付き出力にも対応するためにprintメソッドを追加しました。その他、staticメソッド名の変更および一部廃止しました。
+=== kvs::!ResponseSurface ===
+サンプル点の数および変数の数を取得するメソッド名を変更しました。
 
 ==== 修正点1 ====
-<<オペレータの代わりにprintメソッドを利用してください。
+メソッド名を以下のように修正しました。
 {{{
 // 修正前
-kvs::AVSField field("lobster.fld");
-std::cout << field << std::endl;
+kvs::ResponseSurface rs;
+size_t npoints = rs.npoints(); // サンプル点の数の取得
+size_t nvariables = rs.nvariables(); // 変数の数の取得
 }}}
 {{{
 // 修正後
-kvs::AVSField field("lobster.fld");
-field.print( std::cout ); // インデントなし
-field.print( std::cout, kvs::Indent(2) ); // インデント２を指定
+kvs::ResponseSurface rs;
+size_t npoints = rs.numberOfPoints(); // サンプル点の数の取得
+size_t nvariables = rs.numberOfVariables(); // 変数の数の取得
 }}}
 
-==== 修正点2 ====
-メソッド名を以下のように修正してください。ただし、KVSML関係クラス以外のクラスにおいては、!CheckFileFormatメソッドを廃止しました。
+== スレッドクラス ==
+
+=== kvs::Thread ===
+３つのスリープメソッドの名前を変更しました。
+
+==== 修正点1 ====
+メソッド名を以下のように修正してください。
 {{{
 // 修正前
-CheckFileExtension
-CheckFileFormat
+kvs::Thread::sleep(1); // 1秒スリープ
+kvs::Thread::msleep(1); // 1ミリ秒スリープ
+kvs::Thread::usleep(1); // 1マイクロ秒スリープ
 }}}
 {{{
 // 修正後
-CheckExtension
-CheckFormat // KVSML関係クラスのみ
+kvs::Thread::Sleep(1); // 1秒スリープ
+kvs::Thread::MilliSleep(1); // 1ミリ秒スリープ
+kvs::Thread::MicroSleep(1); // 1マイクロ秒スリープ
 }}}
 
 == ユーティリティクラス ==
