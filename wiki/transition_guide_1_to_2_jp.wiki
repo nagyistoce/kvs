@@ -232,6 +232,24 @@ kvs::Thread::MilliSleep(1); // 1ミリ秒スリープ
 kvs::Thread::MicroSleep(1); // 1マイクロ秒スリープ
 }}}
 
+== 可視化クラス ==
+
+=== kvs::Tubeline ===
+チューブの分割数を指定するメソッドの名前を修正しました。
+
+=== 修正点1 ===
+メソッド名を以下のように修正してください。
+{{{
+// 修正前
+kvs::Tubeline* tubeline = new kvs::Tubeline();
+tubeline->setNDivisions( 10 );
+}}}
+{{{
+// 修正後
+kvs::Tubeline* tubeline = new kvs::Tubeline();
+tubeline->setNumberOfDivisions( 10 );
+}}}
+
 == ユーティリティクラス ==
 
 === kvs::!CommandLine ===
