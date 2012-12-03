@@ -250,6 +250,25 @@ kvs::Tubeline* tubeline = new kvs::Tubeline();
 tubeline->setNumberOfDivisions( 10 );
 }}}
 
+=== kvs::!ArrowGlyph, kvs::!DiamondGlyph, kvs::!SphereGlyph ===
+グリフ系クラスをMapperからRendererに移動しました。その影響で利用方法が少し変更になりました。
+
+==== 修正点1 ====
+以下のように修正してください。kvs::!DiamondGlyphクラスおよびkvs::!SphereGlyphクラスについても同様に修正してください。その他詳細については、参考プログラム [http://code.google.com/p/kvs/source/browse/trunk/Example/Visualization/ArrowGlyph/main.cpp ArrowGlyph]、[http://code.google.com/p/kvs/source/browse/trunk/Example/Visualization/DiamondGlyph/main.cpp DiamondGlyph]、[http://code.google.com/p/kvs/source/browse/trunk/Example/Visualization/SphereGlyph/main.cpp SphereGlyph]を参考にしてください。
+{{{
+// 修正前
+kvs::StructuredVolumeObject* volume = new kvs::StructuredVolumeImporter( filename ); // ベクタデータの読み込み
+kvs::GlyphObject* object = new kvs::ArrowGlyph( volume );
+kvs::GlyphRenderer* renderer = new kvs::GlyphRenderer();
+screen.registerObject( object, renderer );
+}}}
+{{{
+// 修正後
+kvs::StructuredVolumeObject* object = new kvs::StructuredVolumeImporter( filename ); // ベクタデータの読み込み
+kvs::ArrowGlyph* renderer = new kvs::ArrowGlyph();
+screen.registerObject( object, renderer );
+}}}
+
 == ユーティリティクラス ==
 
 === kvs::!CommandLine ===
