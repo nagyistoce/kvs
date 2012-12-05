@@ -269,6 +269,56 @@ kvs::ArrowGlyph* renderer = new kvs::ArrowGlyph();
 screen.registerObject( object, renderer );
 }}}
 
+=== kvs::!PointObjectなど ===
+kvs::!PointObjectクラスをはじめとするObject系クラスで、情報を標準出力する<<オペレータを廃止しました。代わりに、printメソッドを利用してください。その他、いくつかのクラスでメソッド名を変更しています。
+
+==== 修正点1 ====
+以下のように修正してください。
+{{{
+// 変更前
+kvs::PointObject object;
+std::cout << object << std::endl;
+}}}
+{{{
+// 変更後
+kvs::PointObject object;
+object.print( std::cout ); // インデントなし
+object.print( std::cout, kvs::Indent(2) ); // インデント2を指定
+}}}
+
+==== 修正点2 ====
+「〇〇の数」を返すメソッドおよび設定するメソッドの名前を変更しました。以下のように修正してください。
+{{{
+// 修正前
+nvertices // 頂点の数
+ncolors // 色値の数
+nnormals // 法線ベクトルの数
+nconnections // 接続情報の数
+nsizes // サイズ値の数
+nopacities // 不透明値の数
+nnodes // ノードの数
+ncells // セルの数
+nnodesPerLine // 1行あたりのノードの数（kvs::StructuredVolumeObject）
+nnodesPerSlice // 1スライスあたりのノードの数（kvs::StructuredVolumeObject）
+setNNodes // ノードの数を設定する（kvs::UnstructuredVolumeObject）
+setNCells // セルの数を設定する（kvs::UnstructuredVolumeObject）
+}}}
+{{{
+// 修正後
+numberOfVertices // 頂点の数
+numberOfColors // 色値の数
+numberOfNormals // 法線ベクトルの数
+numberOfConnections // 接続情報の数
+numberOfSizes // サイズ値の数
+numberOfOpacities // 不透明値の数
+numberOfNodes // ノードの数
+numberOfCells // セルの数
+numberOfNodesPerLine // 1行あたりのノードの数（kvs::StructuredVolumeObject）
+numberOfNodesPerSlice // 1スライスあたりのノードの数（kvs::StructuredVolumeObject）
+setNumberOfNodes // ノードの数を設定する（kvs::UnstructuredVolumeObject）
+setNumberOfCells // セルの数を設定する（kvs::UnstructuredVolumeObject）
+}}}
+
 == ユーティリティクラス ==
 
 === kvs::!CommandLine ===
