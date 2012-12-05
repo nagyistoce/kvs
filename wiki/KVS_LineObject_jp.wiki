@@ -37,7 +37,7 @@ KVSでは、線分オブジェクトは以下のような情報から構成さ�
 KVSでは、線分オブジェクトはkvs::!LineObjectクラスとして実装されています。以下では、kvs::!LineObjectクラスの主なメソッドについて説明します。
 
 {{{
-const kvs::ValueArray<kvs::Real32>& coords( void )
+const kvs::ValueArray<kvs::Real32>& coords()
 }}}
 *機能*<br>
 点の座標値の配列を返す。
@@ -47,7 +47,7 @@ const kvs::ValueArray<kvs::Real32>& coords( void )
 <br><br>
 
 {{{
-const kvs::ValueArray<kvs::UInt8>& colors( void )
+const kvs::ValueArray<kvs::UInt8>& colors()
 }}}
 *機能*<br>
 点または線分のカラー値の配列を返す。
@@ -57,7 +57,7 @@ const kvs::ValueArray<kvs::UInt8>& colors( void )
 <br><br>
 
 {{{
-const kvs::ValueArray<kvs::Real32>& normals( void )
+const kvs::ValueArray<kvs::Real32>& normals()
 }}}
 *機能*<br>
 点の法線ベクトルの配列を返す。
@@ -67,7 +67,7 @@ const kvs::ValueArray<kvs::Real32>& normals( void )
 <br><br>
 
 {{{
-const kvs::ValueArray<kvs::Real32>& sizes( void )
+const kvs::ValueArray<kvs::Real32>& sizes()
 }}}
 *機能*<br>
 線分の太さの配列を返す。
@@ -77,7 +77,7 @@ const kvs::ValueArray<kvs::Real32>& sizes( void )
 <br><br>
 
 {{{
-const kvs::ValueArray<kvs::UInt32>& connections( void )
+const kvs::ValueArray<kvs::UInt32>& connections()
 }}}
 *機能*<br>
 接続情報の配列（頂点番号の配列）を返す。
@@ -87,7 +87,7 @@ const kvs::ValueArray<kvs::UInt32>& connections( void )
 <br><br>
 
 {{{
-size_t numberOfVertices( void )
+size_t numberOfVertices()
 }}}
 *機能*<br>
 点の数を返す。
@@ -97,7 +97,7 @@ size_t numberOfVertices( void )
 <br><br>
 
 {{{
-size_t numberOfColors( void )
+size_t numberOfColors()
 }}}
 *機能*<br>
 カラー値の数を返す。
@@ -107,7 +107,7 @@ size_t numberOfColors( void )
 <br><br>
 
 {{{
-size_t numberOfNormals( void )
+size_t numberOfNormals()
 }}}
 *機能*<br>
 法線ベクトルの数を返す。
@@ -117,7 +117,7 @@ size_t numberOfNormals( void )
 <br><br>
 
 {{{
-size_t numberOfSizes( void )
+size_t numberOfSizes()
 }}}
 *機能*<br>
 線分のサイズ値の数を返す。
@@ -127,7 +127,7 @@ size_t numberOfSizes( void )
 <br><br>
 
 {{{
-size_t numberOfConnections( void )
+size_t numberOfConnections()
 }}}
 *機能*<br>
 接続情報（頂点番号）の数を返す。
@@ -137,7 +137,7 @@ size_t numberOfConnections( void )
 <br><br>
 
 {{{
-LineType lineType( void ) const
+LineType lineType() const
 }}}
 *機能*<br>
 線分の種類を返す。
@@ -152,7 +152,7 @@ LineType lineType( void ) const
 <br>
 
 {{{
-ColorType colorType( void ) const
+ColorType colorType() const
 }}}
 *機能*<br>
 線分の色づけの種類を返す。
