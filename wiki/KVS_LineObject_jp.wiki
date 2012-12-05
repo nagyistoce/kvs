@@ -87,7 +87,7 @@ const kvs::ValueArray<kvs::UInt32>& connections( void )
 <br><br>
 
 {{{
-const size_t nvertices( void )
+size_t numberOfVertices( void )
 }}}
 *機能*<br>
 点の数を返す。
@@ -97,7 +97,7 @@ const size_t nvertices( void )
 <br><br>
 
 {{{
-const size_t ncolors( void )
+size_t numberOfColors( void )
 }}}
 *機能*<br>
 カラー値の数を返す。
@@ -107,7 +107,7 @@ const size_t ncolors( void )
 <br><br>
 
 {{{
-const size_t nnormals( void )
+size_t numberOfNormals( void )
 }}}
 *機能*<br>
 法線ベクトルの数を返す。
@@ -117,7 +117,7 @@ const size_t nnormals( void )
 <br><br>
 
 {{{
-const size_t nsizes( void )
+size_t numberOfSizes( void )
 }}}
 *機能*<br>
 線分のサイズ値の数を返す。
@@ -127,7 +127,7 @@ const size_t nsizes( void )
 <br><br>
 
 {{{
-const size_t nconnections( void )
+size_t numberOfConnections( void )
 }}}
 *機能*<br>
 接続情報（頂点番号）の数を返す。
@@ -137,7 +137,7 @@ const size_t nconnections( void )
 <br><br>
 
 {{{
-const LineType lineType( void ) const
+LineType lineType( void ) const
 }}}
 *機能*<br>
 線分の種類を返す。
@@ -152,7 +152,7 @@ const LineType lineType( void ) const
 <br>
 
 {{{
-const ColorType colorType( void ) const
+ColorType colorType( void ) const
 }}}
 *機能*<br>
 線分の色づけの種類を返す。
@@ -204,7 +204,7 @@ index　点のインデックス番号。
 <br><br>
 
 {{{
-const kvs::Real32 size( const size_t index ) const
+kvs::Real32 size( const size_t index ) const
 }}}
 *機能*<br>
 指定されたインデックス番号の線分のサイズを返す。
