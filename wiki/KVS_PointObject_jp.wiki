@@ -63,7 +63,7 @@ const kvs::ValueArray<kvs::Real32>& sizes( void )
 <br><br>
 
 {{{
-const size_t nvertices( void )
+size_t numberOfVertices( void )
 }}}
 *機能*<br>
 点の数を返す。
@@ -73,7 +73,7 @@ const size_t nvertices( void )
 <br><br>
 
 {{{
-const size_t ncolors( void )
+size_t numberOfColors( void )
 }}}
 *機能*<br>
 カラー値の数を返す。
@@ -83,7 +83,7 @@ const size_t ncolors( void )
 <br><br>
 
 {{{
-const size_t nnormals( void )
+size_t numberOfNormals( void )
 }}}
 *機能*<br>
 法線ベクトルの数を返す。
@@ -93,7 +93,7 @@ const size_t nnormals( void )
 <br><br>
 
 {{{
-const size_t nsizes( void )
+size_t numberOfSizes( void )
 }}}
 *機能*<br>
 サイズ値の数を返す。
@@ -142,7 +142,7 @@ index　点のインデックス番号。
 <br><br>
 
 {{{
-const kvs::Real32 size( const size_t index ) const
+kvs::Real32 size( const size_t index ) const
 }}}
 *機能*<br>
 指定されたインデックス番号の点のサイズを返す。
