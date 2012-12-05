@@ -30,7 +30,7 @@ KVSでは、構造格子型ボリュームオブジェクトは以下のよう�
 KVSでは、構造格子型ボリュームオブジェクトはkvs::!StructuredVolumeObjectクラスとして実装されています。以下では、kvs::!StructuredVolumeObjectクラスの主なメソッドについて説明します。
 
 {{{
-const kvs::ValueArray<kvs::Real32>& coords( void ) const
+const kvs::ValueArray<kvs::Real32>& coords() const
 }}}
 *機能*<br>
 点の座標値の配列を返す。ただし、均一格子の場合は空である。
@@ -40,7 +40,7 @@ const kvs::ValueArray<kvs::Real32>& coords( void ) const
 <br><br>
 
 {{{
-const kvs::AnyValueArray& values( void ) const
+const kvs::AnyValueArray& values() const
 }}}
 *機能*<br>
 数値データの配列を返す。
@@ -50,7 +50,7 @@ const kvs::AnyValueArray& values( void ) const
 <br><br>
 
 {{{
-const size_t veclen( void ) const
+size_t veclen() const
 }}}
 *機能*<br>
 数値データのベクトル長を返す。
@@ -60,7 +60,7 @@ const size_t veclen( void ) const
 <br><br>
 
 {{{
-const kvs::Vector3ui& resolution( void ) const
+const kvs::Vector3ui& resolution() const
 }}}
 *機能*<br>
 各軸方向の解像度を返す。
@@ -70,7 +70,7 @@ const kvs::Vector3ui& resolution( void ) const
 <br><br>
 
 {{{
-const size_t nnodes( void ) const
+size_t numberOfNodes() const
 }}}
 *機能*<br>
 節点数を返す。
@@ -80,7 +80,7 @@ const size_t nnodes( void ) const
 <br><br>
 
 {{{
-const GridType gridType( void ) const
+GridType gridType() const
 }}}
 *機能*<br>
 格子の種類を返す。
