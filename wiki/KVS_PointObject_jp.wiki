@@ -23,7 +23,7 @@ KVSでは、点オブジェクトは以下のような情報から構成され�
 KVSでは、点オブジェクトはkvs::!PointObjectクラスとして実装されています。以下では、kvs::!PointObjectクラスの主なメソッドについて説明します。
 
 {{{
-const kvs::ValueArray<kvs::Real32>& coords( void )
+const kvs::ValueArray<kvs::Real32>& coords()
 }}}
 *機能*<br>
 点の座標値の配列を返す。
@@ -33,7 +33,7 @@ const kvs::ValueArray<kvs::Real32>& coords( void )
 <br><br>
 
 {{{
-const kvs::ValueArray<kvs::UInt8>& colors( void )
+const kvs::ValueArray<kvs::UInt8>& colors()
 }}}
 *機能*<br>
 点のカラー値の配列を返す。
@@ -43,7 +43,7 @@ const kvs::ValueArray<kvs::UInt8>& colors( void )
 <br><br>
 
 {{{
-const kvs::ValueArray<kvs::Real32>& normals( void )
+const kvs::ValueArray<kvs::Real32>& normals()
 }}}
 *機能*<br>
 点の法線ベクトルの配列を返す。
@@ -53,7 +53,7 @@ const kvs::ValueArray<kvs::Real32>& normals( void )
 <br><br>
 
 {{{
-const kvs::ValueArray<kvs::Real32>& sizes( void )
+const kvs::ValueArray<kvs::Real32>& sizes()
 }}}
 *機能*<br>
 点の大きさの配列を返す。
@@ -63,7 +63,7 @@ const kvs::ValueArray<kvs::Real32>& sizes( void )
 <br><br>
 
 {{{
-size_t numberOfVertices( void )
+size_t numberOfVertices()
 }}}
 *機能*<br>
 点の数を返す。
@@ -73,7 +73,7 @@ size_t numberOfVertices( void )
 <br><br>
 
 {{{
-size_t numberOfColors( void )
+size_t numberOfColors()
 }}}
 *機能*<br>
 カラー値の数を返す。
@@ -83,7 +83,7 @@ size_t numberOfColors( void )
 <br><br>
 
 {{{
-size_t numberOfNormals( void )
+size_t numberOfNormals()
 }}}
 *機能*<br>
 法線ベクトルの数を返す。
@@ -93,7 +93,7 @@ size_t numberOfNormals( void )
 <br><br>
 
 {{{
-size_t numberOfSizes( void )
+size_t numberOfSizes()
 }}}
 *機能*<br>
 サイズ値の数を返す。
