@@ -74,6 +74,200 @@ kvs::sage::Application
 kvs::sage::Screen
 }}}
 
+=== kvs::glut::!AxisObject, kvs::glut::!AxisRenderer ===
+座標軸を表示するために必要なクラスであったkvs::!AxisObjectクラスとkvs::!AxisRendererクラスを廃止し、代わりに、kvs::glut::!Axis3Dクラスを追加しました。KVS1.Xでは、Objectをいったん!AxisObjectに変換した後に、!AxisRendererを使って座標軸を描画していましたが、もう少し簡単に描画するために、すべてのObjectに対応したRendererとして座標軸描画クラスを実装しました。
+
+==== 修正点1 ====
+以下のように修正してください。
+{{{
+// 修正前
+kvs::PolygonObject* object = new kvs::PolygonImporter( filename );
+kvs::glut::AxisObject* axis = new kvs::glut::AxisObject( object );
+kvs::glut::AxisRenderer* axis_renderer = new kvs::glut::AxisRenderer();
+screen.registerObject( axis, axis_renderer );
+}}}
+{{{
+// 修正後
+kvs::PolygonObject* object = new kvs::PolygonImporter( filename );
+kvs::glut::Axis3D* axis = new kvs::glut::Axis3D();
+screen.registerObject( object, axis );
+}}}
+
+=== SupportGLEW ===
+KVS2.0ではGLEWを必須ライブラリとしたために、SupportGLEWを廃止し、そこに含まれていたクラスをKVS本体に組み込みました。
+
+==== 修正点1 ====
+SupportGLEW/Viewer以下に含まれていたクラスを、新たに追加したCore/Visualization/OpenGLに移動しました。そのため、名前空間およびインクルードファイル名を修正（"glew"を削除）する必要があります。
+{{{
+// 修正前
+#include <kvs/glew/BufferObject>
+#include <kvs/glew/FragmentShader>
+#include <kvs/glew/FrameBufferObject>
+#include <kvs/glew/GeometryShader>
+#include <kvs/glew/IndexBufferObject>
+#include <kvs/glew/PixelBufferObject>
+#include <kvs/glew/ProgramObject>
+#include <kvs/glew/RenderBuffer>
+#include <kvs/glew/ShaderObject>
+#include <kvs/glew/ShaderSource>
+#include <kvs/glew/Texture3D>
+#include <kvs/glew/VertexBufferObject>
+
+kvs::glew::BufferObject
+kvs::glew::FragmentShader
+kvs::glew::FrameBufferObject
+kvs::glew::GeometryShader
+kvs::glew::IndexBufferObject
+kvs::glew::PixelBufferObject
+kvs::glew::ProgramObject
+kvs::glew::RenderBuffer
+kvs::glew::ShaderObject
+kvs::glew::ShaderSource
+kvs::glew::Texture3D
+kvs::glew::VertexBufferObject
+}}}
+{{{
+// 修正後
+#include <kvs/BufferObject>
+#include <kvs/FragmentShader>
+#include <kvs/FrameBufferObject>
+#include <kvs/GeometryShader>
+#include <kvs/IndexBufferObject>
+#include <kvs/PixelPackBufferObject>
+#include <kvs/PixelUnpackBufferObject>
+#include <kvs/ProgramObject>
+#include <kvs/RenderBuffer>
+#include <kvs/ShaderObject>
+#include <kvs/ShaderSource>
+#include <kvs/Texture3D>
+#include <kvs/VertexBufferObject>
+
+kvs::BufferObject
+kvs::FragmentShader
+kvs::FrameBufferObject
+kvs::GeometryShader
+kvs::IndexBufferObject
+kvs::PixelPackBufferObject      // KVS1.xではkvs::glew::PixelBufferObject( Pack )
+kvs::PixelUnpackBufferObject    // KVS1.xではkvs::glew::PixelBufferObject( Unpack )
+kvs::ProgramObject
+kvs::RenderBuffer
+kvs::ShaderObject
+kvs::ShaderSource
+kvs::Texture3D
+kvs::VertexBufferObject
+}}}
+
+==== 修正点2 ====
+SupportGLEW/Renderer以下に含まれていたクラスを、Core/Visualization/Rendererに移動しました。修正点1と同様にして名前空間を修正してください。ただし、同名のクラス名が存在する場合、GPU版レンダラーについては、なめ空間glslを利用して区別することとしました。また、`kvs::glew::ParticleVolumeRenderer`については、`kvs::glsl::ParticleBasedRenderer`というクラス名に変更しています。
+{{{
+// 修正前
+#include <kvs/glew/EnsembleAverageBuffer>
+#include <kvs/glew/PreIntegrationTable>
+#include <kvs/glew/ProjectedTetrahedraTable>
+#include <kvs/glew/PointRenderer>
+#include <kvs/glew/PolygonRenderer>
+#include <kvs/glew/HAVSVolumeRenderer>
+#include <kvs/glew/ParticleBasedRenderer>
+#include <kvs/glew/ParticleVolumeRenderer>
+#include <kvs/glew/RayCastinRenderer>
+#include <kvs/glew/StochasticRendererBase>
+#include <kvs/glew/StochasticPointRenderer>
+#include <kvs/glew/StochasticLineRenderer>
+#include <kvs/glew/StochasticPolygonRenderer>
+#include <kvs/glew/StochasticTetrahedraRenderer>
+#include <kvs/glew/StochasticMultipleTetranedraRenderer>
+#include <kvs/glew/StochasticMultivariateTetrahedraRenderer>
+#include <kvs/glew/StochasticRenderingEngine>
+#include <kvs/glew/StochasticPointEngine>
+#include <kvs/glew/StochasticLineEngine>
+#include <kvs/glew/StochasticPolygonEngine>
+#include <kvs/glew/StochasticTetrahedraEngine>
+#include <kvs/glew/StochasticMultipleTetranedraEngine>
+#include <kvs/glew/StochasticMultivariateTetrahedraEngine>
+#include <kvs/glew/StochasticRenderingCompositor>
+#include <kvs/glew/StochasticMultipleTetrahedraCompositor>
+
+kvs::glew::EnsembleAverageBuffer
+kvs::glew::PreIntegrationTable
+kvs::glew::ProjectedTetrahedraTable
+kvs::glew::PointRenderer
+kvs::glew::PolygonRenderer
+kvs::glew::HAVSVolumeRenderer
+kvs::glew::ParticleBasedRenderer
+kvs::glew::ParticleVolumeRenderer
+kvs::glew::RayCastinRenderer
+kvs::glew::StochasticRendererBase
+kvs::glew::StochasticPointRenderer
+kvs::glew::StochasticLineRenderer
+kvs::glew::StochasticPolygonRenderer
+kvs::glew::StochasticTetrahedraRenderer
+kvs::glew::StochasticMultipleTetranedraRenderer
+kvs::glew::StochasticMultivariateTetrahedraRenderer
+kvs::glew::StochasticRenderingEngine
+kvs::glew::StochasticPointEngine
+kvs::glew::StochasticLineEngine
+kvs::glew::StochasticPolygonEngine
+kvs::glew::StochasticTetrahedraEngine
+kvs::glew::StochasticMultipleTetranedraEngine
+kvs::glew::StochasticMultivariateTetrahedraEngine
+kvs::glew::StochasticRenderingCompositor
+kvs::glew::StochasticMultipleTetrahedraCompositor
+}}}
+{{{
+// 修正後
+#include <kvs/EnsembleAverageBuffer>
+#include <kvs/PreIntegrationTable>
+#include <kvs/ProjectedTetrahedraTable>
+#include <kvs/PointRenderer>
+#include <kvs/PolygonRenderer>
+#include <kvs/HAVSVolumeRenderer>
+#include <kvs/ParticleBasedRenderer>
+//#include <kvs/glew/ParticleVolumeRenderer>  // 廃止（#include <kvs/ParticleBasedRenderer>を利用）
+#include <kvs/RayCastinRenderer>
+#include <kvs/StochasticRendererBase>
+#include <kvs/StochasticPointRenderer>
+#include <kvs/StochasticLineRenderer>
+#include <kvs/StochasticPolygonRenderer>
+#include <kvs/StochasticTetrahedraRenderer>
+#include <kvs/StochasticMultipleTetranedraRenderer>
+#include <kvs/StochasticMultivariateTetrahedraRenderer>
+#include <kvs/StochasticRenderingEngine>
+#include <kvs/StochasticPointEngine>
+#include <kvs/StochasticLineEngine>
+#include <kvs/StochasticPolygonEngine>
+#include <kvs/StochasticTetrahedraEngine>
+#include <kvs/StochasticMultipleTetranedraEngine>
+#include <kvs/StochasticMultivariateTetrahedraEngine>
+#include <kvs/StochasticRenderingCompositor>
+#include <kvs/StochasticMultipleTetrahedraCompositor>
+
+kvs::EnsembleAverageBuffer
+kvs::PreIntegrationTable
+kvs::ProjectedTetrahedraTable
+kvs::glsl::PointRenderer
+kvs::glsl::PolygonRenderer
+kvs::HAVSVolumeRenderer
+kvs::glsl::ParticleBasedRenderer
+//kvs::glew::ParticleVolumeRenderer  // 廃止（kvs::glsl::ParticleBasedRendererを利用）
+kvs::glsl::RayCastinRenderer
+kvs::StochasticRendererBase
+kvs::StochasticPointRenderer
+kvs::StochasticLineRenderer
+kvs::StochasticPolygonRenderer
+kvs::StochasticTetrahedraRenderer
+kvs::StochasticMultipleTetranedraRenderer
+kvs::StochasticMultivariateTetrahedraRenderer
+kvs::StochasticRenderingEngine
+kvs::StochasticPointEngine
+kvs::StochasticLineEngine
+kvs::StochasticPolygonEngine
+kvs::StochasticTetrahedraEngine
+kvs::StochasticMultipleTetranedraEngine
+kvs::StochasticMultivariateTetrahedraEngine
+kvs::StochasticRenderingCompositor
+kvs::StochasticMultipleTetrahedraCompositor
+}}}
+
 == ファイルフォーマットクラス ==
 
 === kvs::AVSFieldなど ===
@@ -267,6 +461,41 @@ screen.registerObject( object, renderer );
 kvs::StructuredVolumeObject* object = new kvs::StructuredVolumeImporter( filename ); // ベクタデータの読み込み
 kvs::ArrowGlyph* renderer = new kvs::ArrowGlyph();
 screen.registerObject( object, renderer );
+}}}
+
+=== kvs::Bounds ===
+kvs::BoundsをFilterからRendererに移動しました。その影響で利用方法が少し変更になりました。
+
+==== 修正点1 ====
+以下のように修正してください。
+{{{
+// 修正前
+kvs::StructuredVolumeObject* volume = new kvs::StructuredVolumeImporter( filename ); // データの読み込み
+kvs::LineObject* object = new kvs::Bounds( volume );
+object->setColor( kvs::RGBColor( 255, 255, 255 ) );
+object->setSize( 3.0 );
+kvs::LineRenderer* renderer = new kvs::LineRenderer();
+screen.registerObject( object, renderer );
+}}}
+{{{
+// 修正後
+kvs::StructuredVolumeObject* object = new kvs::StructuredVolumeImporter( filename ); // データの読み込み
+kvs::Bounds* bounds = new kvs::Bounds();
+bounds->setLineColor( kvs::RGBColor( 255, 255, 255 ) );
+bounds->setLineWidth( 3.0 );
+screen.registerObject( object, bounds );
+}}}
+
+==== 修正点2 ====
+KVS1.Xのkvs::Boundsクラスはkvs::!LineObjectを出力するFilerメソッドであったが、KVS2.0ではRendererメソッドとなったため、そのままでは!LineObjectとして扱うことができない。境界線ボックスを!LineObjectとして扱いたい場合は、outputLineObjectメソッドを使って!LineObjectを生成することができる。
+{{{
+// 修正前
+kvs::LineObject* object = new kvs::Bounds( volume );
+}}}
+{{{
+// 修正後
+kvs::Bounds* bounds = new kvs::Bounds();
+kvs::LineObject* object = bounds->outputLineObject( volume );
 }}}
 
 === kvs::!PointObjectなど ===
