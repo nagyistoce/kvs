@@ -268,6 +268,9 @@ kvs::StochasticRenderingCompositor
 kvs::StochasticMultipleTetrahedraCompositor
 }}}
 
+=== SupportSAGE, SupportOpenCABIN ===
+利用頻度が低く、KVS2.0への対応に時間を要するため、SupportSAGEおよびSupportOpenCABINを非対応としました。タイルドディスプレイへの表示基盤については、KVS本体に独自基盤を組み込む予定です。
+
 == ファイルフォーマットクラス ==
 
 === kvs::AVSFieldなど ===
