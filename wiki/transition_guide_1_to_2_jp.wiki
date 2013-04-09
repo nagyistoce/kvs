@@ -70,8 +70,6 @@ kvs::glut::Application
 kvs::glut::Screen
 kvs::qt::Application
 kvs::qt::Screen
-kvs::sage::Application
-kvs::sage::Screen
 }}}
 
 === kvs::glut::!AxisObject, kvs::glut::!AxisRenderer ===
@@ -271,6 +269,30 @@ kvs::StochasticMultipleTetrahedraCompositor
 === SupportSAGE, SupportOpenCABIN ===
 利用頻度が低く、KVS2.0への対応に時間を要するため、SupportSAGEおよびSupportOpenCABINを非対応としました。タイルドディスプレイへの表示基盤については、KVS本体に独自基盤を組み込む予定です。
 
+== スクリーンクラス ==
+
+=== kvs::glut::Screen, kvs::qt::Screen ===
+Screenクラスの名称は変更していませんが、内部の継承関係を変更しました。これまで、Screenクラスは、`kvs::ScreenBase`クラスを継承して、kvs::glut::Screenクラスおよびkvs::qt::Screenクラスを実装していましたが、`kvs::ScreenBase`クラスが肥大化し、機能拡張等が困難となっていたため、いくつかの改善を行いました。
+
+==== 修正点1 ====
+`kvs::ScreenBase`クラスを共通イベント操作を行うためのベースクラスとし、GLUTおよびQtの各種コールバック関数（メソッド）をラップすることでAPIを共通化した`kvs::glut::ScreenBase`クラスおよび`kvs::qt::ScreenBase`クラスを追加しました。これらのクラスを継承することでユーザ独自のスクリーンクラスを作成することができます。KVS2.0では、これらのクラスを継承したkvs::glut::Screenおよびkvs::qt::Screenクラスを標準スクリーンクラス（スクリーンの標準実装）として提供します。
+{{{
+// 修正前
+// kvs::ScreenBase <-- kvs::glut::Screen
+// kvs::ScreenBase <-- kvs::qt::Screen
+namespace kvs { namespace glut { class Screen : public kvs::ScreenBase { ... }; } }
+namespace kvs { namespace qt { class Screen : public kvs::ScreenBase { ... }; } }
+}}}
+{{{
+// 修正後
+// kvs::ScreenBase <-- kvs::glut::ScreenBase <-- kvs::glut::Screen
+// kvs::ScreenBase <-- kvs::qt::ScreenBase <-- kvs::qt::Screen
+namespace kvs { namespace glut { class ScreenBase : public kvs::ScreenBase { ... }; } }
+namespace kvs { namespace qt { class ScreenBase : public kvs::ScreenBase { ... }; } }
+namespace kvs { namespace glut { class Screen : public kvs::glut::ScreenBase { ... }; } }
+namespace kvs { namespace qt { class Screen : public kvs::qt::ScreenBase { ... }; } }
+}}}
+
 == ファイルフォーマットクラス ==
 
 === kvs::AVSFieldなど ===
@@ -352,9 +374,9 @@ m2.transpose(); // m2の転置行列を計算（m2は転置行列になる？な
 {{{
 // 修正後
 kvs::Matrix33f m1( 1, 2, 3, 4, 5, 6, 7, 8, 9 );
-kvs::Matrix33f m2 = m1.inversed(); // m1の逆行列をm2にコピー（m1は逆行列ならない）
+kvs::Matrix33f m2 = m1.inverted(); // m1の逆行列をm2にコピー（m1は逆行列ならない）
 kvs::Matrix33f m3 = m2.transposed(); // m2の転置行列をm3にコピー（m2は転置行列ならない）
-m1.inverse(); // m1の逆行列を計算（m1は逆行列になる）
+m1.invert(); // m1の逆行列を計算（m1は逆行列になる）
 m2.transpose(); // m2の転置行列を計算（m2は転置行列になる）
 }}}
 
