@@ -275,7 +275,7 @@ kvs::StochasticMultipleTetrahedraCompositor
 Screenクラスの名称は変更していませんが、内部の継承関係を変更しました。これまで、Screenクラスは、`kvs::ScreenBase`クラスを継承して、kvs::glut::Screenクラスおよびkvs::qt::Screenクラスを実装していましたが、`kvs::ScreenBase`クラスが肥大化し、機能拡張等が困難となっていたため、いくつかの改善を行いました。
 
 ==== 修正点1 ====
-`kvs::ScreenBase`クラスを共通イベント操作を行うためのベースクラスとし、GLUTおよびQtの各種コールバック関数（メソッド）をラップすることでAPIを共通化した`kvs::glut::ScreenBase`クラスおよび`kvs::qt::ScreenBase`クラスを追加しました。これらのクラスを継承することでユーザ独自のスクリーンクラスを作成することができます。KVS2.0では、これらのクラスを継承したkvs::glut::Screenおよびkvs::qt::Screenクラスを標準スクリーンクラス（スクリーンの標準実装）として提供します。
+`kvs::ScreenBase`クラスを共通イベント操作を行うためのベースクラスとし、GLUTおよびQtの各種コールバック関数（メソッド）をラップすることでAPIを共通化した`kvs::glut::ScreenBase`クラスおよび`kvs::qt::ScreenBase`クラスを追加しました。これらのクラスを継承することでGLUTとQtのAPIの違いを気にすることなく、ユーザ独自のスクリーンクラスを作成することができます。KVS2.0では、これらのクラスを継承したkvs::glut::Screenおよびkvs::qt::Screenクラスを標準スクリーンクラス（スクリーンの標準実装）として提供します。
 {{{
 // 修正前
 // kvs::ScreenBase <-- kvs::glut::Screen
@@ -291,6 +291,106 @@ namespace kvs { namespace glut { class ScreenBase : public kvs::ScreenBase { ...
 namespace kvs { namespace qt { class ScreenBase : public kvs::ScreenBase { ... }; } }
 namespace kvs { namespace glut { class Screen : public kvs::glut::ScreenBase { ... }; } }
 namespace kvs { namespace qt { class Screen : public kvs::qt::ScreenBase { ... }; } }
+}}}
+
+==== 修正点2 ====
+描画シーンを構成する要素であるCamera, Light, `ObjectManager`, `RendererManager`などは、KVS1.xでは、`kvs::ScreenBase`クラス内に直接定義されていたために、それを継承したスクリーンでは、シーンの操作およびその管理方法の変更ができませんでした。KVS2.0では、GLUT・Qt間でAPI非依存の統一的なコールバック処理を提供するベースクラスとして、シーンの構成要素をkvs::Sceneクラスとして切り出して、標準実装であるkvs::glut::Screenおよびkvs::qt::Screenクラス内に定義しました。その影響により、各描画要素へのアクセス方法について以下のような修正が必要となります。
+{{{
+// 修正前
+screen.camera();
+screen.light();
+screen.mouse();
+screen.background();
+screen.objectManager();
+screen.rendererManager();
+screen.IDManager();
+screen.controlTarget();
+}}}
+{{{
+// 修正後
+screen.scene()->camera();
+screen.scene()->light();
+screen.scene()->mouse();
+screen.scene()->background();
+screen.scene()->objectManager();
+screen.scene()->rendererManager();
+screen.scene()->IDManager();
+screen.scene()->controlTarget();
+}}}
+
+==== 修正点3 ====
+シーンの構成要素をkvs::Sceneクラスとして切り出した影響によって、独自イベントの実装の一部を修正する必要があります。KVS1.xでは、イベントを追加するために、各`EventListener`クラスを継承してユーザ独自のイベントを実装していました。その際に、`kvs::ScreenBase`クラスのポイントを返す「screen()」メソッドを利用してスクリーン（シーン）の構成要素にアクセスしていましたが、それらの定義場所が、`kvs::ScreenBase`クラスからkvs::Sceneクラスに変更となり、さらにkvs::Sceneが、kvs::glut::Screenおよびkvs::qt::Screenクラスで実体化されているために、以下のような修正が必要となります。
+{{{
+// 修正前（例）
+class PaintEvent : public kvs::PaintEventListener
+{
+    ...
+    void update()
+    {
+        ...
+        screen()->camera();
+        screen()->objectManager();
+        ...
+    }
+};
+}}}
+{{{
+// 修正後（例）
+class PaintEvent : public kvs::PaintEventListener
+{
+    ...
+    void update()
+    {
+        ...
+        kvs::glut::Screen* glut_screen = static_cast<kvs::glut::Screen*>( screen() );
+        glut_screen->scene()->camera();
+        glut_screen->scene()->objectManager();
+        ...
+    }
+};
+}}}
+
+==== 修正点4 ====
+KVS1.xでは、イベントをスクリーンに追加または設定（書き換え）する際に、`addPaintEvent`, `addMousePressEvent`, `setPaintEvent`, `setMousePressEvent`などのメソッドを利用して、イベントの種類ごとに用意されたメソッドを呼び出す必要があった。KVS2.0では、イベントの種類に関わらず、追加する場合は`addEvent`、設定する場合は`setEvetn`というメソッドを利用することが可能です。これに伴い、以下のように修正してください。
+{{{
+// 修正前
+addPaintEvent( paint_event );
+addResizeEvent( resize_event );
+addMousePressEvent( mouse_press_event );
+addMouseMoveEvent( mouse_move_event )
+addMouseReleaseEvent( mouse_release_event );
+addMouseDoubleClickEvent( mouse_double_event );
+addWheelEvent( wheel_event );
+addKeyPressEvent( key_press_event );
+
+setPaintEvent( paint_event );
+setResizeEvent( resize_event );
+setMousePressEvent( mouse_press_event );
+setMouseMoveEvent( mouse_move_event )
+setMouseReleaseEvent( mouse_release_event );
+setMouseDoubleClickEvent( mouse_double_event );
+setWheelEvent( wheel_event );
+setKeyPressEvent( key_press_event );
+}}}
+{{{
+// 修正後
+addEvent( paint_event );
+addEvent( resize_event );
+addEvent( mouse_press_event );
+addEvent( mouse_move_event )
+addEvent( mouse_release_event );
+addEvent( mouse_double_event );
+addEvent( wheel_event );
+addEvent( key_press_event );
+
+setEvent( paint_event );
+setEvent( resize_event );
+setEvent( mouse_press_event );
+setEvent( mouse_move_event )
+setEvent( mouse_release_event );
+setEvent( mouse_double_event );
+setEvent( wheel_event );
+setEvent( key_press_event );
 }}}
 
 == ファイルフォーマットクラス ==
