@@ -23,7 +23,7 @@ Options:
 -ExtractEdges		: ボリュームデータに対して格子エッジを表示する。
 -ExtractVertices 	: ボリュームデータに対して格子点を表示する。
 -ExternalFaces		: ボリュームデータに対してデータ境界面（最外表面）を表示する。
--ParticleVolumeRenderer	: ボリュームデータに対してPBVRでの可視化結果を表示する。
+-ParticleVolumeRenderer	: ボリュームデータに対してPBVRでの可視化結果を表示する。KVS2.0からは"ParticleBasedRenderer"。
 -RayCastingRenderer	: ボリュームデータに対してレイキャスティングでの可視化結果を表示する。
 -Histogram              : ボリュームデータに対してヒストグラムを表示する。
 }}}
