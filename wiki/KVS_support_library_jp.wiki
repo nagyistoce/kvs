@@ -9,23 +9,23 @@ KVSではいくつかの外部ライブラリをサポートしています。�
 
 || *ライブラリ名* || *フラグ名* || *説明* ||
 || CUDA || KVS_SUPPORT_CUDA || NVIDIA社が提供するGPU向け開発環境||
-|| GLEW || KVS_SUPPORT_GLEW || OpenGLの拡張機能を容易に利用するためのライブラリ ||
+|| GLEW || KVS_SUPPORT_GLEW || OpenGLの拡張機能を容易に利用するためのライブラリ※KVS2.0から必須となりました ||
 || GLUT || KVS_SUPPORT_GLUT || ウィンドウの制御などをOSに依存せず行うためのOpenGL準拠のライブラリ ||
-|| OpenCV || KVS_SUPPORT_OPENCV || インテル社が開発したコンピュータビジョン向けライブラリ ||
+|| OpenCV || KVS_SUPPORT_OPENCV || インテル社が開発したコンピュータビジョン向けライブラリ※KVS2.0から非対応となりました ||
 || Qt || KVS_SUPPORT_QT || ノキア社が開発するOSに依存しないUI開発ライブラリ ||
-|| SAGE || KVS_SUPPORT_SAGE || イリノイ大学（EVL）が開発するタイルドディスプレイ向けライブラリ ||
-|| OpenCABIN || KVS_SUPPORT_OPENCABIN || 東京大学が開発した没入型表示装置およびタイルドディスプレイ向けライブラリ ||
+|| SAGE || KVS_SUPPORT_SAGE || イリノイ大学（EVL）が開発するタイルドディスプレイ向けライブラリ※KVS2.0から非対応となりました ||
+|| OpenCABIN || KVS_SUPPORT_OPENCABIN || 東京大学が開発した没入型表示装置およびタイルドディスプレイ向けライブラリ※KVS2.0から非対応となりました ||
 
 == 1.3.2 設定例 ==
 GLUTおよびGLEWを事前にインストールしている場合のkvs.confの設定例を以下に示します。KVS_SUPPORT_GLUTは初期状態で1となっていますので、KVS_SUPPORT_GLEWを1にしてください。GPUが搭載されていない環境やOpenGL拡張機能を利用しない場合などはKVS_SUPPORT_GLEWは0にしてください。
 
 {{{
-KVS_SUPPORT_CAVE      = 0
+KVS_SUPPORT_CAVE      = 0    ※廃止
 KVS_SUPPORT_CUDA      = 0
-KVS_SUPPORT_GLEW      = 1
+KVS_SUPPORT_GLEW      = 1    ※KVS2.0から必須となったため廃止
 KVS_SUPPORT_GLUT      = 1
 KVS_SUPPORT_OPENCV    = 0
 KVS_SUPPORT_QT        = 0
-KVS_SUPPORT_SAGE      = 0
-KVS_SUPPORT_OPENCABIN = 0
+KVS_SUPPORT_SAGE      = 0    ※KVS2.0から非対応となったため廃止
+KVS_SUPPORT_OPENCABIN = 0    ※KVS2.0から非対応となったため廃止
 }}}
