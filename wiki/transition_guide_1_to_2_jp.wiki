@@ -13,7 +13,7 @@ KVS 1.x から2.0へのバージョンアップに伴い、いくつかの仕様
 kvscheckコマンドを利用して、現在インストールされているKVSのバージョンを確認することができます。コマンドターミナルを開けて、以下のようにコマンドを実行してください。kvscheckコマンドの利用法については[KVS_kvscheck_jp こちら]を参考にしてください。
 
 {{{
-> kvsmake -version
+> kvscheck -version
 KVS version: 2.0.0
 }}}
 
