@@ -369,13 +369,13 @@ kvs::LineObject* CreateLineObject( void )
 // メイン関数
 int main( int argc, char** argv )
 {
-    kvs::glut:::Application app( argc, argv );
+    kvs::glut::Application app( argc, argv );
 
     // 線分オブジェクトの生成
     kvs::LineObject* object = CreateLineObject();
 
     kvs::glut::Screen screen( &app );
-    screen.setTitle( “Line Object” );
+    screen.setTitle( "Line Object" );
     screen.registerObject( object );
     screen.show();
 
