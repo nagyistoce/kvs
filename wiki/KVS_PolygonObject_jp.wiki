@@ -338,13 +338,13 @@ kvs::PolygonObject* CreatePolygonObject( void )
 // メイン関数
 int main( int argc, char** argv )
 {
-    kvs::glut:::Application app( argc, argv );
+    kvs::glut::Application app( argc, argv );
 
     // ポリゴンオブジェクトの生成
     kvs::PolygonObject* object = CreatePolygonObject();
 
     kvs::glut::Screen screen( &app );
-    screen.setTitle( “Polygon Object” );
+    screen.setTitle( "Polygon Object" );
     screen.registerObject( object );
     screen.show();
 
