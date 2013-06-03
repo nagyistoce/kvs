@@ -18,7 +18,7 @@ kvsviewコマンドを利用してテストデータを表示します。テス�
 
 {{{
 > cd KVSData
-> kvsview -Isosurafce lobster.fld
+> kvsview -Isosurface lobster.fld
 }}}
 
 kvsviewのその他の用法については、[KVS_kvsview_jp こちら]のページを参考にしてください。
