@@ -269,8 +269,8 @@ kvs::UnstructuredVolumeObject* CreateUnstructuredVolumeObject( void )
     kvs::UnstructuredVolumeObject* object = new kvs::UnstructuredVolumeObject();
     object->setCellType( kvs::UnstructuredVolumeObject::Tetrahedra );
     object->setVeclen( veclen );
-    object->setNNodes( nnodes );
-    object->setNCells( ncells );
+    object->setNumberOfNodes( nnodes );
+    object->setNumberOfCells( ncells );
     object->setCoords( coords );
     object->setConnections( connections );
     object->setValues( values );
