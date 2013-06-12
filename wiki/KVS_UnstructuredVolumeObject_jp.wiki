@@ -261,9 +261,9 @@ kvs::UInt32 ConnectionArray[ ncells * 4 ] = {
 kvs::UnstructuredVolumeObject* CreateUnstructuredVolumeObject( void )
 {
     // KVSの配列クラス（kvs::ValueArray）および動的型配列クラス（kvs::AnyValueArray）にセットする。
-    kvs::ValueArray<kvs::Real32> coords( CoordArray, sizeof( CoordArray ) );
-    kvs::ValueArray<kvs::UInt32> connections( ConnectionArray, sizeof( ConnectionArray ) );
-    kvs::ValueArray<kvs::Real32> values( ValueArray, sizeof( ValueArray ) );
+    kvs::ValueArray<kvs::Real32> coords( CoordArray, sizeof( CoordArray ) / sizeof( kvs::Real32)  );
+    kvs::ValueArray<kvs::UInt32> connections( ConnectionArray, sizeof( ConnectionArray ) / sizeof( kvs::UInt32) );
+    kvs::ValueArray<kvs::Real32> values( ValueArray, sizeof( ValueArray ) / sizeof( kvs::Real32) );
 
     // 非構造格子型ボリュームオブジェクトを生成する。
     kvs::UnstructuredVolumeObject* object = new kvs::UnstructuredVolumeObject();
