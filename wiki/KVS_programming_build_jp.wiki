@@ -31,7 +31,7 @@ KVSに実装されているすべてのクラスおよびメソッドは、名�
 #include <kvs/Version>
 #include <iostream>
 
-int main( void )
+int main()
 {
     size_t major = kvs::Version::MajorVersion(); // メジャーバージョン番号の取得
     size_t minor = kvs::Version::MinorVersion(); // マイナーバージョン番号の取得
