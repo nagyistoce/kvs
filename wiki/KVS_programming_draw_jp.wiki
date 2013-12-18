@@ -37,7 +37,7 @@ int main( int argc, char** argv )
     kvs::glut::Screen screen( &app );
     screen.show();
 
-    return( app.run() );
+    return app.run();
 }
 }}}
 
@@ -99,7 +99,7 @@ int main( int argc, char** argv )
     screen.registerObject( object );
     screen.show();
 
-    return( app.run() );
+    return app.run();
 }
 }}}
 
