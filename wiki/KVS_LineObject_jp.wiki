@@ -346,7 +346,7 @@ kvs::UInt32 ConnectionArray[ L * 2 ] = {
 };
 
 // 線分オブジェクトを生成する関数
-kvs::LineObject* CreateLineObject( void )
+kvs::LineObject* CreateLineObject()
 {
     // KVSの配列クラス（kvs::ValueArray）にセットする。
     kvs::ValueArray<kvs::Real32> coords( CoordArray, N * 3 );
@@ -363,7 +363,7 @@ kvs::LineObject* CreateLineObject( void )
     object->setColorType( kvs::LineObject::VertexColor );
 
     // 生成した線分オブジェクトのポインタを返す。
-    return( object );
+    return object;
 }
 
 // メイン関数
@@ -379,6 +379,6 @@ int main( int argc, char** argv )
     screen.registerObject( object );
     screen.show();
 
-    return( app.run() );
+    return app.run();
 }
 }}}
