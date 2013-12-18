@@ -18,7 +18,7 @@ int main( int argc, char** argv )
     kvs::glut::Screen screen( &app );
     screen.show();
 
-    return( app.run() );
+    return app.run();
 }
 }}}
 
@@ -43,7 +43,7 @@ class PaintEvent : public kvs::PaintEventListener
 {
 public:
 
-    void update( void );
+    void update();
 };
 }}}
 
@@ -57,7 +57,7 @@ public:
 このように定義される三角形を、OpenGL関数を使ってupdateメソッド内に記述します。
 
 {{{
-void PaintEvent::update( void )
+void PaintEvent::update()
 {
     glBegin( GL_TRIANGLES );
     glColor3ub( 255,   0,   0 ); glVertex3d(  0.0,  3.0, 0.0 ); // c0, v0
@@ -82,10 +82,10 @@ class PaintEvent : public kvs::PaintEventListener
 {
 public:
 
-    void update( void );
+    void update();
 };
 
-void PaintEvent::update( void )
+void PaintEvent::update()
 {
     glBegin( GL_TRIANGLES );
     glColor3ub( 255,   0,   0 ); glVertex3d(  0.0,  3.0, 0.0 ); // c0, v0
@@ -104,7 +104,7 @@ int main( int argc, char** argv )
     screen.addPaintEvent( &paint_event );
     screen.show();
 
-    return( app.run() );
+    return app.run();
 }
 }}}
 
