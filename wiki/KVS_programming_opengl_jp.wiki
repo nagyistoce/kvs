@@ -75,6 +75,7 @@ void PaintEvent::update( void )
 {{{
 #include <kvs/glut/Application>
 #include <kvs/glut/Screen>
+#include <kvs/OpenGL>
 #include <kvs/PaintEventListener>
 
 class PaintEvent : public kvs::PaintEventListener
