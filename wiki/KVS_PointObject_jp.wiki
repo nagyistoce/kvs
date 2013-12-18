@@ -222,7 +222,7 @@ kvs::UInt8 ColorArray[ N * 3 ] = {
 };
 
 // 点オブジェクトを生成する関数
-kvs::PointObject* CreatePointObject( void )
+kvs::PointObject* CreatePointObject()
 {
     // KVSの配列クラス（kvs::ValueArray）にセットする。
     kvs::ValueArray<kvs::Real32> coords( CoordArray, N * 3 );
@@ -235,7 +235,7 @@ kvs::PointObject* CreatePointObject( void )
     object->setSize( 10 );
 
     // 生成した点オブジェクトのポインタを返す。
-    return( object );
+    return object;
 }
 
 // メイン関数
@@ -251,6 +251,6 @@ int main( int argc, char** argv )
     screen.registerObject( object );
     screen.show();
 
-    return( app.run() );
+    return app.run();
 }
 }}}
