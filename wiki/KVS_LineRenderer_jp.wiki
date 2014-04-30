@@ -27,7 +27,7 @@ multisample　マルチサンプリングのオン・オフ。指定しない場
 <br><br>
 
 {{{
-void disableAntiAliasing( void )
+void disableAntiAliasing()
 }}}
 *機能*<br>
 アンチエイリアシング処理を無効にする。
@@ -62,6 +62,6 @@ int main( int argc, char** argv )
     screen.registerObject( object, renderer );
     screen.show();
 
-    return( app.run() );
+    return app.run();
 }
 }}}
