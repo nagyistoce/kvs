@@ -195,7 +195,7 @@ kvs::UInt8 ValueArray[ dimx * dimy * dimz * veclen ] = {
 };
 
 // 構造格子型ボリュームオブジェクト（均一格子）を生成する関数
-kvs::StructuredVolumeObject* CreateStructuredVolumeObject( void )
+kvs::StructuredVolumeObject* CreateStructuredVolumeObject()
 {
     // KVSの動的型配列クラス（kvs::AnyValueArray）にセットする。
     kvs::AnyValueArray values( ValueArray, sizeof( ValueArray ) );
@@ -207,7 +207,7 @@ kvs::StructuredVolumeObject* CreateStructuredVolumeObject( void )
     object->setResolution( kvs::Vector3ui( dimx, dimy, dimz ) );
     object->setValues( values );
 
-    return( object );
+    return object;
 }
 
 // メイン関数
@@ -231,6 +231,6 @@ int main( int argc, char** argv )
     screen.registerObject( object );
     screen.show();
 
-    return( app.run() );
+    return app.run();
 }
 }}}
