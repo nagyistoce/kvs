@@ -313,7 +313,7 @@ kvs::UInt32 ConnectionArray[ P * 3 ] = {
 };
 
 // ポリゴンオブジェクトを生成する関数
-kvs::PolygonObject* CreatePolygonObject( void )
+kvs::PolygonObject* CreatePolygonObject()
 {
     // KVSの配列クラス（kvs::ValueArray）にセットする。
     kvs::ValueArray<kvs::Real32> coords( CoordArray, N * 3 );
@@ -332,7 +332,7 @@ kvs::PolygonObject* CreatePolygonObject( void )
     object->setNormalType( kvs::PolygonObject::VertexNormal );
 
     // 生成したポリゴンオブジェクトのポインタを返す。
-    return( object );
+    return object;
 }
 
 // メイン関数
@@ -348,6 +348,6 @@ int main( int argc, char** argv )
     screen.registerObject( object );
     screen.show();
 
-    return( app.run() );
+    return app.run();
 }
 }}}
