@@ -20,7 +20,7 @@ GLUTは以下のサイトからバイナリをダウンロードすることが�
 「glut-3.7.6-bin.zip (117 KB) 」をクリックし、ZIPファイルをダウンロードしてください。ファイル解凍後、そこに含まれる以下のファイルを指定するフォルダにコピーしてください。
 
 || ファイル名 || コピー先 ||
-|| glut32.dll || C:\Windows\System32 ||
+|| glut32.dll || C:\Windows\System32<br>C:\Windows\SysWOW64 (Windows 7/8/8.1 64bit版の場合) ||
 || glut32.lib || C:\Program Files\Microsoft SDKs\Windows\v7.0A\Lib ||
 || glut.h || C:\Program Files\Microsoft SDKs\Windows\v7.0A\Include\gl ||
 
@@ -35,7 +35,7 @@ GLEWは以下のサイトからバイナリをダウンロードすることが�
 「Windows 32-bit」をクリックし、ZIPファイルをダウンロードしてください。Windows7を利用している場合でも、トラブルを避けるため、64bit版ではなく32bit版をインストールしてください。ファイル解凍後、GLUTと同様に、そこに含まれる以下のファイルを指定するフォルダにコピーしてください。
 
 || ファイル名 || コピー先 ||
-|| glew32.dll || C:\Windows\System32 ||
+|| glew32.dll || C:\Windows\System32<br>C:\Windows\SysWOW64 (Windows 7/8/8.1 64bit版の場合) ||
 || glew32.lib, glew32s.lib || C:\Program Files\Microsoft SDKs\Windows\v7.0A\Lib ||
 || glew.h, wglew.h || C:\Program Files\Microsoft SDKs\Windows\v7.0A\Include\gl ||
 
