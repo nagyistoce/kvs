@@ -70,11 +70,17 @@ GLEWもGLUTと同様に開発用パッケージをインストールしてくだ
 == 1.1.3 Mac OS X ==
 * コンパイラのインストール
 
-Mac OS Xの場合は、Xcodeをインストールするとgcc (g++) およびmakeコマンドがインストールされます。付属DVDもしくはMac Dev CenterからXcodeをダウンロードしインストールしてください。Mac OS X 10.7 Lion を利用している人は、App Storeからダウンロードおよびインストールができます。Xcode 5以降は、コマンドラインから xcode-select -- install を実行してコマンドラインツールをインストールする必要があります。
+Mac OS Xの場合は、Xcodeをインストールするとgcc (g++) およびmakeコマンドがインストールされます。付属DVDもしくはMac Dev CenterからXcodeをダウンロードしインストールしてください。Mac OS X 10.7 Lion を利用している人は、App Storeからダウンロードおよびインストールができます。
 
  [http://developer.apple.com/devcenter/mac/index.action Mac Dev Center]
 
  [http://click.linksynergy.com/fs-bin/click?id=i21s0ZPB3B8&subid=&offerid=94348.1&type=10&tmpid=3910&RD_PARM1=http%3A%2F%2Fitunes.apple.com%2Fjp%2Fapp%2Fxcode%2Fid448457090%3Fmt%3D12 App Store]
+
+Xcode 5以降は、コマンドラインから以下を実行してコマンドラインツールをインストールする必要があります。
+
+{{{
+> xcode-select --install
+}}}
 
 * GLUTのインストール
 
