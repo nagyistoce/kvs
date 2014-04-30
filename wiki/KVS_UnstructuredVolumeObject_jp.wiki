@@ -258,7 +258,7 @@ kvs::UInt32 ConnectionArray[ ncells * 4 ] = {
 };
 
 // 非構造格子型ボリュームオブジェクト（四面体１次要素）を生成する関数
-kvs::UnstructuredVolumeObject* CreateUnstructuredVolumeObject( void )
+kvs::UnstructuredVolumeObject* CreateUnstructuredVolumeObject()
 {
     // KVSの配列クラス（kvs::ValueArray）および動的型配列クラス（kvs::AnyValueArray）にセットする。
     kvs::ValueArray<kvs::Real32> coords( CoordArray, sizeof( CoordArray ) / sizeof( kvs::Real32)  );
@@ -275,7 +275,7 @@ kvs::UnstructuredVolumeObject* CreateUnstructuredVolumeObject( void )
     object->setConnections( connections );
     object->setValues( values );
 
-    return( object );
+    return object;
 }
 
 // メイン関数
@@ -299,6 +299,6 @@ int main( int argc, char** argv )
     screen.registerObject( object );
     screen.show();
 
-    return( app.run() );
+    return app.run();
 }
 }}}
