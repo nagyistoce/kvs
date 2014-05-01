@@ -26,7 +26,7 @@
 KVSでは、レイキャスティングレンダラーはkvs::!RayCastingRendererクラスとして実装されています。ただし、現在は構造格子型ボリュームオブジェクト（均一格子）のみに対応しています。以下では、kvs::!RayCastingRendererクラスの主なメソッドについて説明します。
 
 {{{
-void enableShading( void )
+void enableShading()
 }}}
 *機能*<br>
 シェーディング処理を有効にする。
@@ -36,7 +36,7 @@ void enableShading( void )
 <br><br>
 
 {{{
-void disableShading( void )
+void disableShading()
 }}}
 *機能*<br>
 シェーディング処理を無効にする。
@@ -59,7 +59,7 @@ ray_width　視線の幅。初期値は３である。ray_width × ray_widthの�
 <br><br>
 
 {{{
-void disableLODControl( void )
+void disableLODControl()
 }}}
 *機能*<br>
 詳細度制御を無効にする。
@@ -75,7 +75,7 @@ void setShader( const ShadingType shader )
 シェーダーを設定する。
 
 *引数*<br>
-shader　シェーダー。ランバートシェーディング（kvs::Shader::Lambert）、フォンシェーディング（kvs::Shader::Phong）、ブリン・フォンシェーディング（kvs::Shader::BlinnPhong）を指定することができる。
+shader　シェーダー。ランバートシェーディング（`kvs::Shader::Lambert`）、フォンシェーディング（`kvs::Shader::Phong`）、ブリン・フォンシェーディング（`kvs::Shader::BlinnPhong`）を指定することができる。
 
 *戻り値*<br>
 なし
@@ -139,6 +139,6 @@ int main( int argc, char** argv )
     screen.registerObject( object, renderer );
     screen.show();
 
-    return( app.run() );
+    return app.run();
 }
 }}}
