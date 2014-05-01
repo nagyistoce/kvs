@@ -1,0 +1,4 @@
+#summary KVS標準スクリーン
+#sidebar table_of_contents_jp
+
+= 5.2 標準スクリーン =
