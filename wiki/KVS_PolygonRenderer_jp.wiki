@@ -20,7 +20,7 @@ KVSでは、ポリゴンレンダラーは以下のようのような機能を�
 KVSでは、ポリゴンレンダラーはkvs::!PolygonRendererクラスとして実装されています。以下では、kvs::!PolygonRendererクラスの主なメソッドについて説明します。
 
 {{{
-void enableShading( void )
+void enableShading()
 }}}
 *機能*<br>
 シェーディング処理を有効にする。
@@ -30,7 +30,7 @@ void enableShading( void )
 <br><br>
 
 {{{
-void disableShading( void )
+void disableShading()
 }}}
 *機能*<br>
 シェーディング処理を無効にする。
@@ -53,7 +53,7 @@ multisample　マルチサンプリングのオン・オフ。指定しない場
 <br><br>
 
 {{{
-void disableAntiAliasing( void )
+void disableAntiAliasing()
 }}}
 *機能*<br>
 アンチエイリアシング処理を無効にする。
@@ -73,7 +73,7 @@ void enableTwoSideLighting( void )
 <br><br>
 
 {{{
-void disableTwoSideLighting( void )
+void disableTwoSideLighting()
 }}}
 *機能*<br>
 両面ライティング処理を無効にする。
@@ -111,6 +111,6 @@ int main( int argc, char** argv )
     screen.registerObject( object, renderer );
     screen.show();
 
-    return( app.run() );
+    return app.run();
 }
 }}}
