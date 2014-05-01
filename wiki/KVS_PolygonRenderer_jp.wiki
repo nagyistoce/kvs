@@ -63,7 +63,7 @@ void disableAntiAliasing()
 <br><br>
 
 {{{
-void enableTwoSideLighting( void )
+void enableTwoSideLighting()
 }}}
 *機能*<br>
 両面ライティング処理を有効にする。
