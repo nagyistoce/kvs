@@ -1,4 +1,4 @@
 #summary KVSイベント処理
 #sidebar table_of_contents_jp
 
-= 5.2 イベント処理 =
+= 5.3 イベント処理 =
